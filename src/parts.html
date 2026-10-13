@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Библиотека деталей — Счастливый ребёнок</title><link rel="stylesheet" href="style.css">
+</head>
+<body class="parts-library-page">
+<header class="header"><a class="logo" href="./home.html"><div class="logo-icon"><img src="./assets/brand-logo.png" alt="Логотип Счастливый ребёнок"></div><div class="logo-text"><strong>СЧАСТЛИВЫЙ РЕБЁНОК</strong><span>ЕДИНАЯ ТЕХНИЧЕСКАЯ СИСТЕМА</span></div></a><div class="user"><span class="user-status"></span>Пользователь</div></header>
+<main class="inner-page">
+<div class="breadcrumb"><a href="./home.html">Главная</a><span>/</span><strong>Детали</strong></div>
+<section class="page-heading"><div class="hero-label">ЕДИНАЯ БИБЛИОТЕКА ДЕТАЛЕЙ</div><h1>Детали и изображения</h1><p>Детали из технических карточек городков и отдельная библиотека изображений предприятия.</p></section>
+<section class="info-section" id="part-by-number" data-part-lookup><div class="section-header"><h2>Деталь по номеру</h2><span>Артикул · номер GIF</span></div><form class="part-lookup-form"><input data-part-lookup-input autocomplete="off" placeholder="Номер детали, например 27 или 00027"><button class="modal-submit" type="submit">Найти деталь</button></form><p class="library-note">Ведущие нули не учитываются: артикул 00027 и изображение 27.GIF — это одна и та же деталь.</p><div class="part-lookup-result" data-part-result></div></section>
+<section class="info-section parts-catalog-section">
+<div class="section-header"><h2>Структура деталей</h2><span>Городок · раздел · артикул</span></div>
+<div class="parts-search"><input data-parts-search placeholder="Например: 0004ДБ, столб, металл, 1.07..."></div>
+<div class="parts-filter-block">
+  <div class="parts-filter-title">Городок</div>
+  <div class="parts-filters" data-parts-products></div>
+</div>
+<div class="parts-filter-block">
+  <div class="parts-filter-title">Раздел деталей</div>
+  <div class="parts-filters" data-parts-groups></div>
+</div>
+<div class="parts-active-filter" data-parts-active></div>
+<div class="parts-grid" data-parts-grid></div>
+</section>
+<section class="info-section"><div class="section-header"><h2>Библиотека изображений деталей</h2><span>1804 GIF</span></div><p class="library-note">Исходные имена файлов сохранены. Для числовых артикулов номер файла совпадает с артикулом без ведущих нулей: 00027 → 27.GIF.</p><div class="image-library" data-image-library></div><button class="site-tool-button" data-parts-more type="button">Показать ещё</button></section>
+<section class="info-section"><div class="download-grid"><a class="download-tile" href="./downloads/библиотека-изображений-деталей.zip" download><span class="download-icon">ZIP</span><span><strong>Скачать библиотеку целиком</strong><small>Исходный архив · 1804 GIF</small></span><b>↓</b></a></div></section>
+</main>
+<footer><span>© Счастливый ребёнок</span><span>Внутренняя информационная система</span></footer>
+<script src="products.js"></script><script src="script.js"></script>
+<script src="dxf-library.js"></script><script src="metal-index.js"></script><script src="metal-library.js"></script>
+</body></html>

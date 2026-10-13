@@ -1,0 +1,1247 @@
+// Авторизация: все внутренние страницы доступны только после входа.
+(function(){
+  const isLoginPage = location.pathname.endsWith('/index.html') || location.pathname.endsWith('/') || location.pathname === '';
+  if(!isLoginPage){
+    try {
+      if(!sessionStorage.getItem('factorySystemDemoSession')) location.replace('./index.html');
+    } catch { location.replace('./index.html'); }
+  }
+})();
+
+
+// ============================================================
+// V9 — хранилище жалоб и сессий (пока в браузере; позже заменим на API FastAPI)
+// ============================================================
+window.FactoryStore = (function () {
+    const COMPLAINTS_KEY = 'factorySystemComplaints', SESSIONS_KEY = 'factorySystemSessions', SESSION_KEY = 'factorySystemDemoSession';
+    const read = key => { try { const v = JSON.parse(localStorage.getItem(key) || '[]'); return Array.isArray(v) ? v : []; } catch { return []; } };
+    const write = (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { return false; } };
+    const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+    const currentUser = () => { try { return JSON.parse(sessionStorage.getItem(SESSION_KEY) || 'null'); } catch { return null; } };
+    const pageName = () => { try { return decodeURIComponent(location.pathname.split('/').pop() || 'index.html'); } catch { return location.pathname; } };
+
+    const complaints = {
+        list: () => read(COMPLAINTS_KEY),
+        add(data) {
+            const user = currentUser() || {};
+            const item = {
+                id: uid(), createdAt: Date.now(), status: 'new',
+                subject: String(data.subject || '').trim() || 'Без темы',
+                message: String(data.message || '').trim(),
+                contact: String(data.contact || '').trim(),
+                page: String(data.page || document.title || ''), pageUrl: pageName(),
+                author: { name: user.name || 'Гость', login: user.login || '', role: user.role || 'guest' }
+            };
+            const all = read(COMPLAINTS_KEY); all.unshift(item);
+            return write(COMPLAINTS_KEY, all) ? item : null;
+        },
+        setStatus(id, status) {
+            const all = read(COMPLAINTS_KEY), item = all.find(x => x.id === id);
+            if (!item) return;
+            item.status = status;
+            if (status === 'resolved') item.handledAt = Date.now();
+            write(COMPLAINTS_KEY, all);
+        },
+        remove: id => write(COMPLAINTS_KEY, read(COMPLAINTS_KEY).filter(x => x.id !== id)),
+        clearResolved: () => write(COMPLAINTS_KEY, read(COMPLAINTS_KEY).filter(x => x.status !== 'resolved')),
+        unreadCount: () => read(COMPLAINTS_KEY).filter(x => x.status === 'new').length
+    };
+
+    const sessions = {
+        ACTIVE_MS: 3 * 60 * 1000,
+        list: () => read(SESSIONS_KEY),
+        start(user) {
+            const now = Date.now();
+            const rec = { id: uid(), login: user.login, name: user.name || user.login, role: user.role || 'user', startedAt: now, lastSeenAt: now, endedAt: null, pages: 0, lastPage: '', ua: navigator.userAgent };
+            const all = read(SESSIONS_KEY); all.unshift(rec); write(SESSIONS_KEY, all.slice(0, 300));
+            return rec.id;
+        },
+        touch(isPageView) {
+            const user = currentUser(); if (!user) return;
+            let all = read(SESSIONS_KEY), rec = user.sid ? all.find(x => x.id === user.sid) : null;
+            if (!rec) { // вход выполнен до появления журнала сессий
+                user.sid = sessions.start(user);
+                try { sessionStorage.setItem(SESSION_KEY, JSON.stringify(user)); } catch {}
+                all = read(SESSIONS_KEY); rec = all.find(x => x.id === user.sid);
+                if (!rec) return;
+            }
+            rec.lastSeenAt = Date.now();
+            if (isPageView) { rec.pages = (rec.pages || 0) + 1; rec.lastPage = pageName(); }
+            write(SESSIONS_KEY, all);
+        },
+        end() {
+            const user = currentUser(); if (!user || !user.sid) return;
+            const all = read(SESSIONS_KEY), rec = all.find(x => x.id === user.sid);
+            if (rec && !rec.endedAt) { rec.endedAt = Date.now(); rec.lastSeenAt = rec.endedAt; write(SESSIONS_KEY, all); }
+        },
+        clear: () => write(SESSIONS_KEY, [])
+    };
+
+    sessions.touch(true);
+    setInterval(() => { if (!document.hidden) sessions.touch(false); }, 60000);
+    return { complaints, sessions, currentUser, SESSION_KEY };
+})();
+
+// Всплывающее уведомление в правом нижнем углу.
+window.showSiteToast = function (text, kind) {
+    let stack = document.querySelector('.site-toast-stack');
+    if (!stack) { stack = document.createElement('div'); stack.className = 'site-toast-stack'; document.body.appendChild(stack); }
+    const toast = document.createElement('div');
+    toast.className = 'site-toast' + (kind === 'error' ? ' error' : '');
+    toast.setAttribute('role', 'status');
+    const icon = document.createElement('span'); icon.className = 'site-toast-icon'; icon.textContent = kind === 'error' ? '!' : '✓';
+    const label = document.createElement('span'); label.textContent = text;
+    toast.append(icon, label); stack.appendChild(toast);
+    requestAnimationFrame(() => toast.classList.add('visible'));
+    setTimeout(() => { toast.classList.remove('visible'); setTimeout(() => toast.remove(), 350); }, 4200);
+};
+
+
+// ============================================================
+// V11 — роли и права доступа
+// admin — всё; manager (руководитель) — всё, кроме кабинета администратора;
+// user (сотрудник) — каталог, карточки, фото и чертежи деталей, но без Excel-спецификаций и архивов.
+// Чтобы изменить права, правь только таблицу FEATURES ниже.
+// ВАЖНО: пока у сайта нет сервера, это ограничение интерфейса, а не защита файлов (см. README в сообщении).
+// ============================================================
+window.FactoryRole = (function () {
+    const session = (() => { try { return JSON.parse(sessionStorage.getItem('factorySystemDemoSession') || 'null'); } catch { return null; } })();
+    const role = session && session.role ? session.role : 'guest';
+    const LABELS = { admin: 'Администратор', manager: 'Руководитель', user: 'Сотрудник', guest: 'Гость' };
+    const FEATURES = {
+        cabinet: ['admin'],              // личный кабинет администратора
+        specs: ['admin', 'manager']      // Excel-спецификации, архивы, исходники
+    };
+    document.documentElement.dataset.role = role;
+    return { role, label: LABELS[role] || LABELS.user, can: feature => !FEATURES[feature] || FEATURES[feature].includes(role) };
+})();
+
+// ------------------------------------------------------------
+// Единый реестр изделий: счётчики и каталог
+// ------------------------------------------------------------
+const registeredProducts = Array.isArray(window.PRODUCTS) ? window.PRODUCTS : [];
+const playgroundProducts = registeredProducts.filter(product => product.category === 'Детские городки');
+
+function pluralizeProducts(count) {
+    const n = Math.abs(count) % 100;
+    const last = n % 10;
+    if (n >= 11 && n <= 19) return 'изделий';
+    if (last === 1) return 'изделие';
+    if (last >= 2 && last <= 4) return 'изделия';
+    return 'изделий';
+}
+
+const playgroundsCount = document.getElementById('playgroundsCount');
+if (playgroundsCount) {
+    playgroundsCount.textContent = `${playgroundProducts.length} ${pluralizeProducts(playgroundProducts.length)}`;
+}
+
+const productList = document.getElementById('productList');
+function renderPlaygrounds(list) {
+    if (!productList) return;
+    const counter = document.getElementById('catalogSimpleCount');
+    if (counter) counter.textContent = `${list.length} ${pluralizeProducts(list.length)}`;
+    productList.innerHTML = list.map(product => {
+        const size = product.info.replace(/^Детский игровой городок\s*·\s*/, '');
+        return `
+        <a href="${product.href}" class="catalog-row">
+            <div class="catalog-row-image"><img loading="lazy" src="${product.image}" alt="${product.code}"></div>
+            <div class="catalog-row-main">
+                <div class="catalog-row-code">${product.code}</div>
+                <h2>${product.title.replace(/^Детский игровой городок\s*/,'')}</h2>
+                <span>${size}</span>
+            </div>
+            <span class="catalog-row-open">Открыть <b>→</b></span>
+        </a>`;
+    }).join('') || '<div class="empty-state">Ничего не найдено.</div>';
+}
+
+renderPlaygrounds(playgroundProducts);
+const catalogSearch = document.getElementById('catalogSearch');
+if (catalogSearch) {
+    catalogSearch.addEventListener('input', () => {
+        const q = catalogSearch.value.toLowerCase().trim();
+        renderPlaygrounds(!q ? playgroundProducts : playgroundProducts.filter(p =>
+            [p.code, p.title, p.info, ...(p.keys || [])].join(' ').toLowerCase().includes(q)
+        ));
+    });
+}
+
+const recentProducts = document.getElementById('recentProducts');
+if (recentProducts) {
+    recentProducts.innerHTML = playgroundProducts.slice().reverse().map(product => `
+        <a class="recent-item" href="${product.href}">
+            <div class="recent-icon">📄</div>
+            <div class="recent-content">
+                <strong>${product.code}</strong>
+                <span>Техническая карточка детского городка доступна в системе</span>
+            </div>
+            <span class="recent-arrow">→</span>
+        </a>
+    `).join('');
+}
+
+const searchButton = document.getElementById('searchButton');
+const searchInput = document.getElementById('globalSearch');
+const searchResult = document.getElementById('searchResult');
+
+function doSearch() {
+    if (!searchInput || !searchResult) return;
+
+    const query = searchInput.value.trim().toLowerCase();
+
+    if (!query) {
+        searchResult.innerHTML = '';
+        searchResult.classList.remove('visible');
+        return;
+    }
+
+    const products = Array.isArray(window.PRODUCTS) ? window.PRODUCTS : [];
+    const common = Array.isArray(window.PRODUCT_COMMON_KEYS) ? window.PRODUCT_COMMON_KEYS : [];
+
+    const matches = products.filter(p =>
+        [...(p.keys || []), p.code, p.title, p.category, p.info, ...common]
+            .map(value => String(value).toLowerCase())
+            .some(value => value.includes(query) || query.includes(value))
+    );
+
+    searchResult.classList.add('visible');
+    searchResult.innerHTML = matches.length
+        ? matches.map(p => `<a href="${p.href}"><strong>${p.title}</strong><span>${p.info}</span></a>`).join('')
+        : '<span>Ничего не найдено в текущем прототипе.</span>';
+}
+
+if (searchButton) searchButton.addEventListener('click', doSearch);
+if (searchInput) searchInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') doSearch();
+});
+
+// ------------------------------------------------------------
+// Увеличение изображений
+// ------------------------------------------------------------
+const lightbox = document.createElement('div');
+lightbox.className = 'lightbox';
+lightbox.innerHTML = `
+    <button class="lightbox-close" type="button" aria-label="Закрыть">×</button>
+    <img src="" alt="">
+    <div class="lightbox-title"></div>
+`;
+document.body.appendChild(lightbox);
+
+const lightboxImage = lightbox.querySelector('img');
+const lightboxTitle = lightbox.querySelector('.lightbox-title');
+const lightboxClose = lightbox.querySelector('.lightbox-close');
+
+function openLightbox(link) {
+    lightboxImage.src = link.href;
+    lightboxImage.alt = link.dataset.title || '';
+    lightboxTitle.textContent = link.dataset.title || '';
+    lightbox.classList.add('visible');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    lightbox.classList.remove('visible');
+    lightboxImage.src = '';
+    document.body.style.overflow = '';
+}
+
+document.querySelectorAll('[data-lightbox]').forEach(link => {
+    link.addEventListener('click', event => {
+        event.preventDefault();
+        openLightbox(link);
+    });
+});
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', event => {
+    if (event.target === lightbox) closeLightbox();
+});
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeLightbox();
+});
+
+// ------------------------------------------------------------
+// Цвета из спецификации ИКССР-1.06
+// ------------------------------------------------------------
+const componentColors = document.body.dataset.specCode ? {} : window.PRODUCT_COLORS || {
+    '01': ['ral-8014', 'RAL 8014 — коричневый'],
+    '02': ['ral-8014', 'RAL 8014 — коричневый'],
+    '03': ['ral-8014', 'RAL 8014 — коричневый'],
+    '04': ['ral-8014', 'RAL 8014 — коричневый'],
+    '05': ['ral-8014', 'RAL 8014 — коричневый'],
+    '06': ['ral-8014', 'RAL 8014 — коричневый'],
+    '07': ['ral-8014', 'RAL 8014 — коричневый'],
+    '08': ['ral-7047', 'RAL 7047 — светло-серый'],
+    '09': null,
+    '10': null,
+    '11': null,
+    '12': ['ral-6018', 'RAL 6018 — жёлто-зелёный'],
+    '13': ['coating', 'Противоскользящее покрытие'],
+    '14': ['ral-8014', 'RAL 8014 — коричневый'],
+    '15': ['ral-6018', 'RAL 6018 — жёлто-зелёный'],
+    '16': ['ral-7047', 'RAL 7047 — светло-серый'],
+    '17': ['coating', 'Противоскользящее покрытие'],
+    '18': ['coating', 'Противоскользящее покрытие'],
+    '19': ['ral-7047', 'RAL 7047 — светло-серый'],
+    '20': null,
+    '20-А': ['ral-7047', 'RAL 7047 — светло-серый'],
+    '21': ['ral-7047', 'RAL 7047 — светло-серый'],
+    '22': ['ral-2008', 'RAL 2008 — оранжевый'],
+    '23': ['ral-7047', 'RAL 7047 — светло-серый'],
+    '24': null,
+    '25': ['ral-2008', 'RAL 2008 — оранжевый'],
+    '26': ['ral-6018', 'RAL 6018 — жёлто-зелёный'],
+    '27': ['ral-6018', 'RAL 6018 — жёлто-зелёный'],
+    '28': ['ral-2008', 'RAL 2008 — оранжевый'],
+    '29': ['ral-6018', 'RAL 6018 — жёлто-зелёный'],
+    '30': ['ral-6018', 'RAL 6018 — жёлто-зелёный'],
+    '31': ['ral-6018', 'RAL 6018 — жёлто-зелёный'],
+    '32': ['ral-6018', 'RAL 6018 — жёлто-зелёный'],
+    '33': ['ral-6018', 'RAL 6018 — жёлто-зелёный'],
+    '34': ['ral-7047', 'RAL 7047 — светло-серый'],
+    '35': ['ral-7047', 'RAL 7047 — светло-серый'],
+    '36': ['ral-7047', 'RAL 7047 — светло-серый'],
+    '37': ['ral-7047', 'RAL 7047 — светло-серый'],
+    '38': ['ral-7047', 'RAL 7047 — светло-серый'],
+    '39': ['ral-7047', 'RAL 7047 — светло-серый'],
+    '40': ['ral-7047', 'RAL 7047 — светло-серый'],
+    '41': ['ral-7047', 'RAL 7047 — светло-серый'],
+    '42': ['ral-7047', 'RAL 7047 — светло-серый'],
+    '43': ['ral-1023', 'RAL 1023 — жёлтый'],
+    '44': ['yellow', 'Жёлтый'],
+    '45': ['black', 'Чёрный'],
+    '46': ['black', 'Чёрный'],
+    '47': ['black', 'Чёрный']
+};
+
+document.querySelectorAll('.component-item').forEach(item => {
+    const number = item.querySelector('.component-number')?.textContent.trim();
+    const code = item.querySelector('strong')?.textContent.trim() || '';
+    const description = item.querySelector('div');
+    if (!description) return;
+
+    description.classList.add('component-details');
+
+    const meta = document.createElement('div');
+    meta.className = 'component-meta';
+
+    // Артикулы с МП — металлические детали.
+    if (code.includes('МП')) {
+        const metal = document.createElement('span');
+        metal.className = 'material-badge';
+        metal.textContent = 'МП — МЕТАЛЛ';
+        metal.title = 'Артикул содержит МП — металлическая деталь';
+        meta.appendChild(metal);
+    }
+
+    const color = componentColors[number];
+    if (color) {
+        const [kind, label] = color;
+        const badge = document.createElement('span');
+        badge.className = `component-color ${kind}`;
+        badge.innerHTML = `<span class="color-dot"></span>${label}`;
+        meta.appendChild(badge);
+    }
+
+    if (meta.children.length) description.appendChild(meta);
+});
+
+// ------------------------------------------------------------
+// Защита от случайного выхода со страницы карточки
+// ------------------------------------------------------------
+if (document.body.classList.contains('page-protected')) {
+    let allowNavigation = false;
+
+    window.addEventListener('beforeunload', event => {
+        if (allowNavigation) return;
+        event.preventDefault();
+        event.returnValue = '';
+    });
+
+    document.querySelectorAll('a[href]').forEach(link => {
+        link.addEventListener('click', event => {
+            if (event.defaultPrevented) return;
+            const href = link.getAttribute('href') || '';
+            if (!href || href.startsWith('#') || link.hasAttribute('data-lightbox') || link.hasAttribute('download') || link.target === '_blank') return;
+
+            const isInternal = !href.startsWith('http') && !href.startsWith('//');
+            if (!isInternal) return;
+
+            const leave = window.confirm('Выйти со страницы карточки изделия?');
+            if (!leave) {
+                event.preventDefault();
+                return;
+            }
+            allowNavigation = true;
+        });
+    });
+}
+
+// ------------------------------------------------------------
+// Кнопки документов
+// ------------------------------------------------------------
+document.querySelectorAll('button.document-button[data-message]').forEach(button => {
+    button.addEventListener('click', () => alert(button.dataset.message));
+});
+
+// ============================================================
+// V6 — единый поиск, приветственный экран, цветовые карточки,
+// масштабирование изображений, переходы, автор и заявки
+// ============================================================
+(function () {
+    const SEARCH_INDEX = Array.isArray(window.SEARCH_INDEX) ? window.SEARCH_INDEX : [];
+    const PARTS_SEARCH_INDEX = Array.isArray(window.PARTS_SEARCH_INDEX) ? window.PARTS_SEARCH_INDEX : [];
+
+    // ---------- Кнопки в шапке ----------
+    document.querySelectorAll('.header').forEach(header => {
+        if (header.querySelector('.header-actions')) return;
+        const actions = document.createElement('div');
+        actions.className = 'header-actions';
+        actions.innerHTML = `
+            <button class="header-action" type="button" data-open-report>Сообщить о проблеме</button>
+            <button class="header-action" type="button" data-open-creator>Создатель системы</button>`;
+        const user = header.querySelector('.user');
+        if (user) {
+            const userWrap = document.createElement('div');
+            userWrap.className = 'header-actions';
+            userWrap.appendChild(actions);
+            userWrap.appendChild(user);
+            header.appendChild(userWrap);
+        } else header.appendChild(actions);
+    });
+
+    // ---------- Модальные окна ----------
+    function addModal(className, html) {
+        if (document.querySelector('.' + className)) return document.querySelector('.' + className);
+        const el = document.createElement('div');
+        el.className = className;
+        el.innerHTML = html;
+        document.body.appendChild(el);
+        el.addEventListener('click', e => { if (e.target === el) el.classList.remove('visible'); });
+        el.querySelectorAll('.modal-close').forEach(btn => btn.addEventListener('click', () => el.classList.remove('visible')));
+        return el;
+    }
+
+    const creatorModal = addModal('creator-modal', `
+        <div class="modal-card creator-card">
+            <button class="modal-close" type="button">×</button>
+            <div class="creator-head">
+                <img class="creator-avatar" src="./assets/admin-avatar.jpg" alt="Администратор сайта">
+                <div>
+                    <span class="admin-pill">АДМИНИСТРАТОР САЙТА</span>
+                    <h3 data-creator-fullname>Администратор</h3>
+                </div>
+            </div>
+            <div class="creator-info-grid">
+                <div class="creator-info-item"><span>Имя</span><strong data-creator-name>Будет добавлено</strong></div>
+                <div class="creator-info-item"><span>Отчество</span><strong data-creator-patronymic>Будет добавлено</strong></div>
+                <div class="creator-info-item"><span>Время работы</span><strong data-creator-hours>09:00–21:00</strong></div>
+                <div class="creator-info-item"><span>Телефон</span><strong data-creator-phone>Будет добавлен</strong></div>
+            </div>
+            <button class="contact-flash" type="button" data-creator-contact-toggle aria-expanded="false">
+                <span>✦ Мой сайт и контакты</span><span class="flash-arrow">▾</span>
+            </button>
+            <div class="creator-contacts" data-creator-contacts hidden>
+                <div class="contact-row"><span>Сайт</span><a data-creator-website-link href="#" target="_blank" rel="noopener noreferrer">—</a><button class="contact-copy" type="button" data-copy="website">Копировать</button></div>
+                <div class="contact-row"><span>E-mail</span><strong data-creator-email>—</strong><button class="contact-copy" type="button" data-copy="email">Копировать</button></div>
+            </div>
+        </div>`);
+
+    const reportModal = addModal('report-modal', `
+        <div class="modal-card">
+            <button class="modal-close" type="button">×</button>
+            <h3>Сообщить администратору о проблеме</h3>
+            <p class="modal-muted">Опишите, что не работает или какую информацию нужно исправить.</p>
+            <form class="report-form">
+                <input name="subject" placeholder="Тема проблемы" required>
+                <textarea name="message" placeholder="Что произошло? Где именно?" required></textarea>
+                <input name="contact" placeholder="Ваш контакт для ответа (необязательно)">
+                <button class="modal-submit" type="submit">Отправить жалобу</button>
+            </form>
+            <div class="modal-note">Жалоба поступит в личный кабинет администратора.</div>
+        </div>`);
+
+    document.querySelectorAll('[data-open-creator]').forEach(btn => btn.addEventListener('click', () => creatorModal.classList.add('visible')));
+    document.querySelectorAll('[data-open-report]').forEach(btn => btn.addEventListener('click', () => reportModal.classList.add('visible')));
+
+    const creatorData = Object.assign({ hours: '09:00–21:00', patronymic: '' }, window.SITE_CREATOR || {});
+    const creatorWebsite = creatorData.website || window.SITE_ADMIN_WEBSITE || 'https://guns.lol/auramalayya';
+    const hasValue = v => v && v !== '—';
+    const setText = (selector, value, fallback) => document.querySelectorAll(selector).forEach(el => el.textContent = value || fallback);
+    setText('[data-creator-fullname]', [creatorData.name, creatorData.patronymic].filter(Boolean).join(' '), 'Администратор сайта');
+    setText('[data-creator-name]', creatorData.name, 'Будет добавлено');
+    setText('[data-creator-patronymic]', creatorData.patronymic, 'Будет добавлено');
+    setText('[data-creator-hours]', creatorData.hours, '09:00–21:00');
+    setText('[data-creator-phone]', hasValue(creatorData.phone) ? creatorData.phone : '', 'Будет добавлен');
+    setText('[data-creator-email]', hasValue(creatorData.email) ? creatorData.email : '', 'Будет добавлен');
+    document.querySelectorAll('[data-creator-website-link]').forEach(link => {
+        link.href = creatorWebsite;
+        link.textContent = creatorWebsite.replace(/^https?:\/\//, '');
+    });
+    document.querySelectorAll('[data-creator-contact-toggle]').forEach(toggle => toggle.addEventListener('click', () => {
+        const panel = toggle.parentElement.querySelector('[data-creator-contacts]');
+        const open = panel.hasAttribute('hidden');
+        panel.toggleAttribute('hidden', !open);
+        toggle.setAttribute('aria-expanded', String(open));
+    }));
+    creatorModal.querySelectorAll('[data-copy]').forEach(btn => btn.addEventListener('click', () => {
+        const value = btn.dataset.copy === 'website' ? creatorWebsite : (hasValue(creatorData.email) ? creatorData.email : '');
+        if (!value) { window.showSiteToast('Это поле пока не заполнено', 'error'); return; }
+        (navigator.clipboard ? navigator.clipboard.writeText(value) : Promise.reject()).then(
+            () => window.showSiteToast('Скопировано: ' + value),
+            () => window.showSiteToast('Не удалось скопировать автоматически', 'error'));
+    }));
+
+    const reportForm = reportModal.querySelector('form');
+    reportForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const data = new FormData(reportForm);
+        const saved = window.FactoryStore && window.FactoryStore.complaints.add({
+            subject: data.get('subject'), message: data.get('message'), contact: data.get('contact'), page: document.title
+        });
+        if (!saved) { window.showSiteToast('Не удалось отправить жалобу: браузер не позволил сохранить данные.', 'error'); return; }
+        reportForm.reset();
+        reportModal.classList.remove('visible');
+        window.showSiteToast('Жалоба отправлена на рассмотрение администратору');
+    });
+
+    // ---------- Поиск с подсказками + мини-карточка детали ----------
+    const input = document.getElementById('globalSearch');
+    const button = document.getElementById('searchButton');
+    const result = document.getElementById('searchResult');
+    if (input && result) {
+        const searchBox = input.closest('.search');
+        let wrap = searchBox?.parentElement;
+        if (!wrap || !wrap.classList.contains('search-wrap')) {
+            wrap = document.createElement('div');
+            wrap.className = 'search-wrap';
+            if (searchBox) {
+                searchBox.parentNode.insertBefore(wrap, searchBox);
+                wrap.appendChild(searchBox);
+            }
+        }
+        let suggestions = wrap.querySelector('.search-suggestions');
+        if (!suggestions) {
+            suggestions = document.createElement('div');
+            suggestions.className = 'search-suggestions';
+            wrap.appendChild(suggestions);
+        }
+
+        const allSearchItems = [
+            ...registeredProducts.map(p => ({type:'Изделие', title:p.title, info:p.info, href:p.href, keys:[p.code, ...(p.keys || [])]})),
+            ...SEARCH_INDEX,
+            ...PARTS_SEARCH_INDEX,
+            {type:'Библиотека', title:'Библиотека изображений деталей', info:'1804 GIF · исходные изображения деталей', href:'./parts.html', keys:['детали','библиотека деталей','изображения деталей','gif','изображения деталей']}
+        ];
+
+        function getMatches(query) {
+            const q = query.trim().toLowerCase();
+            if (!q) return [];
+            const byNumber = (window.FactoryParts && window.FactoryParts.searchItems(q)) || [];
+            const merged = byNumber.concat(allSearchItems
+                .map(item => {
+                    const hay = [item.title, item.info, ...(item.keys || [])].join(' ').toLowerCase();
+                    const exactStart = item.title.toLowerCase().startsWith(q) || (item.keys || []).some(k => String(k).toLowerCase().startsWith(q));
+                    const score = exactStart ? 0 : (hay.includes(q) ? 1 : 9);
+                    return {...item, score};
+                })
+                .filter(item => item.score < 9));
+            const seen = new Set();
+            return merged
+                .sort((a,b) => a.score - b.score || a.title.localeCompare(b.title, 'ru'))
+                .filter(item => {
+                    const key = item.type + '|' + item.title + '|' + (item.href || '');
+                    if (seen.has(key)) return false;
+                    seen.add(key); return true;
+                });
+        }
+
+        function renderSuggestions() {
+            const q = input.value.trim();
+            if (!q) { suggestions.classList.remove('visible'); suggestions.innerHTML = ''; return; }
+            const matches = getMatches(q).slice(0, 7);
+            suggestions.innerHTML = matches.length ? matches.map((m, i) => `
+                <button type="button" class="search-suggestion" data-search-index="${i}">
+                    <span class="suggestion-type">${m.type}</span>
+                    <span class="suggestion-main"><strong>${escSearch(m.title)}</strong><span>${escSearch(m.info || '')}</span></span>
+                </button>`).join('') : '';
+            suggestions.classList.toggle('visible', matches.length > 0);
+            suggestions.querySelectorAll('[data-search-index]').forEach((el, i) => el.addEventListener('click', () => {
+                input.value = matches[i].title;
+                suggestions.classList.remove('visible');
+                enhancedSearch();
+            }));
+        }
+
+        function escSearch(v) {
+            return String(v == null ? '' : v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+        }
+
+        function renderAssetButton(kind, file, href) {
+            if (href) return `<a class="search-detail-file" href="${escSearch(href)}" download><b>${kind}</b><span>${escSearch(file || 'Скачать файл')}</span><i>↓</i></a>`;
+            return `<span class="search-detail-file search-detail-file-pending"><b>${kind}</b><span>Подгружаем данные…</span></span>`;
+        }
+
+        function renderDetailPreview(q) {
+            if (!window.FactoryParts || !window.FactoryParts.lookupArticle) return '';
+            const detail = window.FactoryParts.lookupArticle(q);
+            if (!detail || (!detail.matches.length && !detail.image && !detail.numericImage)) return '';
+            const first = detail.matches[0] || {};
+            const image = detail.image || detail.numericImage;
+            const imageHtml = image
+                ? `<a class="search-detail-preview-image" href="${escSearch(image.path)}" data-search-lightbox><img src="${escSearch(image.path)}" alt="${escSearch(first.article || q)}"></a>`
+                : `<div class="search-detail-preview-image search-detail-preview-empty"><span>Фото</span><small>Подгружаем данные…</small></div>`;
+            const files = [];
+            if (detail.dxf?.length) detail.dxf.forEach(f => files.push(renderAssetButton('DXF', f.file, f.href)));
+            if (detail.metal?.length) detail.metal.filter(f => f.t === 'pdf').forEach(f => files.push(renderAssetButton('PDF', f.f, detail.metalHref(f))));
+            if (detail.metal?.length) detail.metal.filter(f => f.t === 'gif').forEach(f => files.push(renderAssetButton('GIF', f.f, detail.metalHref(f))));
+            if (!files.length) {
+                files.push('<span class="search-detail-file search-detail-file-pending"><b>ФАЙЛЫ</b><span>Подгружаем данные…</span></span>');
+            }
+            const products = [...new Set(detail.matches.map(m => m.product).filter(Boolean))];
+            return `<div class="search-detail-preview">
+                <div class="search-detail-preview-head"><div><span>ДЕТАЛЬ ПО АРТИКУЛУ</span><strong>${escSearch(first.article || q)}</strong></div><button type="button" class="search-detail-close" aria-label="Закрыть">×</button></div>
+                <div class="search-detail-preview-main">
+                    ${imageHtml}
+                    <div class="search-detail-preview-info">
+                        <h3>${escSearch(first.name || 'Деталь')}</h3>
+                        <p>${escSearch(first.group || 'Раздел не указан')}${products.length ? ' · ' + escSearch(products.join(', ')) : ''}</p>
+                        <div class="search-detail-files">${files.join('')}</div>
+                        <a class="search-detail-open" href="./parts.html?part=${encodeURIComponent(first.article || q)}">Открыть полную карточку →</a>
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        function enhancedSearch() {
+            const q = input.value.trim().toLowerCase();
+            if (!q) { result.innerHTML=''; result.classList.remove('visible'); return; }
+            const matches = getMatches(q).slice(0, 12);
+            const preview = renderDetailPreview(q);
+            result.classList.add('visible');
+            result.innerHTML = preview + (matches.length ? `<div class="search-result-list">${matches.map(m => `
+                <a class="search-result-item" href="${escSearch(m.href)}">
+                    <span class="result-kind">${escSearch(m.type)}</span>
+                    <span class="suggestion-main"><strong>${escSearch(m.title)}</strong><span>${escSearch(m.info || '')}</span></span>
+                </a>`).join('')}</div>` : (preview ? '' : '<span>По этому запросу ничего не найдено.</span>'));
+            suggestions.classList.remove('visible');
+            result.querySelector('.search-detail-close')?.addEventListener('click', () => {
+                result.classList.remove('visible'); result.innerHTML = '';
+            });
+            result.querySelectorAll('[data-search-lightbox]').forEach(a => a.addEventListener('click', e => {
+                e.preventDefault();
+                if (typeof openLightbox === 'function') openLightbox(a); else window.open(a.href, '_blank');
+            }));
+        }
+
+        input.addEventListener('input', renderSuggestions);
+        input.addEventListener('keydown', e => { if (e.key === 'Escape') { suggestions.classList.remove('visible'); result.classList.remove('visible'); }});
+        input.addEventListener('keydown', e => { if (e.key === 'Enter') enhancedSearch(); });
+        button?.addEventListener('click', enhancedSearch);
+        document.addEventListener('click', e => { if (!wrap.contains(e.target)) suggestions.classList.remove('visible'); });
+    }
+
+    // ---------- Цветовой квадрат рядом с каждой строкой ----------
+    const RAL = {
+        'ral-8014': {name:'RAL 8014 — коричневый', hex:'#4b3a2f', note:'Экранное приближение цвета. Фактический оттенок зависит от покрытия и освещения.'},
+        'ral-7047': {name:'RAL 7047 — светло-серый', hex:'#c9c9c5', note:'Экранное приближение цвета. Фактический оттенок зависит от покрытия и освещения.'},
+        'ral-6018': {name:'RAL 6018 — жёлто-зелёный', hex:'#57a639', note:'Экранное приближение цвета. Фактический оттенок зависит от покрытия и освещения.'},
+        'ral-2008': {name:'RAL 2008 — оранжевый', hex:'#ed5b2f', note:'Экранное приближение цвета. Фактический оттенок зависит от покрытия и освещения.'},
+        'ral-1023': {name:'RAL 1023 — жёлтый', hex:'#f5c400', note:'Экранное приближение цвета. Фактический оттенок зависит от покрытия и освещения.'},
+        'black': {name:'Чёрный', hex:'#17191c', note:'Чёрное покрытие.'},
+        'yellow': {name:'Жёлтый', hex:'#f4c400', note:'Жёлтое покрытие.'},
+        'coating': {name:'Противоскользящее покрытие', hex:'#5e6468', note:'Это не RAL-код, а обозначение типа покрытия.'}
+    };
+
+    if (typeof componentColors !== 'undefined') {
+        document.querySelectorAll('.component-item').forEach(item => {
+            const number = item.querySelector('.component-number')?.textContent.trim();
+            const color = componentColors[number];
+            if (!color) return;
+            const kind = color[0];
+            const data = RAL[kind] || {name:color[1], hex:'#8c98a3', note:'Информация о покрытии указана в спецификации.'};
+            if (item.querySelector('.color-swatch-column')) return;
+            const column = document.createElement('span');
+            column.className = 'color-swatch-column';
+            column.innerHTML = `<button type="button" class="color-swatch-button" style="background:${data.hex}" aria-label="Открыть информацию о цвете"></button>`;
+            item.appendChild(column);
+            column.querySelector('button').addEventListener('click', e => {
+                e.preventDefault(); e.stopPropagation();
+                openColorModal(data);
+            });
+        });
+    }
+
+    function openColorModal(data) {
+        let modal = document.querySelector('.color-modal');
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.className = 'color-modal';
+            modal.innerHTML = `<div class="modal-card"><button class="modal-close" type="button">×</button><div class="color-preview"></div><h3></h3><p class="modal-muted"></p></div>`;
+            document.body.appendChild(modal);
+            modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('visible'); });
+            modal.querySelector('.modal-close').addEventListener('click', () => modal.classList.remove('visible'));
+        }
+        modal.querySelector('.color-preview').style.background = data.hex;
+        modal.querySelector('h3').textContent = data.name;
+        modal.querySelector('.modal-muted').textContent = data.note;
+        modal.classList.add('visible');
+    }
+
+    // ---------- Масштабирование изображений ----------
+    const lightboxEl = document.querySelector('.lightbox');
+    const lbImage = lightboxEl?.querySelector('img');
+    if (lightboxEl && lbImage) {
+        let scale = 1, x = 0, y = 0, dragging = false, startX = 0, startY = 0, pinchStart = 0, pinchScale = 1;
+        let toolbar = lightboxEl.querySelector('.lightbox-toolbar');
+        if (!toolbar) {
+            toolbar = document.createElement('div');
+            toolbar.className = 'lightbox-toolbar';
+            toolbar.innerHTML = `<button type="button" data-zoom-out>−</button><button type="button" data-zoom-reset>100%</button><button type="button" data-zoom-in>+</button>`;
+            lightboxEl.appendChild(toolbar);
+            const hint = document.createElement('div');
+            hint.className = 'lightbox-hint';
+            hint.textContent = 'Колесо / + − / двойной клик · перетаскивание';
+            lightboxEl.appendChild(hint);
+        }
+        function applyTransform(){ lbImage.style.transform=`translate(${x}px,${y}px) scale(${scale})`; }
+        function resetZoom(){ scale=1;x=0;y=0;applyTransform(); }
+        function changeZoom(delta){ scale=Math.min(5,Math.max(1,scale+delta)); if(scale===1){x=0;y=0;} applyTransform(); }
+        lightboxEl.addEventListener('wheel', e => { e.preventDefault(); changeZoom(e.deltaY < 0 ? .25 : -.25); }, {passive:false});
+        toolbar.querySelector('[data-zoom-in]').addEventListener('click',()=>changeZoom(.5));
+        toolbar.querySelector('[data-zoom-out]').addEventListener('click',()=>changeZoom(-.5));
+        toolbar.querySelector('[data-zoom-reset]').addEventListener('click',resetZoom);
+        lbImage.addEventListener('dblclick',()=> scale===1 ? changeZoom(1) : resetZoom());
+        lbImage.addEventListener('pointerdown', e => { dragging=true; lbImage.classList.add('dragging'); startX=e.clientX-x; startY=e.clientY-y; lbImage.setPointerCapture(e.pointerId); });
+        lbImage.addEventListener('pointermove', e => { if(!dragging) return; x=e.clientX-startX; y=e.clientY-startY; applyTransform(); });
+        const stopDrag=()=>{dragging=false;lbImage.classList.remove('dragging')};
+        lbImage.addEventListener('pointerup',stopDrag); lbImage.addEventListener('pointercancel',stopDrag);
+        lbImage.addEventListener('touchstart', e => { if(e.touches.length===2){pinchStart=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);pinchScale=scale;} }, {passive:true});
+        lbImage.addEventListener('touchmove', e => { if(e.touches.length===2){e.preventDefault();const d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);scale=Math.min(5,Math.max(1,pinchScale*(d/pinchStart)));applyTransform();} }, {passive:false});
+        const observer = new MutationObserver(() => { if(!lightboxEl.classList.contains('visible')) resetZoom(); });
+        observer.observe(lightboxEl,{attributes:true,attributeFilter:['class']});
+    }
+
+    // ---------- Плавные переходы между страницами ----------
+    // Один делегированный обработчик вместо навешивания нескольких обработчиков
+    // на все ссылки. Навигация выполняется через location.assign(), поэтому
+    // overlay не может остаться поверх страницы из-за отменённого href.
+    if (!document.querySelector('.page-transition')) {
+        const transition = document.createElement('div');
+        transition.className = 'page-transition';
+        transition.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(transition);
+
+        document.addEventListener('click', event => {
+            const link = event.target.closest('a[href]');
+            if (!link || event.defaultPrevented) return;
+
+            const href = link.getAttribute('href') || '';
+            if (!href || href.startsWith('#') || href.startsWith('mailto:') ||
+                href.startsWith('tel:') || href.startsWith('http') || href.startsWith('//') ||
+                link.hasAttribute('data-lightbox') || link.hasAttribute('download') ||
+                link.target === '_blank') return;
+
+            const destination = new URL(href, window.location.href);
+            if (destination.origin !== window.location.origin) return;
+            if (destination.pathname === window.location.pathname && destination.search === window.location.search) return;
+
+            // На карточках сначала даём существующему обработчику confirm
+            // решить, разрешён ли выход со страницы.
+            if (event.defaultPrevented) return;
+
+            event.preventDefault();
+            transition.classList.add('active');
+            window.setTimeout(() => {
+                window.location.assign(destination.href);
+            }, 180);
+        });
+
+        window.addEventListener('pageshow', () => transition.classList.remove('active'));
+    }
+})();
+
+// ---------- Загрузки и подпись автора ----------
+(function(){
+    const creatorName = (window.SITE_CREATOR && window.SITE_CREATOR.name) || 'Создатель системы';
+
+    document.querySelectorAll('.main-gallery-card').forEach(card => {
+        if (card.querySelector('.gallery-author')) return;
+        const note = document.createElement('div');
+        note.className = 'gallery-author';
+        note.textContent = `Создал городок в системе: ${creatorName}`;
+        card.appendChild(note);
+    });
+
+    const main = document.querySelector('main');
+    if (main && !document.body.dataset.specCode && !document.querySelector('.site-downloads') && window.FactoryRole.can('specs')) {
+        const section = document.createElement('section');
+        section.className = 'site-downloads info-section';
+        const specFiles = [
+            ['ИКССР-1.06_спецификация.xlsx', 'Спецификация ИКССР-1.06'],
+            ['ИКССР-1.07_Спецификация.xlsx', 'Спецификация ИКССР-1.07'],
+            ['ИКССР-1.07_2023(новые цвета).xlsx', 'Спецификация ИКССР-1.07 · новые цвета 2023'],
+            ['ИКССР-1.08.xlsx', 'Спецификация ИКССР-1.08'],
+            ['ИКССР-1.08_2023(новые цвета).xlsx', 'Спецификация ИКССР-1.08 · новые цвета 2023'],
+            ['ИКССР-1.09.xlsx', 'Спецификация ИКССР-1.09'],
+            ['ИКССР-1.10.xlsx', 'Спецификация ИКССР-1.10'],
+            ['ИКССР-1.11.xlsx', 'Спецификация ИКССР-1.11'],
+            ['ИКССР-1.13.Н.xlsx', 'Спецификация ИКССР-1.13.Н'],
+            ['ИКССР-1.15.Н.xlsx', 'Спецификация ИКССР-1.15.Н'],
+            ['ИКССР-1.16.Н.xlsx', 'Спецификация ИКССР-1.16.Н']
+        ];
+        const otherFiles = [
+            ['metals-elements.rar', 'RAR', 'Металлические элементы', 'Архив metals · исходные файлы'],
+            ['библиотека-изображений-деталей.zip', 'ZIP', 'Библиотека изображений деталей', '1804 GIF · исходная папка изображений']
+        ];
+        const tile = (file, icon, title, note) => `
+                <a class="download-tile" href="./downloads/${encodeURIComponent(file)}" download>
+                    <span class="download-icon">${icon}</span><span><strong>${title}</strong><small>${note}</small></span><b>↓</b>
+                </a>`;
+        section.innerHTML = `
+            <div class="section-header"><h2>Документация и загрузки</h2><span>Файлы предприятия</span></div>
+            <h3 class="download-group-title">Спецификации городков · Excel (${specFiles.length})</h3>
+            <div class="download-grid">${specFiles.map(([file, title]) => tile(file, 'XLSX', title, file)).join('')}</div>
+            <h3 class="download-group-title">Прочие материалы</h3>
+            <div class="download-grid">${otherFiles.map(([file, icon, title, note]) => tile(file, icon, title, note)).join('')}</div>`;
+        main.appendChild(section);
+        if (!main.querySelector('.parts-library-link')) {
+            const link = document.createElement('div');
+            link.className = 'parts-library-link';
+            link.innerHTML = '<a class="site-tool-button" href="./parts.html">Открыть библиотеку деталей и сопоставление с городками →</a>';
+            main.appendChild(link);
+        }
+    }
+
+    document.querySelectorAll('button.document-button[data-message]').forEach(button => {
+        if (button.closest('.document-card')?.querySelector('a.document-download')) return;
+        const card = button.closest('.document-card');
+        if (!card) return;
+        const text = card.innerText.toLowerCase();
+        let href = '';
+        let label = 'Скачать';
+        if (text.includes('excel') || text.includes('специфика')) { href='./downloads/ИКССР-1.06_спецификация.xlsx'; label='Скачать XLSX'; }
+        if (text.includes('3d') || text.includes('step')) { href='./downloads/metals-elements.rar'; label='Архив элементов'; }
+        if (!href) return;
+        const a=document.createElement('a'); a.className='document-download'; a.href=href; a.download=''; a.textContent=label;
+        button.replaceWith(a);
+    });
+})();
+
+// ============================================================
+// V7 — тестовая авторизация, библиотека деталей и авторство
+// ============================================================
+(function(){
+    const AUTH_KEY = 'factorySystemDemoUsers';
+    const SESSION_KEY = 'factorySystemDemoSession';
+    const readUsers = () => { try { return JSON.parse(localStorage.getItem(AUTH_KEY) || '[]'); } catch { return []; } };
+    const saveUsers = users => localStorage.setItem(AUTH_KEY, JSON.stringify(users));
+    const getSession = () => { try { return JSON.parse(sessionStorage.getItem(SESSION_KEY) || 'null'); } catch { return null; } };
+
+    function addAuthButton(){
+        document.querySelectorAll('.header').forEach(header => {
+            if (header.querySelector('[data-open-auth]')) return;
+            const actions = header.querySelector('.header-actions');
+            const btn = document.createElement('button');
+            btn.className='header-action auth-header-button';
+            btn.type='button'; btn.setAttribute('data-open-auth','');
+            const session=getSession();
+            btn.textContent=session ? `Выйти (${session.name || session.login})` : 'Войти / регистрация';
+            if(actions) actions.insertBefore(btn, actions.firstChild); else header.appendChild(btn);
+            btn.addEventListener('click',()=> session ? logout() : openAuth('login'));
+        });
+    }
+
+    function logout(){ FactoryStore.sessions.end(); sessionStorage.removeItem(SESSION_KEY); location.reload(); }
+
+    function ensureAuthModal(){
+        let modal=document.querySelector('.auth-modal');
+        if(modal) return modal;
+        modal=document.createElement('div'); modal.className='auth-modal';
+        modal.innerHTML=`<div class="modal-card auth-card">
+            <button class="modal-close" type="button">×</button>
+            <div class="auth-admin-mark"><span>ADMIN</span><strong>Единая техническая система</strong></div>
+            <div class="auth-tabs"><button type="button" data-auth-tab="login" class="active">Вход</button><button type="button" data-auth-tab="register">Регистрация</button></div>
+            <div class="auth-mode-note">Тестовый режим интерфейса. Данные аккаунта хранятся только в этом браузере до подключения сервера.</div>
+            <form class="auth-form" data-auth-form></form>
+            <div class="auth-message" data-auth-message></div>
+        </div>`;
+        document.body.appendChild(modal);
+        modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('visible')});
+        modal.querySelector('.modal-close').addEventListener('click',()=>modal.classList.remove('visible'));
+        modal.querySelectorAll('[data-auth-tab]').forEach(tab=>tab.addEventListener('click',()=>renderAuthForm(tab.dataset.authTab)));
+        function renderAuthForm(mode){
+            modal.querySelectorAll('[data-auth-tab]').forEach(t=>t.classList.toggle('active',t.dataset.authTab===mode));
+            modal.querySelector('[data-auth-message]').textContent='';
+            modal.querySelector('[data-auth-form]').innerHTML=mode==='register' ? `
+                <label>Имя<input name="name" placeholder="Например, Дарья" required></label>
+                <label>Логин<input name="login" autocomplete="username" placeholder="Логин" required></label>
+                <label>Пароль<input name="password" type="password" autocomplete="new-password" placeholder="Минимум 4 символа" required minlength="4"></label>
+                <input type="hidden" name="role" value="user">
+                <button class="modal-submit" type="submit">Создать тестовый аккаунт</button>` : `
+                <label>Логин<input name="login" autocomplete="username" placeholder="Логин" required></label>
+                <label>Пароль<input name="password" type="password" autocomplete="current-password" placeholder="Пароль" required></label>
+                <button class="modal-submit" type="submit">Войти в систему</button>`;
+            modal.querySelector('[data-auth-form]').onsubmit=e=>{
+                e.preventDefault(); const data=Object.fromEntries(new FormData(e.currentTarget).entries()); const users=readUsers();
+                if(mode==='register'){
+                    if(users.some(u=>u.login.toLowerCase()===data.login.toLowerCase())){modal.querySelector('[data-auth-message]').textContent='Такой логин уже существует.';return;}
+                    const user={name:data.name.trim(),login:data.login.trim(),password:data.password,role:data.role}; users.push(user); saveUsers(users);
+                    sessionStorage.setItem(SESSION_KEY,JSON.stringify({name:user.name,login:user.login,role:user.role,sid:FactoryStore.sessions.start(user)})); modal.classList.remove('visible'); location.reload();
+                } else {
+                    const user=users.find(u=>u.login===data.login && (u.passwordHash ? !!(window.FactoryAuth && window.FactoryAuth.check(u,data.password)) : u.password===data.password));
+                    if(!user){modal.querySelector('[data-auth-message]').textContent='Неверный логин или пароль.';return;}
+                    sessionStorage.setItem(SESSION_KEY,JSON.stringify({name:user.name,login:user.login,role:user.role,sid:FactoryStore.sessions.start(user)})); modal.classList.remove('visible'); location.reload();
+                }
+            };
+        }
+        renderAuthForm('login');
+        return modal;
+    }
+
+    const authModal=ensureAuthModal();
+    addAuthButton();
+    window.addEventListener('load',addAuthButton);
+
+    // Статус пользователя + обозначение администратора сайта.
+    const session=getSession();
+    document.querySelectorAll('.user').forEach(user=>{
+        user.innerHTML=`<span class="user-status"></span>${session ? (session.role==='admin' ? 'Администратор' : (session.name || 'Пользователь') + (session.role==='manager' ? ' · Руководитель' : '')) : 'Гость'}<small class="admin-site-label">Администратор сайта: Дарья</small>`;
+    });
+
+    // ---------- Авторство переносим в самый низ документации ----------
+    document.querySelectorAll('.gallery-author').forEach(el=>el.remove());
+    document.querySelectorAll('.main-gallery-card').forEach(card=>card.querySelector('.gallery-author')?.remove());
+    const productMain=document.querySelector('main.product-page');
+    if(productMain && !productMain.querySelector('.system-author-footer')){
+        const note=document.createElement('section'); note.className='system-author-footer info-section';
+        note.innerHTML='<div><span>Авторство записи в системе</span><strong>Городок внесён в систему: Дарья</strong></div><small>Информация относится к цифровой записи в технической базе, а не к авторству конструкторской документации.</small>';
+        productMain.appendChild(note);
+    }
+
+    // ---------- Жёсткое разделение комплектующих на страницах городков ----------
+    // Не смешиваем разные типы деталей в одном блоке: заводчанину проще открыть
+    // нужную категорию и сразу увидеть только относящиеся к ней позиции.
+    (function splitPlaygroundComponents(){
+        const groupsRoot=document.querySelector('.component-groups');
+        if(!groupsRoot || !document.body.classList.contains('product-page')) return;
+
+        const rules=[
+            ['ГОРКИ', /горк|спуск|борт горк|каркас горк/i],
+            ['ЗАГЛУШКИ', /заглуш/i],
+            ['ПАНЕЛИ', /панел/i],
+            ['СТОЛБЫ', /столб|закладн.*столб/i],
+            ['ПЛОЩАДКИ', /площадк/i],
+            ['ЛЕСТНИЦЫ', /лестниц|тетив|ступен|подступен|перил.*лест|тра[пп]/i],
+            ['ПЕРЕХОДНЫЕ МОСТЫ', /мост/i],
+            ['ПЛАСТИК', /пластик|пнд|полиэтилен|полимер/i],
+            ['КАНАТЫ', /канат|верёв|верев/i],
+            ['ТОННЕЛИ', /тоннел/i],
+            ['КАЧЕЛИ', /качел/i],
+            ['ЛАЗЫ', /лаз|гриб/i],
+            ['БАЛКОНЫ', /балкон/i],
+            ['МЕТИЗЫ И КРЕПЁЖ', /метиз|болт|гайк|винт|саморез|шайб|креп[её]ж|анкер/i],
+            ['МЕТАЛЛ', /металл|каркас|рама|кронштейн|опора|труба|профил|лист|держател/i]
+        ];
+        const classify=text=>{
+            for(const [label,re] of rules) if(re.test(text)) return label;
+            return 'ПРОЧЕЕ';
+        };
+        const items=[...groupsRoot.querySelectorAll(':scope > .component-group .component-item')];
+        if(!items.length) return;
+
+        const buckets=new Map();
+        const order=[];
+        items.forEach(item=>{
+            const sourceGroup=item.closest('.component-group');
+            const sourceLabel=sourceGroup?.querySelector('summary span')?.textContent || '';
+            const text=(item.textContent+' '+sourceLabel).replace(/\s+/g,' ').trim();
+            const label=classify(text);
+            if(!buckets.has(label)){buckets.set(label,[]);order.push(label);}
+            buckets.get(label).push(item);
+        });
+
+        const rank=new Map(rules.map((x,i)=>[x[0],i]));
+        order.sort((a,b)=>(rank.get(a)??999)-(rank.get(b)??999));
+        groupsRoot.innerHTML='';
+
+        order.forEach(label=>{
+            const detail=document.createElement('details');
+            detail.className='component-group';
+            detail.open=true;
+            const summary=document.createElement('summary');
+            const title=document.createElement('span');
+            title.textContent=label;
+            const count=document.createElement('b');
+            count.textContent=buckets.get(label).length;
+            summary.append(title,count);
+            const list=document.createElement('div');
+            list.className='component-list';
+            buckets.get(label).forEach(item=>list.appendChild(item));
+            detail.append(summary,list);
+            groupsRoot.appendChild(detail);
+        });
+    })();
+
+    // ---------- Библиотека деталей ----------
+    if(document.body.classList.contains('parts-library-page')){
+        const grid=document.querySelector('[data-parts-grid]'), input=document.querySelector('[data-parts-search]'), more=document.querySelector('[data-parts-more]');
+        const productsWrap=document.querySelector('[data-parts-products]');
+        const groupsWrap=document.querySelector('[data-parts-groups]');
+        const activeWrap=document.querySelector('[data-parts-active]');
+        let catalog=[], images=[], visible=60;
+        let selectedProduct='all', selectedGroup='all';
+
+        const categoryOf = p => {
+            const g=String(p.group||'').toLowerCase();
+            const n=String(p.name||'').toLowerCase();
+            if(g.includes('горк') || n.includes('горк')) return 'Горки';
+            if(g.includes('заглуш') || n.includes('заглуш')) return 'Заглушки';
+            if(g.includes('столб') || n.includes('столб')) return 'Столбы';
+            if(g.includes('металл') || /мп\b/i.test(p.article||'')) return 'Металлические детали';
+            if(g.includes('пластик') || g.includes('пнд')) return 'Пластиковые детали';
+            if(g.includes('панел')) return 'Панели';
+            if(g.includes('площад')) return 'Площадки';
+            if(g.includes('мост')) return 'Переходные мосты';
+            if(g.includes('лестниц')) return 'Лестницы';
+            if(g.includes('балкон')) return 'Балконы';
+            if(g.includes('тоннел')) return 'Тоннели';
+            if(g.includes('качел')) return 'Качели';
+            if(g.includes('лаз')) return 'Лазы';
+            if(g.includes('канат')) return 'Канаты';
+            if(g.includes('метиз') || g.includes('креп')) return 'Метизы и крепёж';
+            return p.group || 'Прочее';
+        };
+        const labelProduct = p => String(p).replace('ИКССР-','ИКССР-');
+        function makeFilterButton(label,value,count,active){
+            return `<button type="button" class="parts-filter ${active?'active':''}" data-filter-value="${esc(label)}" data-filter-key="${esc(value)}">${esc(label)}<span>${count}</span></button>`;
+        }
+        function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+        function renderFilters(){
+            const products=[...new Set(catalog.map(p=>p.product).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ru'));
+            const productCounts=products.map(x=>[x,catalog.filter(p=>p.product===x).length]);
+            const groups=[...new Set(catalog.map(categoryOf))].sort((a,b)=>a.localeCompare(b,'ru'));
+            const groupCounts=groups.map(x=>[x,catalog.filter(p=>categoryOf(p)===x).length]);
+            if(productsWrap) productsWrap.innerHTML=makeFilterButton('Все городки','all',catalog.length,selectedProduct==='all')+productCounts.map(([x,c])=>makeFilterButton(labelProduct(x),x,c,selectedProduct===x)).join('');
+            if(groupsWrap) groupsWrap.innerHTML=makeFilterButton('Все разделы','all',catalog.length,selectedGroup==='all')+groupCounts.map(([x,c])=>makeFilterButton(x,x,c,selectedGroup===x)).join('');
+            productsWrap?.querySelectorAll('[data-filter-key]').forEach(b=>b.addEventListener('click',()=>{selectedProduct=b.dataset.filterKey;renderFilters();renderCatalog();}));
+            groupsWrap?.querySelectorAll('[data-filter-key]').forEach(b=>b.addEventListener('click',()=>{selectedGroup=b.dataset.filterKey;renderFilters();renderCatalog();}));
+        }
+
+        function renderCatalog(){
+            if(!grid)return;
+            const q=(input?.value||'').trim().toLowerCase();
+            let matches=catalog.filter(p=>{
+                const text=[p.product,p.group,p.article,p.name,p.qty,p.color,p.ingredients,categoryOf(p)].join(' ').toLowerCase();
+                return text.includes(q) && (selectedProduct==='all'||p.product===selectedProduct) && (selectedGroup==='all'||categoryOf(p)===selectedGroup);
+            });
+            const items=matches.slice(0,120);
+            let status=document.querySelector('[data-parts-count]');
+            if(!status){status=document.createElement('p');status.setAttribute('data-parts-count','');status.className='source-note';grid.before(status);}
+            status.textContent=matches.length>items.length ? `Найдено ${matches.length}; показаны первые ${items.length}. Уточните поиск.` : `Найдено: ${matches.length}`;
+            if(activeWrap){
+                const labels=[];
+                if(selectedProduct!=='all') labels.push(selectedProduct);
+                if(selectedGroup!=='all') labels.push(selectedGroup);
+                activeWrap.innerHTML=labels.length ? `Сейчас открыто: ${labels.map(esc).join(' · ')} <button type="button" data-reset-parts>Сбросить</button>` : 'Показываются все городки и разделы';
+                activeWrap.querySelector('[data-reset-parts]')?.addEventListener('click',()=>{selectedProduct='all';selectedGroup='all';renderFilters();renderCatalog();});
+            }
+            grid.innerHTML=items.map(p=>`<article class="part-card">
+                <div class="part-card-image">${p.image?`<img loading="lazy" src="${esc(p.image)}" alt="${esc(p.article)}">`:'<span>Нет фото</span>'}</div>
+                <div><span class="part-card-product">${esc(p.product)} · ${esc(categoryOf(p))}</span><strong>${esc(p.article)}</strong><p>${esc(p.name)}</p><small>${esc(p.group||'')} · ${esc(p.qty||'')}${p.color ? ' · '+esc(p.color) : ''}</small>${p.href ? `<a class="part-source-link" href="${esc(p.href)}">Открыть в городке</a>` : ''}</div>
+            </article>`).join('') || '<div class="empty-state">Ничего не найдено.</div>';
+        }
+        function renderImages(){
+            const wrap=document.querySelector('[data-image-library]'); if(!wrap)return;
+            const q=(input?.value||'').trim().toLowerCase();
+            const filtered=images.filter(x=>x.id.includes(q)||x.file.toLowerCase().includes(q)).slice(0,visible);
+            wrap.innerHTML=filtered.map(x=>`<a href="${esc(x.path)}" class="library-image" data-lightbox data-title="Библиотека деталей · ${esc(x.file)}"><img loading="lazy" src="${esc(x.path)}" alt="${esc(x.file)}"><span>${esc(x.file)}</span></a>`).join('');
+            wrap.querySelectorAll('[data-lightbox]').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();openLightbox(link)}));
+            if(more)more.style.display=filtered.length<Math.min(visible,images.length)?'none':'inline-flex';
+        }
+        Promise.all([
+            fetch('./parts-catalog.json').then(r=>r.json()).catch(()=>[]),
+            fetch('./detail-images-index.json').then(r=>r.json()).catch(()=>[])
+        ]).then(([c,i])=>{catalog=c;images=i;renderFilters();renderCatalog();renderImages();});
+        input?.addEventListener('input',()=>{visible=60;renderCatalog();renderImages();});
+        more?.addEventListener('click',()=>{visible+=60;renderImages();});
+        const params=new URLSearchParams(location.search);
+        const urlGroup=params.get('group');
+        const urlPart=params.get('part');
+        if(urlGroup) selectedGroup=urlGroup;
+        if(urlPart && input) input.value=urlPart;
+    }
+})();
+
+// ============================================================
+// V10 — универсальная карточка детали, изображения и файлы
+// ============================================================
+(function () {
+    const esc = v => String(v == null ? '' : v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const norm = v => String(v == null ? '' : v).replace(/\s+/g, '').toUpperCase().replace(/Ё/g,'Е').replace(/^0+(?=.)/, '');
+    const isNumeric = key => /^\d+$/.test(key);
+    let data = null, loading = null;
+
+    function load() {
+        if (data) return Promise.resolve(data);
+        if (!loading) loading = Promise.all([
+            fetch('./parts-catalog.json').then(r => r.json()).catch(() => []),
+            fetch('./detail-images-index.json').then(r => r.json()).catch(() => [])
+        ]).then(([catalog, images]) => {
+            const gifs = new Map();
+            images.forEach(i => gifs.set(norm(i.id), i));
+            data = { catalog, images, gifs };
+            return data;
+        });
+        return loading;
+    }
+
+    function metalForArticle(article) {
+        const s=String(article||'').trim().toUpperCase().replace(/Ё/g,'Е');
+        const m=s.match(/^0*(\d+)\s*[МM][ПP]/);
+        if(!m || !window.FactoryMetal) return [];
+        return window.FactoryMetal.files(String(parseInt(m[1],10)));
+    }
+    function metalHref(f) {
+        return window.FactoryMetal ? window.FactoryMetal.href(f) : './metall/metall/'+encodeURIComponent(f.f);
+    }
+
+    function lookupArticle(raw) {
+        const rawKey=norm(raw);
+        if (!rawKey || !data) return null;
+        const matches=data.catalog.filter(p => norm(p.article) === rawKey);
+        const numericKey=rawKey.match(/^\d+$/)?.[0] || rawKey.match(/^(\d+)[МM][ПP]$/)?.[1] || null;
+        const numericImage=numericKey ? (data.gifs.get(norm(numericKey)) || null) : null;
+        const image=matches.find(m=>m.image)?.image ? {path:'./'+matches.find(m=>m.image).image.replace(/^\.?\//,'')} : null;
+        const dxf=window.FactoryDxf ? window.FactoryDxf.files(matches[0]?.article || raw) : [];
+        return {
+            key:rawKey, matches, gif:numericImage, numericImage, image,
+            dxf: dxf.map(x=>({file:x[0],label:x[1],href:'./downloads/dxf/'+encodeURIComponent(x[0])})),
+            metal:metalForArticle(matches[0]?.article || raw),
+            metalHref
+        };
+    }
+
+    function lookup(raw) {
+        const r=lookupArticle(raw);
+        if(!r) return null;
+        return {key:r.key,matches:r.matches,gif:r.gif};
+    }
+
+    function searchItems(query) {
+        const raw=String(query).trim();
+        const clean=norm(raw);
+        if(!clean || !data) return [];
+        const exact=data.catalog.filter(p=>norm(p.article)===clean);
+        const numeric=clean.match(/^\d+$/);
+        if(!exact.length && !numeric) return [];
+        const r=lookupArticle(clean);
+        const info=r ? [
+            r.gif ? 'GIF '+r.gif.file : null,
+            r.dxf.length ? 'DXF' : null,
+            r.metal.some(f=>f.t==='pdf') ? 'PDF' : null,
+            r.matches.length ? 'в карточках: '+[...new Set(r.matches.map(x=>x.product))].length : 'данные подгружаются'
+        ].filter(Boolean).join(' · ') : 'Подгружаем данные…';
+        return [{type:'Деталь по артикулу',title:'Деталь '+clean,info,href:'./parts.html?part='+encodeURIComponent(clean),keys:[clean]}];
+    }
+    window.FactoryParts = { norm, load, lookup, lookupArticle, searchItems };
+
+    function productHref(item) {
+        if (item.href) return item.href;
+        const list = Array.isArray(window.PRODUCTS) ? window.PRODUCTS : [];
+        const p = list.find(x => x.code === item.product);
+        return p ? p.href : null;
+    }
+
+    function renderLookup(root, raw) {
+        const out = root.querySelector('[data-part-result]');
+        const key = norm(raw);
+        if (!key) { out.innerHTML = ''; return; }
+        out.innerHTML='<div class="part-loading-card">Подгружаем данные по артикулу…</div>';
+        load().then(() => {
+            if (norm(root.querySelector('[data-part-lookup-input]').value) !== key) return;
+            const r = lookupArticle(key);
+            if (!r) { out.innerHTML='<p class="part-lookup-none">Подгружаем данные…</p>'; return; }
+            const imagePath=r.image?.path || r.gif?.path;
+            const image = imagePath
+                ? `<a class="part-lookup-image" href="${esc(imagePath)}" data-lightbox data-title="Деталь ${esc(key)}"><img src="${esc(imagePath)}" alt="${esc(key)}"></a>`
+                : `<div class="part-lookup-image part-lookup-empty"><span>Фото</span><small>Подгружаем данные…</small></div>`;
+            const articles=[...new Set(r.matches.map(m=>m.article))];
+            const files=[];
+            r.dxf.forEach(f=>files.push(`<a class="search-detail-file" href="${esc(f.href)}" download><b>DXF</b><span>${esc(f.label||f.file)}</span><i>↓</i></a>`));
+            r.metal.filter(f=>f.t==='pdf'||f.t==='gif').forEach(f=>files.push(`<a class="search-detail-file" href="${esc(r.metalHref(f))}" download><b>${esc(f.t.toUpperCase())}</b><span>${esc(f.f)}</span><i>↓</i></a>`));
+            const fileBox=files.length?`<div class="search-detail-files">${files.join('')}</div>`:'<div class="search-detail-files"><span class="search-detail-file search-detail-file-pending"><b>ФАЙЛЫ</b><span>Подгружаем данные…</span></span></div>';
+            const rows=r.matches.length ? r.matches.map(m=>{
+                const href=productHref(m);
+                return `<div class="part-lookup-match"><div><span class="part-card-product">${esc(m.product)} · ${esc(m.group||'')}</span><strong>${esc(m.article)}</strong><p>${esc(m.name)}</p></div><div class="part-lookup-meta"><span>${esc(m.qty||'')}</span>${href?`<a href="${esc(href)}">Открыть в карточке →</a>`:''}</div></div>`;
+            }).join(''):'<p class="part-lookup-none">Подгружаем данные…</p>';
+            const link=articles.length>1?`<p class="part-lookup-link">В системе найдено несколько записей: ${articles.map(esc).join(', ')}</p>`:'';
+            out.innerHTML=`<div class="part-lookup-card">${image}<div class="part-lookup-body"><h3>Деталь ${esc(key)}</h3>${link}${fileBox}<div class="part-lookup-matches">${rows}</div></div></div>`;
+            out.querySelectorAll('[data-lightbox]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();if(typeof openLightbox==='function')openLightbox(a);else window.open(a.href,'_blank');}));
+        });
+    }
+
+    const lookupRoot=document.querySelector('[data-part-lookup]');
+    if(lookupRoot){
+        const input=lookupRoot.querySelector('[data-part-lookup-input]');
+        const run=()=>renderLookup(lookupRoot,input.value);
+        lookupRoot.querySelector('form').addEventListener('submit',e=>{e.preventDefault();run();});
+        input.addEventListener('input',run);
+        const fromUrl=new URLSearchParams(location.search).get('part');
+        if(fromUrl){input.value=fromUrl;run();lookupRoot.scrollIntoView({block:'start'});}
+    }
+})();
+
+// ============================================================
+// V11 — кнопка «Личный кабинет» и ограничения по ролям
+// ============================================================
+(function () {
+    const role = window.FactoryRole;
+
+    // ---------- Личный кабинет администратора ----------
+    if (role.can('cabinet') && role.role === 'admin' && window.FactoryStore) {
+        const updateBadges = () => {
+            const n = window.FactoryStore.complaints.unreadCount();
+            document.querySelectorAll('[data-open-cabinet]').forEach(a => {
+                let badge = a.querySelector('.cabinet-badge');
+                if (n && !badge) { badge = document.createElement('b'); badge.className = 'cabinet-badge'; a.appendChild(badge); }
+                if (badge) { badge.textContent = n; badge.hidden = !n; }
+            });
+        };
+        const addButtons = () => document.querySelectorAll('.header').forEach(header => {
+            const actions = header.querySelector('.header-actions');
+            if (!actions || actions.querySelector('[data-open-cabinet]')) return;
+            const a = document.createElement('a');
+            a.className = 'header-action cabinet-link'; a.href = './admin.html'; a.setAttribute('data-open-cabinet', '');
+            a.textContent = 'Личный кабинет';
+            actions.insertBefore(a, actions.firstChild);
+        });
+        addButtons(); updateBadges();
+        window.addEventListener('load', () => { addButtons(); updateBadges(); });
+        window.addEventListener('storage', e => {
+            if (e.key !== 'factorySystemComplaints') return;
+            updateBadges();
+            let before = [], after = [];
+            try { before = JSON.parse(e.oldValue || '[]'); after = JSON.parse(e.newValue || '[]'); } catch {}
+            if (after.length > before.length && !location.pathname.endsWith('admin.html')) window.showSiteToast('Поступила новая жалоба — смотрите «Личный кабинет»');
+        });
+    }
+
+    // ---------- Ограничения: Excel-спецификации, архивы и исходники только для руководителя и администратора ----------
+    if (!role.can('specs')) {
+        const FILE = /\.(xlsx?|zip|rar)(\?|#|$)/i;
+        const strip = (root = document) => {
+            root.querySelectorAll('.site-downloads, .product-excel-docs, .v108-docs').forEach(el => el.remove());
+            root.querySelectorAll('a[href]').forEach(a => {
+                if (!FILE.test(a.getAttribute('href') || '')) return;
+                (a.closest('.document-card, .download-tile, .v108-doc-actions') || a).remove();
+            });
+        };
+        strip();
+        let queued = false;
+        new MutationObserver(() => { if (queued) return; queued = true; requestAnimationFrame(() => { queued = false; strip(); }); })
+            .observe(document.body, { childList: true, subtree: true });
+    }
+})();
