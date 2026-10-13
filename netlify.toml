@@ -1,0 +1,27 @@
+# Настройки публикации на Netlify.
+[build]
+  publish = "."
+
+# Сайт внутренний — просим поисковики его не индексировать.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "same-origin"
+
+# Страницы и данные всегда свежие, чтобы после обновления не показывалась старая версия.
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/*.json"
+  [headers.values]
+    Cache-Control = "no-cache"
