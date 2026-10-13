@@ -1,0 +1,8 @@
+theme: light
+minify: true
+components: ./src/components
+favicon: ./src/assets/favicon.svg
+analytics: ./src/utils/analytics.js
+css:
+  - ./src/css/scaffolding.css
+  - ./src/css/footer.css

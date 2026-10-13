@@ -1,0 +1,402 @@
+menu:
+  title: "SourceCraft Sites"
+
+meta:
+  title: "SourceCraft Sites | Yandex"
+  description: "SourceCraft Sites — бесплатный хостинг статических сайтов прямо из ваших репозиториев. Создавайте сайты-портфолио, документацию, блоги и лендинги за несколько минут."
+  sharing:
+    title: "SourceCraft Sites | Yandex"
+    description: "Бесплатный хостинг статических сайтов прямо из ваших репозиториев. Создавайте сайты-портфолио, документацию, блоги и лендинги за несколько минут."
+    image: "https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/sourcecraft-share.png"
+    keywords:
+      - yandex
+      - sourcecraft sites
+      - static hosting
+      - github pages
+
+navigation:
+  logo:
+    icon:
+      src: https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/1-1.svg
+  header:
+    leftItems:
+      - type: 'dropdown'
+        text: 'Решения'
+        data-custom-analytics-event: 'SOURCECRAFT-HEADER_SOLUTIONS_CLICK'
+        items:
+          - type: link
+            text: 'Безопасность'
+            url: 'https://sourcecraft.dev/portal/security/'
+            analyticsEvents:
+              - name: 'SOURCECRAFT-SECURITY_CLICK'
+                counters:
+                  include:
+                    - '97958134'
+          - type: link
+            text: 'Образование '
+            url: 'https://yandex.ru/sourcecraft/education'
+            analyticsEvents:
+              - name: 'SOURCECRAFT-EDUCATION_CLICK'
+                counters:
+                  include:
+                    - '97958134'
+          - type: link
+            text: 'Сайт из репозитория'
+            url: 'https://sourcecraft.site/'
+            analyticsEvents:
+              - name: 'SOURCECRAFT-SITES_CLICK'
+                counters:
+                  include:
+                    - '97958134'
+          - type: link
+            text: 'Вайбкодинг в Vibecraft'
+            url: 'https://vibe.sourcecraft.dev/'
+            target: _blank
+            analyticsEvents:
+              - name: 'VIBECRAFT-MENU-SERVICE-CLICK'
+                counters:
+                  include:
+                    - '97958134'
+
+      - type: 'dropdown'
+        text: 'ИИ'
+        data-custom-analytics-event: 'SOURCECRAFT-HEADER_AI-AGENTS_CLICK'
+        items:
+          - type: link
+            url: "https://sourcecraft.dev/portal/code-assistant"
+            text: "ИИ-ассистент"
+            analyticsEvents:
+              - name: 'SOURCECRAFT-GO-TO-CA_CLICK'
+                counters:
+                  include:
+                    - '97958134'
+          - type: link
+            text: 'ИИ-команда'
+            url: 'https://sourcecraft.dev/portal/ai-team'
+            analyticsEvents:
+              - name: 'SOURCECRAFT-AI-TEAM_CLICK'
+                counters:
+                  include:
+                    - '97958134'
+
+      - type: "link"
+        url: "https://sourcecraft.dev/portal/docs/ru/sourcecraft/pricing"
+        text: "Тарифы"
+        analyticsEvents:
+          - name: 'SOURCECRAFT-PRICING_CLICK'
+            counters:
+              include:
+                - '97958134'
+
+      - type: "link"
+        url: "https://sourcecraft.dev/portal/docs/ru/"
+        text: "Документация"
+        analyticsEvents:
+          - name: 'SOURCECRAFT-GO-TO-DOCS_CLICK'
+            counters:
+              include:
+                - '97958134'
+
+      - type: 'dropdown'
+        text: 'Сообщество'
+        items:
+          - type: link
+            text: 'Telegram'
+            url: 'https://t.me/SourceCraft'
+            analyticsEvents:
+              - name: 'SOURCECRAFT-GO-TO-TG_CLICK'
+                counters:
+                  include:
+                    - '97958134'
+          - type: link
+            text: 'ВК'
+            url: 'https://vk.com/yandex_sourcecraft'
+            analyticsEvents:
+              - name: 'SOURCECRAFT-GO-TO-VK_CLICK'
+                counters:
+                  include:
+                    - '97958134'
+          - type: link
+            text: 'Яндекс Мессенджер'
+            url: 'https://messenger.360.yandex.ru/#/join/dcd2a671-c466-4293-b49e-10742d3b9f47'
+            analyticsEvents:
+              - name: 'SOURCECRAFT-GO-TO-YM_CLICK'
+                counters:
+                  include:
+                    - '97958134'
+          - type: link
+            text: 'Предложить идею'
+            url: 'https://sourcecraft.dev/portal/ideas/sourcecraft'
+            analyticsEvents:
+              - name: 'SOURCECRAFT-GO-TO-IDEAS_CLICK'
+                counters:
+                  include:
+                    - '97958134'
+
+      - type: "link"
+        url: "https://sourcecraft.dev/portal/blog"
+        text: "Блог"
+        analyticsEvents:
+          - name: 'SOURCECRAFT-BLOG_CLICK'
+            counters:
+              include:
+                - '97958134'
+
+    rightItems:
+      - type: "button"
+        url: "https://sourcecraft.dev/find/repositories"
+        text: "Просто посмотреть"
+        theme: 'normal'
+        analyticsEvents:
+          - name: 'SOURCECRAFT-EXPLORE_CLICK'
+            counters:
+              include:
+                - '97958134'
+      - type: "button"
+        url: "https://sourcecraft.dev/?auth=1"
+        text: "Войти"
+        theme: 'monochrome'
+        analyticsEvents:
+          - name: 'SOURCECRAFT-LOGIN_CLICK'
+            counters:
+              include:
+                - '97958134'
+
+animated: false
+background:
+  image:
+    mobile: "https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/sourcecraft-index-bg.svg"
+    desktop: "https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/sourcecraft-index-bg.svg"
+  height: 760
+  size: "contain"
+  parallax: false
+
+blocks:
+  - type: metrika
+    counterId: 97958134
+  - type: header-block
+    centered: true
+    overtitle: ""
+    title: |
+      SourceCraft Sites:
+      ваш сайт из репозитория за несколько минут
+    description: |
+      Бесплатный хостинг статических сайтов прямо из ваших репозиториев на платформе SourceCraft. Создавайте сайты-портфолио, документацию, блоги и лендинги без настройки серверов.
+
+
+      Просто загрузите HTML, CSS и JavaScript в репозиторий — и ваш сайт готов!
+    width: s
+    offset: default
+    resetPaddings: true
+    buttons:
+      - text: "Создать репозиторий"
+        theme: "monochrome"
+        url: "https://sourcecraft.dev/create/repo?templateOrg=sourcecraft&templateRepo=sites-landing"
+        analyticsEvents:
+          - name: "SOURCECRAFT-CREATE-REPO_CLICK"
+            counters:
+              include:
+                - "97958134"
+      - text: "Посмотреть документацию"
+        theme: "outlined"
+        url: "https://sourcecraft.dev/portal/docs/ru/sourcecraft/tutorials/sites"
+        arrow: true
+        analyticsEvents:
+          - name: "SOURCECRAFT-GO-TO-DOCS_CLICK"
+            counters:
+              include:
+                - "97958134"
+
+  - type: "card-layout-block"
+    colSizes:
+      all: 12
+      md: 6
+      lg: 4
+      xl: 4
+      sm: 12
+    title: "Почему SourceCraft Sites?"
+    description: "Простое и удобное решение для хостинга статических сайтов с интеграцией в платформу SourceCraft."
+    children:
+      - type: "layout-item"
+        content:
+          title: "Полностью бесплатно"
+          text: "Никаких лимитов на количество сайтов и трафик в рамках fair use политики"
+        media:
+          image:
+            src: "https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/7-07.svg"
+        border: "none"
+      - type: "layout-item"
+        content:
+          title: "Автоматическое развертывание"
+          text: "Пуш в репозиторий автоматически обновляет ваш сайт"
+        media:
+          image:
+            src: "https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/7-03.svg"
+        border: "none"
+      - type: "layout-item"
+        content:
+          title: "Красивые URL-адреса"
+          text: "Ваш сайт будет доступен по адресу `org_name.sourcecraft.site/repository_name`"
+        media:
+          image:
+            src: "https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/7-02.svg"
+        border: "none"
+      - type: "layout-item"
+        content:
+          title: "HTTPS из коробки"
+          text: "Все сайты автоматически работают по защищенному протоколу"
+        media:
+          image:
+            src: "https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/7-08-01.svg"
+        border: "none"
+      - type: "layout-item"
+        content:
+          title: "Интеграция с SourceCraft"
+          text: "Все возможности платформы: CI/CD, код-ревью, управление версиями"
+        media:
+          image:
+            src: "https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/7-01.svg"
+        border: "none"
+      - type: "layout-item"
+        content:
+          title: "Простота управления"
+          text: "Управляйте сайтом через Git: все изменения версионируются и отслеживаются"
+        media:
+          image:
+            src: "https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/7-05.svg"
+        border: "none"
+
+  - type: "content-layout-block"
+    textWidth: "m"
+    centered: true
+    title: "Что такое SourceCraft Sites?"
+    text: |
+      SourceCraft Sites — это сервис для хостинга статических сайтов, похожий по функциональности на GitHub Pages. Он позволяет разработчикам и дизайнерам публиковать HTML, CSS и JavaScript проекты прямо из репозиториев SourceCraft.
+
+
+      Идеально подходит для:
+      - Сайтов-портфолио и резюме
+      - Документации проектов
+      - Блогов и личных сайтов
+      - Лендингов и промо-страниц
+      - Демо-версий веб-приложений
+
+
+      SourceCraft Sites работает на базе надежной облачной инфраструктуры Yandex Cloud, обеспечивая быструю загрузку и высокую доступность ваших сайтов.
+
+  - type: "card-layout-block"
+    title: "Как запустить свой сайт на SourceCraft Sites"
+    description: "Всего несколько простых шагов — и ваш сайт будет доступен в интернете"
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 6
+    children:
+      - type: "layout-item"
+        content:
+          title: "1. Создайте репозиторий"
+          text: "Зарегистрируйтесь в SourceCraft и создайте новый публичный репозиторий для вашего сайта"
+        media:
+          image:
+            src: "https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/7-02.svg"
+        border: "line"
+      - type: "layout-item"
+        content:
+          title: "2. Загрузите файлы сайта"
+          text: "Добавьте HTML, CSS, JavaScript и другие файлы. Главный файл должен называться index.html"
+        media:
+          image:
+            src: "https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/7-04.svg"
+        border: "line"
+      - type: "layout-item"
+        content:
+          title: "3. Настройте Sites"
+          text: "Создайте файл `.sourcecraft/sites.yaml` с полем `site`, укажите в нём `root` как путь к папке с контентом в репозитории"
+        media:
+          image:
+            src: "https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/7-05.svg"
+        border: "line"
+      - type: "layout-item"
+        content:
+          title: "4. Ваш сайт готов!"
+          text: "Сайт будет доступен по адресу `{org_name}.sourcecraft.site/{repository_name}`"
+        media:
+          image:
+            src: "https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/7-07.svg"
+        border: "line"
+
+  - type: "media-block"
+    direction: "content-media"
+    title: "Этот сайт тоже размещен на SourceCraft Sites"
+    description: |
+      Данная страница является живым примером возможностей SourceCraft Sites. Она создана из простых HTML, CSS и JavaScript файлов, размещенных в публичном репозитории и доступна по адресу <https://sourcecraft.sourcecraft.site/sites-landing/>
+
+
+      Вы можете использовать этот репозиторий как шаблон для создания собственного сайта или изучить код, чтобы понять, как всё работает.
+    media:
+      image: "https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/9.png"
+    disableShadow: true
+    button:
+      text: "Посмотреть репозиторий"
+      theme: "outlined"
+      url: "https://sourcecraft.dev/sourcecraft/sites-landing"
+      analyticsEvents:
+        - name: "SOURCECRAFT-EXPLORE_CLICK"
+          counters:
+            include:
+              - "97958134"
+
+  - type: "content-layout-block"
+    textWidth: "s"
+    centered: true
+    theme: dark
+    background:
+      src: "https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/8.png"
+      style:
+        backgroundColor: "#FF4343"
+    textContent:
+      title: "Начните создавать свой сайт прямо сейчас"
+      text: "Создайте репозиторий на SourceCraft и опубликуйте свой первый сайт за несколько минут"
+      buttons:
+        - url: "https://sourcecraft.dev/create/repo?templateOrg=sourcecraft&templateRepo=sites-landing"
+          text: "Создать репозиторий"
+          theme: "normal-contrast"
+          arrow: true
+          analyticsEvents:
+            - name: "SOURCECRAFT-CREATE-REPO_CLICK"
+              counters:
+                include:
+                  - "97958134"
+
+  - type: "questions-block"
+    anchor:
+      url: "faq"
+      text: "FAQ"
+    title: "Часто задаваемые вопросы"
+    items:
+      - title: "Что такое SourceCraft Sites?"
+        text: "SourceCraft Sites — это бесплатный сервис для хостинга статических сайтов прямо из ваших репозиториев на платформе SourceCraft."
+      - title: "Сколько это стоит?"
+        text: "SourceCraft Sites полностью бесплатен для всех пользователей. Нет лимитов на количество сайтов или трафик в рамках разумного использования."
+      - title: "Какие типы сайтов можно размещать?"
+        text: "Вы можете размещать любые статические сайты: HTML, CSS, JavaScript, изображения. Подойдет для портфолио, блогов, документации, лендингов и демо-версий проектов."
+      - title: "Как настроить Sites в репозитории?"
+        text: "Создайте файл `sites.yaml` в папке `.sourcecraft` с полем `sites`, которое содержит `root` (путь к папке с контентом) и `ref` (ветку или тег, по умолчанию будет использована основная ветка репозитория)."
+      - title: "По какому адресу будет доступен мой сайт?"
+        text: "Ваш сайт будет доступен по адресу `{org_name}.sourcecraft.site/{repository_name}`, где `org_name` - слаг организации в SourceCraft , а `repository_name` - название репозитория. Например, для репозитория <https://sourcecraft.dev/sourcecraft/sites-landing> Sites будет расположен по адресу <https://sourcecraft.sourcecraft.site/sites-landing>."
+      - title: "Как обновить сайт?"
+        text: "Просто внесите изменения в файлы и сделайте push в репозиторий. Содержимое сайта сразу обновится автоматически."
+      - title: "Поддерживаются ли статические генераторы сайтов?"
+        text: "Да, вы можете использовать любые статические генераторы (Jekyll, Hugo, Gatsby и др.). Загрузите сгенерированные файлы в репозиторий или настройте автоматическую сборку через CI/CD."
+
+  - type: "footer"
+    copyrightText: "© 2025 ООО «Яндекс.Облако»"
+    links:
+      - text: "Политика конфиденциальности"
+        url: "https://yandex.ru/legal/confidential/?lang=ru"
+      - text: "Условия использования"
+        url: "https://yandex.ru/legal/cloud_terms_sourcecraft/"
+    yandexCompany:
+      text: "Проект компании"
+      url: "https://ya.ru"

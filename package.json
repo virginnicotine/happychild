@@ -1,0 +1,15 @@
+{
+  "name": "sourcecraft-sites-template",
+  "version": "1.0.1",
+  "scripts": {
+    "build": "rm -rf ./site && page-builder build -c page-builder.config.yml -i src -o site"
+  },
+  "author": "pistch@yandex-team.ru",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@gravity-ui/page-constructor-builder": "^1.3.0"
+  }
+}
