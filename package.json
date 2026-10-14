@@ -2,7 +2,7 @@
   "name": "sourcecraft-sites-template",
   "version": "1.0.1",
   "scripts": {
-    "build": "rm -rf ./site && page-builder build -c page-builder.config.yml -i src -o site"
+    "build": "rm -rf ./site && mkdir -p ./site && cp -R ./src/. ./site/"
   },
   "author": "pistch@yandex-team.ru",
   "license": "MIT",
