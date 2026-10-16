@@ -1,0 +1,1 @@
+document.querySelectorAll('[data-cabinet-tab]').forEach(button=>button.addEventListener('click',()=>{const tab=button.dataset.cabinetTab;document.querySelectorAll('[data-cabinet-tab]').forEach(b=>b.classList.toggle('active',b===button));document.querySelectorAll('[data-cabinet-panel]').forEach(panel=>panel.hidden=panel.dataset.cabinetPanel!==tab)}));

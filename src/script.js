@@ -945,8 +945,8 @@ document.querySelectorAll('button.document-button[data-message]').forEach(button
             ['МЕТАЛЛ', /металл|каркас|рама|кронштейн|опора|труба|профил|лист|держател/i]
         ];
         const classify=(name,article)=>{
-            if(/горк|спуск/i.test(name)) return 'ГОРКА: '+name.trim()+(article?' · '+article:'');
             if(/зеркальн|\bлев(ая|ый|ое|ой)\b|\bправ(ая|ый|ое|ой)\b/i.test(name)) return 'ЗЕРКАЛЬНЫЕ / ПАРНЫЕ ДЕТАЛИ';
+            if(/горк|спуск/i.test(name)) return 'ГОРКА '+(article || ((name.match(/(?:№|#)\s*([\w.-]+)|\b(\d+(?:[.-]\d+)*)\b/i)||[])[1]||'').trim() || 'БЕЗ НОМЕРА');
             for(const [label,re] of rules) if(re.test(name)) return label;
             return 'ПРОЧЕЕ';
         };
@@ -997,8 +997,8 @@ document.querySelectorAll('button.document-button[data-message]').forEach(button
         const categoryOf = p => {
             const g=String(p.group||'').toLowerCase();
             const n=String(p.name||'').toLowerCase();
-            if(g.includes('горк') || n.includes('горк')) return 'Горки';
             if(/зеркальн|\bлев(ая|ый|ое|ой)\b|\bправ(ая|ый|ое|ой)\b/i.test(n)) return 'Зеркальные и парные детали';
+            if(g.includes('горк') || n.includes('горк')) return 'Горки';
             if(/полы?|настил/i.test(g+' '+n) && /площад|полы?|настил/i.test(g+' '+n)) return 'Полы и настилы';
             if(/каркас/.test(n) && /площад/.test(g+' '+n)) return 'Каркасы площадок';
             if(/опор/.test(n) && /площад/.test(g+' '+n)) return 'Опоры площадок';
@@ -1054,8 +1054,8 @@ document.querySelectorAll('button.document-button[data-message]').forEach(button
                 activeWrap.querySelector('[data-reset-parts]')?.addEventListener('click',()=>{selectedProduct='all';selectedGroup='all';renderFilters();renderCatalog();});
             }
             grid.innerHTML=items.map(p=>`<article class="part-card">
-                <div class="part-card-image">${p.image?`<img loading="lazy" src="${esc(p.image)}" alt="${esc(p.article)}">`:'<span>Нет фото</span>'}</div>
-                <div><span class="part-card-product">${esc(p.product)} · ${esc(categoryOf(p))}</span><strong>${esc(p.article)}</strong><p>${esc(p.name)}</p><small>${esc(p.group||'')} · ${esc(p.qty||'')}${p.color ? ' · '+esc(p.color) : ''}</small>${p.href ? `<a class="part-source-link" href="${esc(p.href)}">Открыть в городке</a>` : ''}</div>
+                <div class="part-card-image ${categoryOf(p)==='Зеркальные и парные детали'?'part-card-mirror':''}">${p.image?`<img loading="lazy" src="${esc(p.image)}" alt="${esc(p.article)}">`:'<span>Нет фото</span>'}</div>
+                <div>${categoryOf(p)==='Зеркальные и парные детали'?'<span class="part-special-tag">◇ Зеркальная деталь</span>':''}<span class="part-card-product">${esc(p.product)} · ${esc(categoryOf(p))}</span><strong>${esc(p.article)}</strong><p>${esc(p.name)}</p><small>${esc(p.group||'')} · ${esc(p.qty||'')}${p.color ? ' · '+esc(p.color) : ''}</small>${p.href ? `<a class="part-source-link" href="${esc(p.href)}">Открыть в городке</a>` : ''}</div>
             </article>`).join('') || '<div class="empty-state">Ничего не найдено.</div>';
         }
         function renderImages(){

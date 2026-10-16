@@ -5,3 +5,6 @@
 .contact-help-dialog,.pdf-preview-dialog{background:#fff;color:#202b36;border-radius:14px;padding:28px;width:min(480px,100%);position:relative;box-shadow:0 14px 48px #0003}
 .contact-help-dialog h2{margin:0 0 20px;font-size:22px}.contact-help-close{position:absolute;top:10px;right:12px;border:0;background:transparent;font-size:28px;cursor:pointer}
 .pdf-preview-dialog{width:min(1000px,100%);height:min(90vh,950px);display:flex;flex-direction:column;padding:14px}.pdf-preview-dialog header,.pdf-preview-dialog footer{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:9px}.pdf-preview-dialog iframe{flex:1;width:100%;border:1px solid #ddd;border-radius:8px}.pdf-preview-dialog button{padding:7px 14px;cursor:pointer}
+
+/* Отдельные узнаваемые карточки зеркальных деталей */
+.part-card-mirror{background:linear-gradient(135deg,#e9f8ff,#dceafb)!important;border:1px solid #b5dcef;position:relative}.part-card-mirror:after{content:'◇';position:absolute;right:9px;top:4px;color:#5794bc;font-size:22px}.part-special-tag{display:inline-block;padding:4px 9px;margin:0 0 6px;border-radius:999px;color:#2674a6;background:#eaf7ff;font-weight:700;font-size:10px;letter-spacing:.3px}

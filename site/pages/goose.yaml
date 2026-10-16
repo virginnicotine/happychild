@@ -1,0 +1,210 @@
+menu:
+  title: "Гусиный уровень"
+
+meta:
+  title: "Гусиный уровень | SourceCraft Sites"
+  description: "Секретный гусиный уровень для настоящих разработчиков. Гусь одобряет ваш код!"
+  sharing:
+    title: "Гусиный уровень найден!"
+    description: "Вы нашли секретный гусиный уровень SourceCraft Sites. Гусь одобряет!"
+    keywords:
+      - goose
+      - easter egg
+      - secret level
+      - гусь
+      - секретный уровень
+
+navigation:
+  logo:
+    url: "https://sourcecraft.dev/"
+    icon:
+      src: https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/1.svg
+  header:
+    leftItems:
+      - type: "link"
+        url: "https://sourcecraft.dev/"
+        text: "Вернуться в реальность"
+      - type: "link"
+        url: "https://sourcecraft.dev/portal/docs/ru/"
+        text: "Документация (для людей)"
+    rightItems:
+      - type: "button"
+        url: "https://sourcecraft.dev/create/repo?templateOrg=sourcecraft&templateRepo=sites-landing"
+        text: "Создать гусиный репозиторий"
+        theme: "monochrome"
+
+animated: true
+background:
+  color: "#f0f8ff"
+  pattern: "feathers"
+
+blocks:
+  - type: metrika
+    counterId: 97958134
+  - type: header-block
+    title: "Добро пожаловать в гусиный уровень!"
+    description: |
+      Поздравляем! Вы нашли секретный гусиный уровень SourceCraft Sites.
+
+      Здесь живут только самые опытные разработчики и один очень умный гусь.
+
+
+      ```
+      ░░░░░ЗАПУСКАЕМ░░░░░░
+      ░░░CАЙТ, РАБОТЯГИ░░░
+      ░░░░░█▀▀▀█░░░░░░░░░
+      ▄███▀░◐░░▌░░░░░░░░░
+      ░░░░▌░░░░░▐░░░░░░░░░
+      ░░░░▐░░░░░▐░░░░░░░░░
+      ░░░░▌░░░░░▐▄▄░░░░░░░
+      ░░░░▌░░░░▄▀▒▒▀▀▀▀▄
+      ░░░▐░░░░▐▒▒▒▒▒▒▒▒▀▀▄
+      ░░░▐░░░░▐▄▒▒▒▒▒▒▒▒▒▒▀▄
+      ░░░░▀▄░░░░▀▄▒▒▒▒▒▒▒▒▒▒▀▄
+      ░░░░░░▀▄▄▄▄▄█▄▄▄▄▄▄▄▄▄▀▄
+      ░░░░░░░░░░░▌▌░▌▌░░░░░
+      ░░░░░░░░░░░▌▌░▌▌░░░░░
+      ░░░░░░░░░▄▄▌▌▄▌▌░░░░
+      ```
+    width: "m"
+    buttons:
+      - text: "Гусь одобряет!"
+        theme: "monochrome"
+        url: "#goose-wisdom"
+      - text: "Назад к обычным людям"
+        theme: "outlined"
+        url: "https://sourcecraft.site/"
+
+  - type: "content-layout-block"
+    anchor:
+      url: "goose-wisdom"
+      text: "Гусиная мудрость"
+    title: "Гусиные истины о разработке"
+    text: |
+      Мудрый гусь знает секреты хорошего кода:
+
+
+      🦆 **Принцип гусиного програмирования**: Если код выглядит как гусь, гогочет как гусь, то это, вероятно, хороший код.
+
+
+      🦆 **Гусиная отладка**: Объясните свой код гусю. Если гусь не понимает - код плохой.
+
+
+      🦆 **Правило гусиного коммита**: Каждый коммит должен быть как гусиный шаг - уверенный и целенаправленный.
+
+
+      🦆 **Гусиный рефакторинг**: Не трогайте работающий код без уважительной причины. Гусь не любит суету.
+    centered: true
+    textWidth: "m"
+
+  - type: "card-layout-block"
+    title: "Гусиный стек технологий"
+    description: "Технологии, одобренные главным гусем SourceCraft"
+    colSizes:
+      all: 12
+      md: 6
+      lg: 4
+    children:
+      - type: "layout-item"
+        content:
+          title: "GooseScript"
+          text: "Язык программирования для истинных гусей. Синтаксис основан на гоготании."
+        media:
+          image:
+            src: "https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/7-01.svg"
+        border: "line"
+      - type: "layout-item"
+        content:
+          title: "FeatherCSS"
+          text: "Стилизация страниц с помощью гусиных перьев. Каждый элемент мягкий и пушистый."
+        media:
+          image:
+            src: "https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/7-02.svg"
+        border: "line"
+      - type: "layout-item"
+        content:
+          title: "PondDB"
+          text: "База данных для хранения гусиных секретов. Каждая запись плавает как гусь."
+        media:
+          image:
+            src: "https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/7-03.svg"
+        border: "line"
+      - type: "layout-item"
+        content:
+          title: "NestJS"
+          text: "Фреймворк для создания уютных гусиных гнёзд в облаке."
+        media:
+          image:
+            src: "https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/7-04.svg"
+        border: "line"
+      - type: "layout-item"
+        content:
+          title: "WingQL"
+          text: "Язык запросов для общения с гусиными API. Каждый запрос летает."
+        media:
+          image:
+            src: "https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/7-05.svg"
+        border: "line"
+      - type: "layout-item"
+        content:
+          title: "HonkCI/CD"
+          text: "Непрерывная интеграция с гусиным звуком. Каждый деплой сопровождается гоготанием."
+        media:
+          image:
+            src: "https://storage.yandexcloud.net/cloud-www-assets/pages/yandex-src/dev/7-06.svg"
+        border: "line"
+
+  - type: "questions-block"
+    title: "Часто задаваемые гусиные вопросы"
+    items:
+      - title: "Как найти этот уровень?"
+        text: "Это секрет! Но если вы здесь, значит, вы уже его нашли. Гусь доволен вашими навыками."
+      - title: "Работает ли SourceCraft Sites с гусиным кодом?"
+        text: 'Конечно! SourceCraft Sites поддерживает все виды кода, включая гусиный. Главное - не забывайте комментарии в стиле "га-га".'
+      - title: "Можно ли разместить гусиный сайт?"
+        text: "Да! Создайте репозиторий с гусиным контентом, и наш главный гусь лично проверит качество кода."
+      - title: "Гусь одобряет мой код?"
+        text: "Если вы здесь, то да. Гусь особенно любит чистый код, хорошую документацию и отсутствие лапшекода."
+      - title: "Секретный гусиный чит-код?"
+        text: "Konami Code для гусей: ↑↑↓↓←→←→🦆🦆. Но это работает только в полнолуние."
+
+  - type: "content-layout-block"
+    textWidth: "s"
+    centered: true
+    theme: "light"
+    background:
+      color: "#fff9e6"
+    textContent:
+      title: "Гусиное благословение"
+      text: |
+        Да пребудет с вами сила гусиного кода!
+
+        Пусть ваши коммиты будут чистыми,
+        баги - редкими,
+        а деплои - успешными.
+
+        *Главный гусь SourceCraft благословляет ваш код.*
+      buttons:
+        - text: "Поделиться с друзьями"
+          theme: "outlined"
+          url: "https://t.me/share/url?url=https://sourcecraft.site/goose.html&text=Я%20нашел%20гусиный%20уровень!"
+
+  - type: "goose"
+    props:
+      message: "Вы находитесь в гусином уровне SourceCraft Sites"
+      ascii: |
+        ░░░░░ЗАПУСКАЕМ░░░░░░
+        ░░░СТРАНИЦУ, РАБОТЯГИ░░░
+        ░░░░░█▀▀▀█░░░░░░░░░
+        ▄███▀░◐░░▌░░░░░░░░░
+        ░░░░▌░░░░░▐░░░░░░░░░
+        ░░░░▐░░░░░▐░░░░░░░░░
+        ░░░░▌░░░░░▐▄▄░░░░░░░
+        ░░░░▌░░░░▄▀▒▒▀▀▀▀▄
+        ░░░▐░░░░▐▒▒▒▒▒▒▒▒▀▀▄
+        ░░░▐░░░░▐▄▒▒▒▒▒▒▒▒▒▒▀▄
+        ░░░░▀▄░░░░▀▄▒▒▒▒▒▒▒▒▒▒▀▄
+        ░░░░░░▀▄▄▄▄▄█▄▄▄▄▄▄▄▄▄▀▄
+        ░░░░░░░░░░░▌▌░▌▌░░░░░
+        ░░░░░░░░░░░▌▌░▌▌░░░░░
+        ░░░░░░░░░▄▄▌▌▄▌▌░░░░

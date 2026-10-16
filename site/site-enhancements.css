@@ -1,0 +1,7 @@
+/* Обновление: помощь при входе и просмотр PDF */
+.contact-help-trigger{display:block;margin:18px auto 0;padding:7px 12px;border:0;background:transparent;color:inherit;text-decoration:underline;text-underline-offset:4px;cursor:pointer;opacity:.85}
+.contact-help-backdrop[hidden],.pdf-preview-backdrop[hidden]{display:none!important}
+.contact-help-backdrop,.pdf-preview-backdrop{position:fixed;inset:0;z-index:99999;background:rgba(9,18,30,.7);display:flex;align-items:center;justify-content:center;padding:20px}
+.contact-help-dialog,.pdf-preview-dialog{background:#fff;color:#202b36;border-radius:14px;padding:28px;width:min(480px,100%);position:relative;box-shadow:0 14px 48px #0003}
+.contact-help-dialog h2{margin:0 0 20px;font-size:22px}.contact-help-close{position:absolute;top:10px;right:12px;border:0;background:transparent;font-size:28px;cursor:pointer}
+.pdf-preview-dialog{width:min(1000px,100%);height:min(90vh,950px);display:flex;flex-direction:column;padding:14px}.pdf-preview-dialog header,.pdf-preview-dialog footer{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:9px}.pdf-preview-dialog iframe{flex:1;width:100%;border:1px solid #ddd;border-radius:8px}.pdf-preview-dialog button{padding:7px 14px;cursor:pointer}
