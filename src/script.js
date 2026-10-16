@@ -495,16 +495,17 @@ document.querySelectorAll('button.document-button[data-message]').forEach(button
     }));
 
     const reportForm = reportModal.querySelector('form');
-    reportForm.addEventListener('submit', e => {
+    reportForm.addEventListener('submit', async e => {
         e.preventDefault();
-        const data = new FormData(reportForm);
-        const saved = window.FactoryStore && window.FactoryStore.complaints.add({
-            subject: data.get('subject'), message: data.get('message'), contact: data.get('contact'), page: document.title
-        });
-        if (!saved) { window.showSiteToast('Не удалось отправить жалобу: браузер не позволил сохранить данные.', 'error'); return; }
-        reportForm.reset();
-        reportModal.classList.remove('visible');
-        window.showSiteToast('Жалоба отправлена на рассмотрение администратору');
+        const btn=reportForm.querySelector('[type="submit"]');if(btn)btn.disabled=true;
+        const data=new FormData(reportForm);
+        try{
+            const {call}=await import('./supabase-client.js');
+            await call('submit_complaint',{subject:String(data.get('subject')||''),message:String(data.get('message')||''),contact:String(data.get('contact')||''),page:document.title});
+            reportForm.reset();reportModal.classList.remove('visible');
+            window.showSiteToast('Жалоба сохранена в Supabase и отправлена администратору');
+        }catch(error){window.showSiteToast('Жалоба не отправлена: '+(error.message||'ошибка подключения'),'error');}
+        finally{if(btn)btn.disabled=false;}
     });
 
     // ---------- Поиск с подсказками + мини-карточка детали ----------
@@ -933,13 +934,13 @@ document.querySelectorAll('button.document-button[data-message]').forEach(button
             ['КАРКАСЫ ПЛОЩАДОК', /каркас[^,;]*площад|площад[^,;]*каркас/i],
             ['ОПОРЫ ПЛОЩАДОК', /опор[^,;]*площад|площад[^,;]*опор/i],
             ['ПЛОЩАДКИ — ПРОЧИЕ ДЕТАЛИ', /площадк/i],
-            ['ЗАГЛУШКИ', /заглуш/i], ['ПАНЕЛИ', /панел/i],
+            ['ЗАГЛУШКИ', /заглуш/i], ['ПАНЕЛИ ДЕКОРАТИВНЫЕ', /панел.*(декор|резн|рисун)/i], ['ПАНЕЛИ', /панел/i], ['ДОСКИ', /доск/i],
             ['СТОЛБЫ', /столб|закладн.*столб/i],
-            ['ЛЕСТНИЦЫ', /лестниц|тетив|ступен|подступен|перил.*лест|тра[пп]/i],
+            ['ЛЕСТНИЦЫ · ПЕРИЛА', /перил.*лест|лест.*перил/i], ['ЛЕСТНИЦЫ · СТУПЕНИ И ПОДСТУПЕНКИ', /ступен|подступен/i], ['ЛЕСТНИЦЫ · ТЕТИВЫ', /тетив/i], ['ЛЕСТНИЦЫ · КАРКАСЫ', /лест.*каркас|каркас.*лест/i], ['ЛЕСТНИЦЫ · ОСТАЛЬНОЕ', /лестниц|тра[пп]/i],
             ['ПЕРЕХОДНЫЕ МОСТЫ', /мост/i],
             ['ПЛАСТИК', /пластик|пнд|полиэтилен|полимер/i],
             ['КАНАТЫ', /канат|верёв|верев/i], ['ТОННЕЛИ', /тоннел/i],
-            ['КАЧЕЛИ', /качел/i], ['ЛАЗЫ', /лаз|гриб/i],
+            ['ПАРКОВАЯ МЕБЕЛЬ', /лавоч|скамей|урн/i], ['КАЧЕЛИ', /качел/i], ['ЛАЗЫ', /лаз|гриб/i],
             ['БАЛКОНЫ', /балкон/i],
             ['МЕТИЗЫ И КРЕПЁЖ', /метиз|болт|гайк|винт|саморез|шайб|креп[её]ж|анкер/i],
             ['МЕТАЛЛ', /металл|каркас|рама|кронштейн|опора|труба|профил|лист|держател/i]
@@ -999,6 +1000,13 @@ document.querySelectorAll('button.document-button[data-message]').forEach(button
             const n=String(p.name||'').toLowerCase();
             if(/зеркальн|\bлев(ая|ый|ое|ой)\b|\bправ(ая|ый|ое|ой)\b/i.test(n)) return 'Зеркальные и парные детали';
             if(g.includes('горк') || n.includes('горк')) return 'Горки';
+            if(/лавоч|скамей|урн/.test(g+' '+n)) return '🪑 Парковая мебель';
+            if(/перил/.test(n) && /лестниц/.test(g+' '+n))return '🪜 Лестницы · перила';
+            if(/ступен|подступен/.test(n))return '🪜 Лестницы · ступени и подступенки';
+            if(/тетив/.test(n))return '🪜 Лестницы · тетивы';
+            if(/лестниц/.test(g+' '+n))return '🪜 Лестницы · прочее';
+            if(/доск/.test(g+' '+n))return '🪵 Доски';
+            if(/панел/.test(n)&&/декор|резн|рисун/.test(n))return '🎨 Декоративные панели';
             if(/полы?|настил/i.test(g+' '+n) && /площад|полы?|настил/i.test(g+' '+n)) return 'Полы и настилы';
             if(/каркас/.test(n) && /площад/.test(g+' '+n)) return 'Каркасы площадок';
             if(/опор/.test(n) && /площад/.test(g+' '+n)) return 'Опоры площадок';
@@ -1006,10 +1014,10 @@ document.querySelectorAll('button.document-button[data-message]').forEach(button
             if(g.includes('столб') || n.includes('столб')) return 'Столбы';
             if(g.includes('металл') || /мп\b/i.test(p.article||'')) return 'Металлические детали';
             if(g.includes('пластик') || g.includes('пнд')) return 'Пластиковые детали';
-            if(g.includes('панел')) return 'Панели';
+            if(g.includes('панел') || n.includes('панел')) return '🧩 Панели';
             if(g.includes('площад') || n.includes('площад')) return 'Прочие детали площадок';
             if(g.includes('мост')) return 'Переходные мосты';
-            if(g.includes('лестниц')) return 'Лестницы';
+            if(g.includes('лестниц')) return '🪜 Лестницы · прочее';
             if(g.includes('балкон')) return 'Балконы';
             if(g.includes('тоннел')) return 'Тоннели';
             if(g.includes('качел')) return 'Качели';
@@ -1055,7 +1063,7 @@ document.querySelectorAll('button.document-button[data-message]').forEach(button
             }
             grid.innerHTML=items.map(p=>`<article class="part-card">
                 <div class="part-card-image ${categoryOf(p)==='Зеркальные и парные детали'?'part-card-mirror':''}">${p.image?`<img loading="lazy" src="${esc(p.image)}" alt="${esc(p.article)}">`:'<span>Нет фото</span>'}</div>
-                <div>${categoryOf(p)==='Зеркальные и парные детали'?'<span class="part-special-tag">◇ Зеркальная деталь</span>':''}<span class="part-card-product">${esc(p.product)} · ${esc(categoryOf(p))}</span><strong>${esc(p.article)}</strong><p>${esc(p.name)}</p><small>${esc(p.group||'')} · ${esc(p.qty||'')}${p.color ? ' · '+esc(p.color) : ''}</small>${p.href ? `<a class="part-source-link" href="${esc(p.href)}">Открыть в городке</a>` : ''}</div>
+                <div>${categoryOf(p)==='Зеркальные и парные детали'?'<span class="part-special-tag">◇ Зеркальная деталь</span>':''}<span class="part-card-product">${esc(p.product)} · ${esc(categoryOf(p))}</span><strong>${esc(p.article)}</strong><p>${esc(categoryOf(p)==='Горки' ? 'Горка '+p.article : p.name)}</p><small>${esc(p.group||'')} · ${esc(p.qty||'')}${p.color ? ' · '+esc(p.color) : ''}</small>${p.href ? `<a class="part-source-link" href="${esc(p.href)}">Открыть в городке</a>` : ''}</div>
             </article>`).join('') || '<div class="empty-state">Ничего не найдено.</div>';
         }
         function renderImages(){
@@ -1206,7 +1214,7 @@ document.querySelectorAll('button.document-button[data-message]').forEach(button
     const role = window.FactoryRole;
 
     // ---------- Личный кабинет администратора ----------
-    if (role.can('cabinet') && role.role === 'admin' && window.FactoryStore) {
+    if (window.FactoryStore) {
         const updateBadges = () => {
             const n = window.FactoryStore.complaints.unreadCount();
             document.querySelectorAll('[data-open-cabinet]').forEach(a => {

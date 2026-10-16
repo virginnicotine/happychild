@@ -28,10 +28,12 @@ function make(article){
   const list=files(article); if(!list.length) return null;
   const box=document.createElement('div'); box.className='dxf-downloads';
   const label=document.createElement('span'); label.className='dxf-downloads-label'; label.textContent='Чертёж DXF'; box.appendChild(label);
-  list.forEach(([file,labelText])=>{
+  list.filter(([file,labelText])=>!/(зеркал|лев|прав)/i.test(labelText)&&!/(?:-з|-п|-л)\.DXF$/i.test(file)).forEach(([file,labelText])=>{
     const a=document.createElement('a'); a.className='dxf-download'; a.href=ROOT+encodeURIComponent(file); a.download=file;
     a.innerHTML='<b>DXF</b><span>'+labelText+'</span><i>↓</i>'; box.appendChild(a);
   });
+  const mirrors=list.filter(([file,labelText])=>/(зеркал|лев|прав)/i.test(labelText)||/(?:-з|-п|-л)\.DXF$/i.test(file));
+  if(mirrors.length){const mirrorBox=document.createElement('section');mirrorBox.className='mirror-files';mirrorBox.innerHTML='<strong>🪞 Зеркальные / парные чертежи</strong>';mirrors.forEach(([file,labelText])=>{const a=document.createElement('a');a.href=ROOT+encodeURIComponent(file);a.download=file;a.textContent='🪞 '+labelText+' · '+file;mirrorBox.append(a)});box.append(mirrorBox)}
   return box;
 }
 function attach(root=document){

@@ -15,12 +15,23 @@ if(rateError){console.error('rate limit unavailable',rateError.message);return s
 if(!allowed)return send({error:'Слишком много попыток входа. Попробуйте через 15 минут.'},429);
 const {data:matches,error:lookupError}=await admin.rpc('site_lookup_login',{p_login:login});
 if(lookupError){console.error('login lookup unavailable',lookupError.message);return send({error:'Вход временно недоступен.'},503);}
-const u=matches?.[0];if(!u||u.blocked)return send({error:'Неверный логин или пароль'},401);
+const u=matches?.[0];if(!u)return send({error:'Неверный логин или пароль'},401);
 const anon=createClient(URL,PUB,{auth:{persistSession:false}});const {data,error}=await anon.auth.signInWithPassword({email:u.email,password});if(error||!data.session)return send({error:'Неверный логин или пароль. Убедитесь, что email подтверждён.'},401);
+if(u.blocked)return send({error:'Вы в чёрном списке сайта. Обратитесь к администратору. Контакты указаны в разделе «Помощь со входом».',code:'BLACKLISTED'},403);
 return send({access_token:data.session.access_token,refresh_token:data.session.refresh_token});}
 const token=(req.headers.get('authorization')||'').replace(/^Bearer\s+/i,'');if(!token)return send({error:'Авторизуйтесь'},401);
 const {data:{user},error:authError}=await admin.auth.getUser(token);if(authError||!user)return send({error:'Недействительная сессия'},401);
-const {data:actor}=await admin.from('profiles').select('id,role,blocked').eq('id',user.id).single();if(!actor||actor.blocked||actor.role!=='admin')return send({error:'Только администратор'},403);
+const {data:actor}=await admin.from('profiles').select('id,role,blocked').eq('id',user.id).single();if(!actor||actor.blocked)return send({error:'Доступ ограничен. Обратитесь к администратору.'},403);
+if(body.action==='my_dashboard'){
+const [c,w]=await Promise.all([admin.from('complaints').select('id,message,status,created_at').eq('author_id',actor.id).order('created_at',{ascending:false}).limit(100),admin.from('warnings').select('reason,created_at').eq('user_id',actor.id).order('created_at',{ascending:false}).limit(100)]);
+if(c.error||w.error)throw Error(c.error?.message||w.error?.message);
+return send({complaints:c.data,warnings:w.data});}
+if(body.action==='submit_complaint'){
+const subject=String(body.subject||'').trim().slice(0,150);const message=String(body.message||'').trim();
+if(message.length<3||message.length>4700)return send({error:'Текст жалобы должен содержать от 3 до 4700 символов'},400);
+const value=(subject?subject+'\n':'')+message;
+const {error}=await admin.from('complaints').insert({author_id:actor.id,message:value});if(error)throw error;return send({ok:true});}
+if(actor.role!=='admin')return send({error:'Только администратор'},403);
 if(body.action==='admin_list'){
 const [u,c,a]=await Promise.all([admin.from('profiles').select('id,name,login,role,blocked,email').order('created_at',{ascending:false}).limit(500),admin.from('complaints').select('*').order('created_at',{ascending:false}).limit(100),admin.from('audit_logs').select('*').order('created_at',{ascending:false}).limit(50)]);
 if(u.error||c.error||a.error)throw Error(u.error?.message||c.error?.message||a.error?.message);
