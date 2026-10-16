@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход — Счастливый ребёнок</title>
+    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="site-enhancements.css">
+</head>
+<body class="login-page">
+<div class="login-shell">
+    <div class="login-brand">
+        <div class="login-logo"><img src="./assets/brand-logo.png" alt="Логотип Счастливый ребёнок"></div>
+        <div>
+            <div class="hero-label">ЕДИНАЯ ТЕХНИЧЕСКАЯ СИСТЕМА</div>
+            <h1>Счастливый ребёнок</h1>
+            <p>Внутренняя база изделий и технической документации предприятия.</p>
+        </div>
+    </div>
+    <section class="login-card">
+        <div class="auth-tabs login-tabs">
+            <button type="button" class="active" data-tab="login">Вход</button>
+            <button type="button" data-tab="register">Регистрация</button>
+        </div>
+        <div class="auth-mode-note" id="authNote"></div>
+        <form id="loginForm" class="auth-form"></form>
+        <div id="loginMessage" class="auth-message"></div>
+        <button class="contact-help-trigger" type="button" id="loginHelpButton">Столкнулись с проблемой?</button>
+    </section>
+    <div class="login-footer">© Счастливый ребёнок · Внутренняя информационная система</div>
+</div>
+<div id="loginHelpModal" class="contact-help-backdrop" hidden>
+  <div class="contact-help-dialog" role="dialog" aria-modal="true" aria-labelledby="loginHelpHeading">
+    <button type="button" class="contact-help-close" id="loginHelpClose" aria-label="Закрыть">×</button>
+    <h2 id="loginHelpHeading">Связаться с администратором</h2>
+    <p>Телефон: <span id="loginHelpPhone">—</span></p>
+    <p>Сайт: <span id="loginHelpWebsite">—</span></p>
+  </div>
+</div>
+<script src="site-contacts.js"></script>
+<script src="supabase-config.js"></script>
+<script type="module" src="supabase-login.js"></script>
+</body></html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><style>html{visibility:hidden}</style><script src="supabase-config.js"></script><script type="module" src="supabase-gate.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Счастливый ребёнок — Единая техническая система</title>
+    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="site-enhancements.css">
+</head>
+<body>
+<header class="header">
+    <a class="logo" href="./home.html">
+        <div class="logo-icon"><img src="./assets/brand-logo.png" alt="Логотип Счастливый ребёнок"></div>
+        <div class="logo-text">
+            <strong>СЧАСТЛИВЫЙ РЕБЁНОК</strong>
+            <span>ЕДИНАЯ ТЕХНИЧЕСКАЯ СИСТЕМА</span>
+        </div>
+    </a>
+    <div class="user"><span class="user-status"></span>Пользователь</div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-label">ТЕХНИЧЕСКАЯ БАЗА ПРЕДПРИЯТИЯ</div>
+        <h1>База изделий<br>и технической документации</h1>
+        <p>Единое пространство для хранения чертежей, деталей и производственной информации.</p>
+        <div class="search">
+            <input id="globalSearch" type="text" placeholder="Поиск изделия, детали, артикула или чертежа...">
+            <button id="searchButton">Найти</button>
+        </div>
+        <div id="searchResult" class="search-result"></div>
+    </section>
+
+    <section class="categories">
+        <div class="section-header">
+            <h2>Категории</h2>
+            <span>9 разделов</span>
+        </div>
+        <div class="category-grid">
+            <a href="./playgrounds.html" class="category category-active">
+                <div class="category-icon"></div>
+                <div><h3>Детские городки</h3><span id="playgroundsCount">0 изделий</span></div>
+            </a>
+            <div class="category"><div class="category-icon"></div><div><h3>Лавочки</h3><span>Пусто...</span></div></div>
+            <div class="category"><div class="category-icon"></div><div><h3>Урны</h3><span>Пусто...</span></div></div>
+            <div class="category"><div class="category-icon"></div><div><h3>Фасадные элементы</h3><span>Пусто...</span></div></div>
+            <a href="./parts.html?group=Горки" class="category"><div class="category-icon"></div><div><h3>Горки</h3><span>Спуски, борта, крепления</span></div></a>
+            <a href="./parts.html?group=Заглушки" class="category"><div class="category-icon"></div><div><h3>Заглушки</h3><span>Все типоразмеры</span></div></a>
+            <a href="./parts.html?group=Столбы" class="category"><div class="category-icon"></div><div><h3>Столбы</h3><span>Дерево и закладные</span></div></a>
+            <a href="./parts.html?group=Металлические%20детали" class="category"><div class="category-icon"></div><div><h3>Металлические детали</h3><span>МП и металлические элементы</span></div></a>
+            <a href="./assemblies.html" class="category"><div class="category-icon"></div><div><h3>Сборочные узлы</h3><span>Горки, площадки, комплектующие</span></div></a>
+        </div>
+    </section>
+
+    <section class="recent">
+        <div class="section-header"><h2>Последние изменения</h2><a class="site-tool-button" href="./changelog.html">История изменений →</a></div>
+        <div id="recentProducts"></div>
+    </section>
+</main>
+
+<footer>
+    <span>© Счастливый ребёнок</span>
+    <span>Внутренняя информационная система</span>
+</footer>
+<script src="products.js"></script>
+<script src="site-contacts.js"></script>
+<script src="script.js"></script>
+<script src="dxf-library.js"></script><script src="metal-index.js"></script><script src="metal-library.js"></script>
+<script src="pdf-preview.js"></script>
+</body>
+</html>

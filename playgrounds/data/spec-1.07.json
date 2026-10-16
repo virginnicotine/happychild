@@ -1,0 +1,3348 @@
+{
+  "code": "1.07",
+  "workbook": "ИКССР-1.07_2023(новые цвета).xlsx",
+  "sha256": "2094a5a9e496f2e8c9c361ddb21641c841909e68a30cf4c6763b9dbbe29132cb",
+  "sheet": "Лист1",
+  "dimensions": "6,15 х 3,89 х 3,43 м",
+  "records": [
+    {
+      "row": 7,
+      "number": "1",
+      "article": "0004ДБ",
+      "name": "Столб (брус 100х100) 1000 мм",
+      "group": "СТОЛБЫ",
+      "qty": 2,
+      "ingredients": "",
+      "color": 7024,
+      "length": 1,
+      "width": 0.1,
+      "height": 0.1,
+      "volume": 0.0081,
+      "total_volume": 0.0162,
+      "fasteners": "",
+      "m8_each": null,
+      "m8_total": null,
+      "m6_each": null,
+      "m6_total": null,
+      "images": [],
+      "formulas": {
+        "total_volume": "=L7*F7"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 8,
+      "number": "2",
+      "article": "0026ДБ",
+      "name": "Столб (брус 100х100) 2200 мм",
+      "group": "СТОЛБЫ",
+      "qty": 7,
+      "ingredients": "",
+      "color": 7024,
+      "length": 2.2,
+      "width": 0.1,
+      "height": 0.1,
+      "volume": 0.01782,
+      "total_volume": 0.12473999999999999,
+      "fasteners": "",
+      "m8_each": null,
+      "m8_total": null,
+      "m6_each": null,
+      "m6_total": null,
+      "images": [],
+      "formulas": {
+        "total_volume": "=L8*F8"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 9,
+      "number": "3",
+      "article": "0030ДБ",
+      "name": "Столб (брус 100х100) 2800 мм",
+      "group": "СТОЛБЫ",
+      "qty": 5,
+      "ingredients": "",
+      "color": 7024,
+      "length": 2.8,
+      "width": 0.1,
+      "height": 0.1,
+      "volume": 0.027999999999999997,
+      "total_volume": 0.13999999999999999,
+      "fasteners": "",
+      "m8_each": null,
+      "m8_total": null,
+      "m6_each": null,
+      "m6_total": null,
+      "images": [],
+      "formulas": {
+        "volume": "=I9*J9*K9",
+        "total_volume": "=L9*F9"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 10,
+      "number": "4",
+      "article": "0035ДБ",
+      "name": "Столб (брус 100х100) 3300 мм",
+      "group": "СТОЛБЫ",
+      "qty": 2,
+      "ingredients": "",
+      "color": 7024,
+      "length": 3.3,
+      "width": 0.1,
+      "height": 0.1,
+      "volume": 0.033,
+      "total_volume": 0.066,
+      "fasteners": "",
+      "m8_each": null,
+      "m8_total": null,
+      "m6_each": null,
+      "m6_total": null,
+      "images": [],
+      "formulas": {
+        "volume": "=I10*J10*K10",
+        "total_volume": "=L10*F10"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 11,
+      "number": "5",
+      "article": "0013МП",
+      "name": "Закладная для столба 100х100",
+      "group": "СТОЛБЫ",
+      "qty": 16,
+      "ingredients": "",
+      "color": 7024,
+      "length": 0.075,
+      "width": 0.075,
+      "height": 0.26,
+      "volume": 0.0014625,
+      "total_volume": 0.0234,
+      "fasteners": "Болт М10х120 - 2 шт.,                         Шайба м10 увел. - 4 шт.,                           Гайка М10 - 2 шт.,                            Гровер 10 - 2 шт.,",
+      "m8_each": 4,
+      "m8_total": 64,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image30.png",
+          "source_media": "xl/media/image30.emf",
+          "converted": true,
+          "row": 11,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "volume": "=I11*J11*K11",
+        "total_volume": "=L11*F11",
+        "m8_total": "=O11*F11",
+        "m6_total": "=Q11*F11"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 13,
+      "number": "6",
+      "article": "0003СБ",
+      "name": "Площадка квадратная 800х800 мм (СБ)",
+      "group": "ПЛОЩАДКИ",
+      "qty": 1,
+      "ingredients": "000017\n0002ДБ\n0003ДБ\n0193МП",
+      "color": "противоскользящая/8014",
+      "length": 0.8,
+      "width": 0.8,
+      "height": 0.08,
+      "volume": 0.05120000000000001,
+      "total_volume": 0.05120000000000001,
+      "fasteners": "Болт мебельный М8х180 - 4 шт.                                   Шайба м8 увел.- 4 шт.                                 Гайка м8 - 4 шт",
+      "m8_each": null,
+      "m8_total": 0,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image24.png",
+          "source_media": "xl/media/image24.emf",
+          "converted": true,
+          "row": 13,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "volume": "=I13*J13*K13",
+        "total_volume": "=L13*F13",
+        "m8_total": "=O13*F13",
+        "m6_total": "=Q13*F13"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 14,
+      "number": "7",
+      "article": "0043СБ",
+      "name": "Площадка 600х800",
+      "group": "ПЛОЩАДКИ",
+      "qty": 1,
+      "ingredients": "000184\n0129ДБ\n0003ДБ\n0193МП",
+      "color": "противоскользящая/8014",
+      "length": 0.8,
+      "width": 0.62,
+      "height": 0.08,
+      "volume": 0.03968,
+      "total_volume": 0.03968,
+      "fasteners": "Болт мебельный М8х180 - 4 шт.                                   Шайба м8 увел.- 4 шт.                                 Гайка м8 - 4 шт",
+      "m8_each": null,
+      "m8_total": 0,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image5.jpeg",
+          "source_media": "xl/media/image5.jpeg",
+          "converted": false,
+          "row": 14,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "volume": "=I14*J14*K14",
+        "total_volume": "=L14*F14",
+        "m8_total": "=O14*F14",
+        "m6_total": "=Q14*F14"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 15,
+      "number": "8",
+      "article": "0044СБ",
+      "name": "Площадка двойная 1500х800 (СБ)",
+      "group": "ПЛОЩАДКИ",
+      "qty": 2,
+      "ingredients": "000110\n0074ДБ\n0003ДБ\n0193МП",
+      "color": "противоскользящая/8014",
+      "length": 1.51,
+      "width": 1,
+      "height": 0.08,
+      "volume": 0.1208,
+      "total_volume": 0.2416,
+      "fasteners": "Болт мебельный М8х180 - 6 шт.                                   Шайба м8 увел.- 6 шт.                                 Гайка м8 - 6 шт",
+      "m8_each": null,
+      "m8_total": 0,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image6.jpeg",
+          "source_media": "xl/media/image6.jpeg",
+          "converted": false,
+          "row": 15,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "volume": "=I15*J15*K15",
+        "total_volume": "=L15*F15",
+        "m8_total": "=O15*F15",
+        "m6_total": "=Q15*F15"
+      },
+      "extra_cells": {},
+      "dxf_files": [
+        {
+          "file": "110.DXF",
+          "label": "DXF",
+          "href": "./downloads/dxf/110.DXF"
+        }
+      ]
+    },
+    {
+      "row": 17,
+      "number": "9",
+      "article": "000021",
+      "name": "Тетива лестницы 1200",
+      "group": "L-1200 ЛЕСТНИЦА 1200",
+      "qty": 2,
+      "ingredients": "",
+      "color": 7024,
+      "length": 1.01,
+      "width": 1.28,
+      "height": 0.021,
+      "volume": 0.004712399999999999,
+      "total_volume": 0.009424799999999999,
+      "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4шт.",
+      "m8_each": 4,
+      "m8_total": 8,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image25.jpeg",
+          "source_media": "xl/media/image25.jpeg",
+          "converted": false,
+          "row": 17,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L17*F17",
+        "m8_total": "=O17*F17",
+        "m6_total": "=Q17*F17"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 18,
+      "number": "10",
+      "article": "000023",
+      "name": "Ступенька лесенки (600х140х18)",
+      "group": "L-1200 ЛЕСТНИЦА 1200",
+      "qty": 6,
+      "ingredients": "",
+      "color": "противоскользящая",
+      "length": 0.6,
+      "width": 0.14,
+      "height": 0.018,
+      "volume": 0.0015119999999999999,
+      "total_volume": 0.009072,
+      "fasteners": "Саморез по дереву 3.5х35 - 5 шт.",
+      "m8_each": null,
+      "m8_total": 0,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image27.png",
+          "source_media": "xl/media/image27.emf",
+          "converted": true,
+          "row": 18,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "volume": "=I18*J18*K18",
+        "total_volume": "=L18*F18",
+        "m8_total": "=O18*F18",
+        "m6_total": "=Q18*F18"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 19,
+      "number": "11",
+      "article": "0006ДБ",
+      "name": "Подступенок (доска 35х90х558)",
+      "group": "L-1200 ЛЕСТНИЦА 1200",
+      "qty": 6,
+      "ingredients": "",
+      "color": 7024,
+      "length": 0.035,
+      "width": 0.09,
+      "height": 0.558,
+      "volume": 0.0017577000000000003,
+      "total_volume": 0.010546200000000002,
+      "fasteners": "Шуруп (глухарь) 8х60 - 2 шт.                         Шайба м8 увел. - 2шт.",
+      "m8_each": null,
+      "m8_total": 0,
+      "m6_each": 2,
+      "m6_total": 12,
+      "images": [],
+      "formulas": {
+        "volume": "=I19*J19*K19",
+        "total_volume": "=L19*F19",
+        "m8_total": "=O19*F19",
+        "m6_total": "=Q19*F19"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 20,
+      "number": "12",
+      "article": "000022",
+      "name": "Перила лестницы 1200",
+      "group": "L-1200 ЛЕСТНИЦА 1200",
+      "qty": 2,
+      "ingredients": "",
+      "color": 5024,
+      "length": 1.243,
+      "width": 1.04,
+      "height": 0.021,
+      "volume": 0.004712399999999999,
+      "total_volume": 0.009424799999999999,
+      "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4шт.",
+      "m8_each": 4,
+      "m8_total": 8,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image26.png",
+          "source_media": "xl/media/image26.emf",
+          "converted": true,
+          "row": 20,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L20*F20",
+        "m8_total": "=O20*F20",
+        "m6_total": "=Q20*F20"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 21,
+      "number": "13",
+      "article": "000022",
+      "name": "Перила лестницы 1200",
+      "group": "L-1200 ЛЕСТНИЦА 1200",
+      "qty": 2,
+      "ingredients": "",
+      "color": 1037,
+      "length": 1.243,
+      "width": 1.04,
+      "height": 0.021,
+      "volume": 0.004712399999999999,
+      "total_volume": 0.009424799999999999,
+      "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4шт.",
+      "m8_each": 4,
+      "m8_total": 8,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image26.png",
+          "source_media": "xl/media/image26.emf",
+          "converted": true,
+          "row": 21,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L21*F21",
+        "m8_total": "=O21*F21",
+        "m6_total": "=Q21*F21"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 22,
+      "number": "14",
+      "article": "000186",
+      "name": "Пенель ступени ф.18х300х800",
+      "group": "L-1200 ЛЕСТНИЦА 1200",
+      "qty": 2,
+      "ingredients": "",
+      "color": "противоскользящая",
+      "length": 0.8,
+      "width": 0.3,
+      "height": 0.018,
+      "volume": 0.004319999999999999,
+      "total_volume": 0.008639999999999998,
+      "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4шт.",
+      "m8_each": 4,
+      "m8_total": 8,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image28.png",
+          "source_media": "xl/media/image28.emf",
+          "converted": true,
+          "row": 22,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L22*F22",
+        "m8_total": "=O22*F22",
+        "m6_total": "=Q22*F22"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 24,
+      "number": "15",
+      "article": "000161",
+      "name": "Панель Окно верхнее (994х1210х21 мм)",
+      "group": "ПАНЕЛИ",
+      "qty": 2,
+      "ingredients": "",
+      "color": 1037,
+      "length": 0.994,
+      "width": 1.21,
+      "height": 0.021,
+      "volume": 0.018041099999999997,
+      "total_volume": 0.036082199999999995,
+      "fasteners": "Шуруп (глухарь) 8х80 - 5 шт.                         Шайба м8 увел. - 5 шт.",
+      "m8_each": 5,
+      "m8_total": 10,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image7.jpeg",
+          "source_media": "xl/media/image7.jpeg",
+          "converted": false,
+          "row": 24,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L24*F24",
+        "m8_total": "=O24*F24",
+        "m6_total": "=Q24*F24"
+      },
+      "extra_cells": {},
+      "dxf_files": [
+        {
+          "file": "161-л.DXF",
+          "label": "Левый",
+          "href": "./downloads/dxf/161-л.DXF"
+        },
+        {
+          "file": "161-п.DXF",
+          "label": "Правый",
+          "href": "./downloads/dxf/161-п.DXF"
+        }
+      ]
+    },
+    {
+      "row": 25,
+      "number": "16",
+      "article": "000157",
+      "name": "Накладка Рама окна (755х537х15 мм)",
+      "group": "ПАНЕЛИ",
+      "qty": 2,
+      "ingredients": "",
+      "color": 5024,
+      "length": 0.755,
+      "width": 0.537,
+      "height": 0.015,
+      "volume": 0.018041099999999997,
+      "total_volume": 0.036082199999999995,
+      "fasteners": "Болт мебельный М6х55 - 4 шт.                               Шайба м8 увел. - 4 шт.                    Гайка м6 - 4 шт",
+      "m8_each": null,
+      "m8_total": 0,
+      "m6_each": 4,
+      "m6_total": 8,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image8.png",
+          "source_media": "xl/media/image8.png",
+          "converted": false,
+          "row": 25,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L25*F25",
+        "m8_total": "=O25*F25",
+        "m6_total": "=Q25*F25"
+      },
+      "extra_cells": {},
+      "dxf_files": [
+        {
+          "file": "157.DXF",
+          "label": "DXF",
+          "href": "./downloads/dxf/157.DXF"
+        }
+      ]
+    },
+    {
+      "row": 26,
+      "number": "17",
+      "article": "",
+      "name": "Накладка на крышу (вырез из рамы окна)",
+      "group": "ПАНЕЛИ",
+      "qty": 2,
+      "ingredients": "",
+      "color": 7024,
+      "length": null,
+      "width": null,
+      "height": null,
+      "volume": 0.018041099999999997,
+      "total_volume": 0.036082199999999995,
+      "fasteners": "Болт мебельный М6х55 - 4 шт.                               Шайба м8 увел. - 4 шт.                    Гайка м6 - 4 шт",
+      "m8_each": null,
+      "m8_total": 0,
+      "m6_each": 4,
+      "m6_total": 8,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image9.png",
+          "source_media": "xl/media/image9.png",
+          "converted": false,
+          "row": 26,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L26*F26",
+        "m8_total": "=O26*F26",
+        "m6_total": "=Q26*F26"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 27,
+      "number": "18",
+      "article": "000164",
+      "name": "Панель нижняя (800х650х21 мм)",
+      "group": "ПАНЕЛИ",
+      "qty": 2,
+      "ingredients": "",
+      "color": 1037,
+      "length": 0.8,
+      "width": 0.65,
+      "height": 0.021,
+      "volume": 0.018041099999999997,
+      "total_volume": 0.036082199999999995,
+      "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4 шт.",
+      "m8_each": 4,
+      "m8_total": 8,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image10.png",
+          "source_media": "xl/media/image10.png",
+          "converted": false,
+          "row": 27,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L27*F27",
+        "m8_total": "=O27*F27",
+        "m6_total": "=Q27*F27"
+      },
+      "extra_cells": {},
+      "dxf_files": [
+        {
+          "file": "164.DXF",
+          "label": "Основной",
+          "href": "./downloads/dxf/164.DXF"
+        },
+        {
+          "file": "164-л.DXF",
+          "label": "Левый / зеркальный",
+          "href": "./downloads/dxf/164-л.DXF"
+        }
+      ]
+    },
+    {
+      "row": 28,
+      "number": "19",
+      "article": "000162",
+      "name": "Панель с вырезом для сидушки (800х748х21 мм)",
+      "group": "ПАНЕЛИ",
+      "qty": 1,
+      "ingredients": "",
+      "color": 1037,
+      "length": 0.8,
+      "width": 0.748,
+      "height": 0.021,
+      "volume": 0.018041099999999997,
+      "total_volume": 0.018041099999999997,
+      "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4 шт.",
+      "m8_each": 4,
+      "m8_total": 4,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image11.png",
+          "source_media": "xl/media/image11.png",
+          "converted": false,
+          "row": 28,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L28*F28",
+        "m8_total": "=O28*F28",
+        "m6_total": "=Q28*F28"
+      },
+      "extra_cells": {},
+      "dxf_files": [
+        {
+          "file": "162.DXF",
+          "label": "DXF",
+          "href": "./downloads/dxf/162.DXF"
+        }
+      ]
+    },
+    {
+      "row": 29,
+      "number": "20",
+      "article": "000163",
+      "name": "Боковина крыши двойного домика (822х770х21 мм)",
+      "group": "ПАНЕЛИ",
+      "qty": 2,
+      "ingredients": "",
+      "color": 1037,
+      "length": 0.82,
+      "width": 0.77,
+      "height": 0.021,
+      "volume": 0.018041099999999997,
+      "total_volume": 0.036082199999999995,
+      "fasteners": "Шуруп (глухарь) 8х80 - 2 шт.                         Шайба м8 увел. - 1 шт.",
+      "m8_each": 2,
+      "m8_total": 4,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image12.jpeg",
+          "source_media": "xl/media/image12.jpeg",
+          "converted": false,
+          "row": 29,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L29*F29",
+        "m8_total": "=O29*F29",
+        "m6_total": "=Q29*F29"
+      },
+      "extra_cells": {},
+      "dxf_files": [
+        {
+          "file": "163.DXF",
+          "label": "Основной",
+          "href": "./downloads/dxf/163.DXF"
+        },
+        {
+          "file": "163-п.DXF",
+          "label": "Зеркальный",
+          "href": "./downloads/dxf/163-п.DXF"
+        }
+      ]
+    },
+    {
+      "row": 30,
+      "number": "21",
+      "article": "000158",
+      "name": "Крыша наклонная №1 (1150х1000х15 мм)",
+      "group": "ПАНЕЛИ",
+      "qty": 1,
+      "ingredients": "",
+      "color": 5024,
+      "length": 1.15,
+      "width": 1,
+      "height": 0.015,
+      "volume": 0.018041099999999997,
+      "total_volume": 0.018041099999999997,
+      "fasteners": "",
+      "m8_each": null,
+      "m8_total": 0,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image13.jpeg",
+          "source_media": "xl/media/image13.jpeg",
+          "converted": false,
+          "row": 30,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L30*F30",
+        "m8_total": "=O30*F30",
+        "m6_total": "=Q30*F30"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 31,
+      "number": "22",
+      "article": "000159",
+      "name": "Крыша наклонная №2 (1200х1000х15 мм)",
+      "group": "ПАНЕЛИ",
+      "qty": 1,
+      "ingredients": "",
+      "color": 5024,
+      "length": 1.2,
+      "width": 1,
+      "height": 0.015,
+      "volume": 0.018041099999999997,
+      "total_volume": 0.018041099999999997,
+      "fasteners": "",
+      "m8_each": null,
+      "m8_total": 0,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image14.jpeg",
+          "source_media": "xl/media/image14.jpeg",
+          "converted": false,
+          "row": 31,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L31*F31",
+        "m8_total": "=O31*F31",
+        "m6_total": "=Q31*F31"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 32,
+      "number": "23",
+      "article": "000190",
+      "name": "Панель Окошко простое (800х797х21 мм)",
+      "group": "ПАНЕЛИ",
+      "qty": 2,
+      "ingredients": "",
+      "color": 5024,
+      "length": 0.8,
+      "width": 0.797,
+      "height": 0.021,
+      "volume": 0.018041099999999997,
+      "total_volume": 0.036082199999999995,
+      "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4 шт.",
+      "m8_each": 4,
+      "m8_total": 8,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image15.jpeg",
+          "source_media": "xl/media/image15.jpeg",
+          "converted": false,
+          "row": 32,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L32*F32",
+        "m8_total": "=O32*F32",
+        "m6_total": "=Q32*F32"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 33,
+      "number": "24",
+      "article": "000160",
+      "name": "Панель Спираль (800х748х21 мм)",
+      "group": "ПАНЕЛИ",
+      "qty": 1,
+      "ingredients": "",
+      "color": 5024,
+      "length": 0.8,
+      "width": 0.748,
+      "height": 0.021,
+      "volume": 0.008976,
+      "total_volume": 0.008976,
+      "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4 шт.",
+      "m8_each": 4,
+      "m8_total": 4,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image35.png",
+          "source_media": "xl/media/image35.png",
+          "converted": false,
+          "row": 33,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L33*F33",
+        "m8_total": "=O33*F33",
+        "m6_total": "=Q33*F33"
+      },
+      "extra_cells": {},
+      "dxf_files": [
+        {
+          "file": "160.DXF",
+          "label": "DXF",
+          "href": "./downloads/dxf/160.DXF"
+        }
+      ]
+    },
+    {
+      "row": 34,
+      "number": "25",
+      "article": "000187",
+      "name": "Панель кривой заборчик (800х950х21 мм)",
+      "group": "ПАНЕЛИ",
+      "qty": 1,
+      "ingredients": "",
+      "color": 1037,
+      "length": 0.8,
+      "width": 0.95,
+      "height": 0.021,
+      "volume": 0.018041099999999997,
+      "total_volume": 0.018041099999999997,
+      "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4 шт.",
+      "m8_each": 4,
+      "m8_total": 4,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image23.jpeg",
+          "source_media": "xl/media/image23.jpeg",
+          "converted": false,
+          "row": 34,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L34*F34",
+        "m8_total": "=O34*F34",
+        "m6_total": "=Q34*F34"
+      },
+      "extra_cells": {},
+      "dxf_files": [
+        {
+          "file": "187.DXF",
+          "label": "DXF",
+          "href": "./downloads/dxf/187.DXF"
+        }
+      ]
+    },
+    {
+      "row": 35,
+      "number": "26",
+      "article": "000191",
+      "name": "Накладка на Панель Окошко простое (404х408х15 мм)",
+      "group": "ПАНЕЛИ",
+      "qty": 2,
+      "ingredients": "",
+      "color": 1037,
+      "length": 0.404,
+      "width": 0.408,
+      "height": 0.015,
+      "volume": 0.018041099999999997,
+      "total_volume": 0.036082199999999995,
+      "fasteners": "Болт мебельный М6х55 - 4 шт.                               Шайба м8 увел. - 4 шт.                    Гайка м6 - 4 шт",
+      "m8_each": null,
+      "m8_total": 0,
+      "m6_each": 4,
+      "m6_total": 8,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image16.jpeg",
+          "source_media": "xl/media/image16.jpeg",
+          "converted": false,
+          "row": 35,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L35*F35",
+        "m8_total": "=O35*F35",
+        "m6_total": "=Q35*F35"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 36,
+      "number": "27",
+      "article": "000192",
+      "name": "Элемент дерево (290х600х15 мм)",
+      "group": "ПАНЕЛИ",
+      "qty": 4,
+      "ingredients": "",
+      "color": 1037,
+      "length": 0.29,
+      "width": 0.6,
+      "height": 0.015,
+      "volume": 0.018041099999999997,
+      "total_volume": 0.07216439999999999,
+      "fasteners": "Шуруп (глухарь) 8х80 - 2 шт.                         Шайба м8 увел. - 1 шт.",
+      "m8_each": 2,
+      "m8_total": 8,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image17.jpeg",
+          "source_media": "xl/media/image17.jpeg",
+          "converted": false,
+          "row": 36,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L36*F36",
+        "m8_total": "=O36*F36",
+        "m6_total": "=Q36*F36"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 37,
+      "number": "28",
+      "article": "000165",
+      "name": "Сидушка с пазом (620х268х21 мм)",
+      "group": "ПАНЕЛИ",
+      "qty": 1,
+      "ingredients": "",
+      "color": 1037,
+      "length": 0.62,
+      "width": 0.268,
+      "height": 0.021,
+      "volume": 0.018041099999999997,
+      "total_volume": 0.018041099999999997,
+      "fasteners": "",
+      "m8_each": null,
+      "m8_total": 0,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image18.png",
+          "source_media": "xl/media/image18.png",
+          "converted": false,
+          "row": 37,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L37*F37",
+        "m8_total": "=O37*F37",
+        "m6_total": "=Q37*F37"
+      },
+      "extra_cells": {},
+      "dxf_files": [
+        {
+          "file": "165.DXF",
+          "label": "DXF",
+          "href": "./downloads/dxf/165.DXF"
+        }
+      ]
+    },
+    {
+      "row": 38,
+      "number": "29",
+      "article": "000039",
+      "name": "Подпорка сидушки (335х200х21 мм)",
+      "group": "ПАНЕЛИ",
+      "qty": 1,
+      "ingredients": "",
+      "color": 7024,
+      "length": 0.335,
+      "width": 0.2,
+      "height": 0.021,
+      "volume": 0.018041099999999997,
+      "total_volume": 0.018041099999999997,
+      "fasteners": "",
+      "m8_each": null,
+      "m8_total": 0,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image21.jpeg",
+          "source_media": "xl/media/image21.jpeg",
+          "converted": false,
+          "row": 38,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L38*F38",
+        "m8_total": "=O38*F38",
+        "m6_total": "=Q38*F38"
+      },
+      "extra_cells": {},
+      "dxf_files": [
+        {
+          "file": "39.DXF",
+          "label": "DXF",
+          "href": "./downloads/dxf/39.DXF"
+        }
+      ]
+    },
+    {
+      "row": 39,
+      "number": "30",
+      "article": "М-2.07.01",
+      "name": "Уголок крепления фанеры",
+      "group": "ПАНЕЛИ",
+      "qty": 14,
+      "ingredients": "",
+      "color": 7024,
+      "length": null,
+      "width": null,
+      "height": null,
+      "volume": 0.018041099999999997,
+      "total_volume": 0.25257539999999995,
+      "fasteners": "Болт мебельный М6х35 - 2 шт.                               Шайба м8 увел. - 2 шт.                    Гайка м6 - 2 шт",
+      "m8_each": null,
+      "m8_total": 0,
+      "m6_each": 2,
+      "m6_total": 28,
+      "images": [],
+      "formulas": {
+        "total_volume": "=L39*F39",
+        "m8_total": "=O39*F39",
+        "m6_total": "=Q39*F39"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 41,
+      "number": "31",
+      "article": "0020МП",
+      "name": "Перекладина 600",
+      "group": "МЕТАЛЛ",
+      "qty": 7,
+      "ingredients": "",
+      "color": 7024,
+      "length": 0.616,
+      "width": 0.04,
+      "height": 0.1,
+      "volume": 0.002464,
+      "total_volume": 0.017248,
+      "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4 шт.",
+      "m8_each": 4,
+      "m8_total": 28,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image1.jpeg",
+          "source_media": "xl/media/image1.jpeg",
+          "converted": false,
+          "row": 41,
+          "column": 7
+        },
+        {
+          "path": "playgrounds/1.07/source-excel/image2.png",
+          "source_media": "xl/media/image2.png",
+          "converted": false,
+          "row": 41,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "volume": "=I41*J41*K41",
+        "total_volume": "=L41*F41",
+        "m8_total": "=O41*F41",
+        "m6_total": "=Q41*F41"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 42,
+      "number": "32",
+      "article": "0023МП",
+      "name": "Портал 600х700 H=1100",
+      "group": "МЕТАЛЛ",
+      "qty": 1,
+      "ingredients": "",
+      "color": 7024,
+      "length": 0.6,
+      "width": 0.73,
+      "height": 1.1,
+      "volume": 0.48180000000000006,
+      "total_volume": 0.48180000000000006,
+      "fasteners": "Шуруп (глухарь) 8х80 - 8 шт.                         Шайба м8 увел. - 8 шт.",
+      "m8_each": 8,
+      "m8_total": 8,
+      "m6_each": 8,
+      "m6_total": 8,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image29.png",
+          "source_media": "xl/media/image29.png",
+          "converted": false,
+          "row": 42,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L42*F42",
+        "m8_total": "=O42*F42",
+        "m6_total": "=Q42*F42"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 43,
+      "number": "33",
+      "article": "0024МП",
+      "name": "Ограждение 600х628",
+      "group": "МЕТАЛЛ",
+      "qty": 1,
+      "ingredients": "",
+      "color": 7024,
+      "length": 0.62,
+      "width": 0.16,
+      "height": 0.72,
+      "volume": 0.071,
+      "total_volume": 0.071,
+      "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4 шт.",
+      "m8_each": 4,
+      "m8_total": 4,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image19.jpeg",
+          "source_media": "xl/media/image19.jpeg",
+          "converted": false,
+          "row": 43,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L43*F43",
+        "m8_total": "=O43*F43",
+        "m6_total": "=Q43*F43"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 44,
+      "number": "34",
+      "article": "0021МП",
+      "name": "Ручка 450",
+      "group": "МЕТАЛЛ",
+      "qty": 4,
+      "ingredients": "",
+      "color": 7024,
+      "length": 0.52,
+      "width": 0.12,
+      "height": 0.04,
+      "volume": 0.002496,
+      "total_volume": 0.009984,
+      "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4 шт.",
+      "m8_each": 4,
+      "m8_total": 16,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image32.png",
+          "source_media": "xl/media/image32.png",
+          "converted": false,
+          "row": 44,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L44*F44",
+        "m8_total": "=O44*F44",
+        "m6_total": "=Q44*F44"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 45,
+      "number": "35",
+      "article": "0040МП",
+      "name": "Рукоход прямой",
+      "group": "МЕТАЛЛ",
+      "qty": 1,
+      "ingredients": "",
+      "color": 7024,
+      "length": 2.04,
+      "width": 0.75,
+      "height": 0.1,
+      "volume": 0.15300000000000002,
+      "total_volume": 0.15300000000000002,
+      "fasteners": "Шуруп (глухарь) 8х80 - 8 шт.                         Шайба м8 увел. - 8 шт.",
+      "m8_each": 8,
+      "m8_total": 8,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image34.jpeg",
+          "source_media": "xl/media/image34.jpeg",
+          "converted": false,
+          "row": 45,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "volume": "=I45*J45*K45",
+        "total_volume": "=L45*F45",
+        "m8_total": "=O45*F45",
+        "m6_total": "=Q45*F45"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 47,
+      "number": "36",
+      "article": "0006СБ",
+      "name": "Горка 600х1700 H=900",
+      "group": "G-900 Горка 600х1700 H=900",
+      "qty": 1,
+      "ingredients": "000026\n000027\n000028\n000016\n0006МП\n0007МП\n0008МП\n0016МП",
+      "color": 7024,
+      "length": null,
+      "width": 1.7,
+      "height": 1.9,
+      "volume": 0,
+      "total_volume": 0,
+      "fasteners": "Шуруп (глухарь) 8х80 - 1 шт.                        Болт мебельный М6х45 - 1 шт.                               Шайба м8 увел. - 2 шт.                    Гайка м6 - 1 шт",
+      "m8_each": 1,
+      "m8_total": 1,
+      "m6_each": 1,
+      "m6_total": 1,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image33.jpeg",
+          "source_media": "xl/media/image33.jpeg",
+          "converted": false,
+          "row": 47,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "volume": "=I47*J47*K47",
+        "total_volume": "=L47*F47",
+        "m8_total": "=O47*F47",
+        "m6_each": "=P47*F47",
+        "m6_total": "=Q47*F47"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 49,
+      "number": "37",
+      "article": "11.006.000",
+      "name": "Горка спиральная H=1500",
+      "group": "ПЛАСТИК",
+      "qty": 1,
+      "ingredients": "",
+      "color": "желтый",
+      "length": 2,
+      "width": 1.5,
+      "height": 1.5,
+      "volume": 4.5,
+      "total_volume": 4.5,
+      "fasteners": "",
+      "m8_each": 3,
+      "m8_total": 3,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image20.png",
+          "source_media": "xl/media/image20.png",
+          "converted": false,
+          "row": 49,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L49*F49",
+        "m8_total": "=O49*F49",
+        "m6_total": "=Q49*F49"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 50,
+      "number": "38",
+      "article": "00.001.000",
+      "name": "Заглушка К4М6КС",
+      "group": "ПЛАСТИК",
+      "qty": 73,
+      "ingredients": "",
+      "color": "Черный",
+      "length": 0.027,
+      "width": 0.027,
+      "height": 0.016,
+      "volume": 1.1663999999999999e-05,
+      "total_volume": 0.0008514719999999999,
+      "fasteners": "",
+      "m8_each": null,
+      "m8_total": 0,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image4.png",
+          "source_media": "xl/media/image4.png",
+          "converted": false,
+          "row": 50,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L50*F50",
+        "m8_total": "=O50*F50",
+        "m6_total": "=Q50*F50"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 51,
+      "number": "39",
+      "article": "00.002.000",
+      "name": "Заглушка К4М8КС",
+      "group": "ПЛАСТИК",
+      "qty": 210,
+      "ingredients": "",
+      "color": "Черный",
+      "length": 0.036,
+      "width": 0.036,
+      "height": 0.023,
+      "volume": 2.9807999999999996e-05,
+      "total_volume": 0.006259679999999999,
+      "fasteners": "",
+      "m8_each": null,
+      "m8_total": 0,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image4.png",
+          "source_media": "xl/media/image4.png",
+          "converted": false,
+          "row": 51,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L51*F51",
+        "m8_total": "=O51*F51",
+        "m6_total": "=Q51*F51"
+      },
+      "extra_cells": {}
+    },
+    {
+      "row": 52,
+      "number": "40",
+      "article": "00.003.000",
+      "name": "Заглушка 100-100.11КК",
+      "group": "ПЛАСТИК",
+      "qty": 10,
+      "ingredients": "",
+      "color": "Черный",
+      "length": 0.09,
+      "width": 0.09,
+      "height": 0.044,
+      "volume": 0.00035639999999999994,
+      "total_volume": 0.0035639999999999995,
+      "fasteners": "",
+      "m8_each": null,
+      "m8_total": 0,
+      "m6_each": null,
+      "m6_total": 0,
+      "images": [
+        {
+          "path": "playgrounds/1.07/source-excel/image3.jpeg",
+          "source_media": "xl/media/image3.jpeg",
+          "converted": false,
+          "row": 52,
+          "column": 7
+        }
+      ],
+      "formulas": {
+        "total_volume": "=L52*F52",
+        "m8_total": "=O52*F52",
+        "m6_total": "=Q52*F52"
+      },
+      "extra_cells": {}
+    }
+  ],
+  "groups": [
+    {
+      "title": "СТОЛБЫ",
+      "row": 6,
+      "records": [
+        {
+          "row": 7,
+          "number": "1",
+          "article": "0004ДБ",
+          "name": "Столб (брус 100х100) 1000 мм",
+          "group": "СТОЛБЫ",
+          "qty": 2,
+          "ingredients": "",
+          "color": 7024,
+          "length": 1,
+          "width": 0.1,
+          "height": 0.1,
+          "volume": 0.0081,
+          "total_volume": 0.0162,
+          "fasteners": "",
+          "m8_each": null,
+          "m8_total": null,
+          "m6_each": null,
+          "m6_total": null,
+          "images": [],
+          "formulas": {
+            "total_volume": "=L7*F7"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 8,
+          "number": "2",
+          "article": "0026ДБ",
+          "name": "Столб (брус 100х100) 2200 мм",
+          "group": "СТОЛБЫ",
+          "qty": 7,
+          "ingredients": "",
+          "color": 7024,
+          "length": 2.2,
+          "width": 0.1,
+          "height": 0.1,
+          "volume": 0.01782,
+          "total_volume": 0.12473999999999999,
+          "fasteners": "",
+          "m8_each": null,
+          "m8_total": null,
+          "m6_each": null,
+          "m6_total": null,
+          "images": [],
+          "formulas": {
+            "total_volume": "=L8*F8"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 9,
+          "number": "3",
+          "article": "0030ДБ",
+          "name": "Столб (брус 100х100) 2800 мм",
+          "group": "СТОЛБЫ",
+          "qty": 5,
+          "ingredients": "",
+          "color": 7024,
+          "length": 2.8,
+          "width": 0.1,
+          "height": 0.1,
+          "volume": 0.027999999999999997,
+          "total_volume": 0.13999999999999999,
+          "fasteners": "",
+          "m8_each": null,
+          "m8_total": null,
+          "m6_each": null,
+          "m6_total": null,
+          "images": [],
+          "formulas": {
+            "volume": "=I9*J9*K9",
+            "total_volume": "=L9*F9"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 10,
+          "number": "4",
+          "article": "0035ДБ",
+          "name": "Столб (брус 100х100) 3300 мм",
+          "group": "СТОЛБЫ",
+          "qty": 2,
+          "ingredients": "",
+          "color": 7024,
+          "length": 3.3,
+          "width": 0.1,
+          "height": 0.1,
+          "volume": 0.033,
+          "total_volume": 0.066,
+          "fasteners": "",
+          "m8_each": null,
+          "m8_total": null,
+          "m6_each": null,
+          "m6_total": null,
+          "images": [],
+          "formulas": {
+            "volume": "=I10*J10*K10",
+            "total_volume": "=L10*F10"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 11,
+          "number": "5",
+          "article": "0013МП",
+          "name": "Закладная для столба 100х100",
+          "group": "СТОЛБЫ",
+          "qty": 16,
+          "ingredients": "",
+          "color": 7024,
+          "length": 0.075,
+          "width": 0.075,
+          "height": 0.26,
+          "volume": 0.0014625,
+          "total_volume": 0.0234,
+          "fasteners": "Болт М10х120 - 2 шт.,                         Шайба м10 увел. - 4 шт.,                           Гайка М10 - 2 шт.,                            Гровер 10 - 2 шт.,",
+          "m8_each": 4,
+          "m8_total": 64,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image30.png",
+              "source_media": "xl/media/image30.emf",
+              "converted": true,
+              "row": 11,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "volume": "=I11*J11*K11",
+            "total_volume": "=L11*F11",
+            "m8_total": "=O11*F11",
+            "m6_total": "=Q11*F11"
+          },
+          "extra_cells": {}
+        }
+      ]
+    },
+    {
+      "title": "ПЛОЩАДКИ",
+      "row": 12,
+      "records": [
+        {
+          "row": 13,
+          "number": "6",
+          "article": "0003СБ",
+          "name": "Площадка квадратная 800х800 мм (СБ)",
+          "group": "ПЛОЩАДКИ",
+          "qty": 1,
+          "ingredients": "000017\n0002ДБ\n0003ДБ\n0193МП",
+          "color": "противоскользящая/8014",
+          "length": 0.8,
+          "width": 0.8,
+          "height": 0.08,
+          "volume": 0.05120000000000001,
+          "total_volume": 0.05120000000000001,
+          "fasteners": "Болт мебельный М8х180 - 4 шт.                                   Шайба м8 увел.- 4 шт.                                 Гайка м8 - 4 шт",
+          "m8_each": null,
+          "m8_total": 0,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image24.png",
+              "source_media": "xl/media/image24.emf",
+              "converted": true,
+              "row": 13,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "volume": "=I13*J13*K13",
+            "total_volume": "=L13*F13",
+            "m8_total": "=O13*F13",
+            "m6_total": "=Q13*F13"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 14,
+          "number": "7",
+          "article": "0043СБ",
+          "name": "Площадка 600х800",
+          "group": "ПЛОЩАДКИ",
+          "qty": 1,
+          "ingredients": "000184\n0129ДБ\n0003ДБ\n0193МП",
+          "color": "противоскользящая/8014",
+          "length": 0.8,
+          "width": 0.62,
+          "height": 0.08,
+          "volume": 0.03968,
+          "total_volume": 0.03968,
+          "fasteners": "Болт мебельный М8х180 - 4 шт.                                   Шайба м8 увел.- 4 шт.                                 Гайка м8 - 4 шт",
+          "m8_each": null,
+          "m8_total": 0,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image5.jpeg",
+              "source_media": "xl/media/image5.jpeg",
+              "converted": false,
+              "row": 14,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "volume": "=I14*J14*K14",
+            "total_volume": "=L14*F14",
+            "m8_total": "=O14*F14",
+            "m6_total": "=Q14*F14"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 15,
+          "number": "8",
+          "article": "0044СБ",
+          "name": "Площадка двойная 1500х800 (СБ)",
+          "group": "ПЛОЩАДКИ",
+          "qty": 2,
+          "ingredients": "000110\n0074ДБ\n0003ДБ\n0193МП",
+          "color": "противоскользящая/8014",
+          "length": 1.51,
+          "width": 1,
+          "height": 0.08,
+          "volume": 0.1208,
+          "total_volume": 0.2416,
+          "fasteners": "Болт мебельный М8х180 - 6 шт.                                   Шайба м8 увел.- 6 шт.                                 Гайка м8 - 6 шт",
+          "m8_each": null,
+          "m8_total": 0,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image6.jpeg",
+              "source_media": "xl/media/image6.jpeg",
+              "converted": false,
+              "row": 15,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "volume": "=I15*J15*K15",
+            "total_volume": "=L15*F15",
+            "m8_total": "=O15*F15",
+            "m6_total": "=Q15*F15"
+          },
+          "extra_cells": {},
+          "dxf_files": [
+            {
+              "file": "110.DXF",
+              "label": "DXF",
+              "href": "./downloads/dxf/110.DXF"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "L-1200 ЛЕСТНИЦА 1200",
+      "row": 16,
+      "records": [
+        {
+          "row": 17,
+          "number": "9",
+          "article": "000021",
+          "name": "Тетива лестницы 1200",
+          "group": "L-1200 ЛЕСТНИЦА 1200",
+          "qty": 2,
+          "ingredients": "",
+          "color": 7024,
+          "length": 1.01,
+          "width": 1.28,
+          "height": 0.021,
+          "volume": 0.004712399999999999,
+          "total_volume": 0.009424799999999999,
+          "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4шт.",
+          "m8_each": 4,
+          "m8_total": 8,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image25.jpeg",
+              "source_media": "xl/media/image25.jpeg",
+              "converted": false,
+              "row": 17,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L17*F17",
+            "m8_total": "=O17*F17",
+            "m6_total": "=Q17*F17"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 18,
+          "number": "10",
+          "article": "000023",
+          "name": "Ступенька лесенки (600х140х18)",
+          "group": "L-1200 ЛЕСТНИЦА 1200",
+          "qty": 6,
+          "ingredients": "",
+          "color": "противоскользящая",
+          "length": 0.6,
+          "width": 0.14,
+          "height": 0.018,
+          "volume": 0.0015119999999999999,
+          "total_volume": 0.009072,
+          "fasteners": "Саморез по дереву 3.5х35 - 5 шт.",
+          "m8_each": null,
+          "m8_total": 0,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image27.png",
+              "source_media": "xl/media/image27.emf",
+              "converted": true,
+              "row": 18,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "volume": "=I18*J18*K18",
+            "total_volume": "=L18*F18",
+            "m8_total": "=O18*F18",
+            "m6_total": "=Q18*F18"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 19,
+          "number": "11",
+          "article": "0006ДБ",
+          "name": "Подступенок (доска 35х90х558)",
+          "group": "L-1200 ЛЕСТНИЦА 1200",
+          "qty": 6,
+          "ingredients": "",
+          "color": 7024,
+          "length": 0.035,
+          "width": 0.09,
+          "height": 0.558,
+          "volume": 0.0017577000000000003,
+          "total_volume": 0.010546200000000002,
+          "fasteners": "Шуруп (глухарь) 8х60 - 2 шт.                         Шайба м8 увел. - 2шт.",
+          "m8_each": null,
+          "m8_total": 0,
+          "m6_each": 2,
+          "m6_total": 12,
+          "images": [],
+          "formulas": {
+            "volume": "=I19*J19*K19",
+            "total_volume": "=L19*F19",
+            "m8_total": "=O19*F19",
+            "m6_total": "=Q19*F19"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 20,
+          "number": "12",
+          "article": "000022",
+          "name": "Перила лестницы 1200",
+          "group": "L-1200 ЛЕСТНИЦА 1200",
+          "qty": 2,
+          "ingredients": "",
+          "color": 5024,
+          "length": 1.243,
+          "width": 1.04,
+          "height": 0.021,
+          "volume": 0.004712399999999999,
+          "total_volume": 0.009424799999999999,
+          "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4шт.",
+          "m8_each": 4,
+          "m8_total": 8,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image26.png",
+              "source_media": "xl/media/image26.emf",
+              "converted": true,
+              "row": 20,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L20*F20",
+            "m8_total": "=O20*F20",
+            "m6_total": "=Q20*F20"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 21,
+          "number": "13",
+          "article": "000022",
+          "name": "Перила лестницы 1200",
+          "group": "L-1200 ЛЕСТНИЦА 1200",
+          "qty": 2,
+          "ingredients": "",
+          "color": 1037,
+          "length": 1.243,
+          "width": 1.04,
+          "height": 0.021,
+          "volume": 0.004712399999999999,
+          "total_volume": 0.009424799999999999,
+          "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4шт.",
+          "m8_each": 4,
+          "m8_total": 8,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image26.png",
+              "source_media": "xl/media/image26.emf",
+              "converted": true,
+              "row": 21,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L21*F21",
+            "m8_total": "=O21*F21",
+            "m6_total": "=Q21*F21"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 22,
+          "number": "14",
+          "article": "000186",
+          "name": "Пенель ступени ф.18х300х800",
+          "group": "L-1200 ЛЕСТНИЦА 1200",
+          "qty": 2,
+          "ingredients": "",
+          "color": "противоскользящая",
+          "length": 0.8,
+          "width": 0.3,
+          "height": 0.018,
+          "volume": 0.004319999999999999,
+          "total_volume": 0.008639999999999998,
+          "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4шт.",
+          "m8_each": 4,
+          "m8_total": 8,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image28.png",
+              "source_media": "xl/media/image28.emf",
+              "converted": true,
+              "row": 22,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L22*F22",
+            "m8_total": "=O22*F22",
+            "m6_total": "=Q22*F22"
+          },
+          "extra_cells": {}
+        }
+      ]
+    },
+    {
+      "title": "ПАНЕЛИ",
+      "row": 23,
+      "records": [
+        {
+          "row": 24,
+          "number": "15",
+          "article": "000161",
+          "name": "Панель Окно верхнее (994х1210х21 мм)",
+          "group": "ПАНЕЛИ",
+          "qty": 2,
+          "ingredients": "",
+          "color": 1037,
+          "length": 0.994,
+          "width": 1.21,
+          "height": 0.021,
+          "volume": 0.018041099999999997,
+          "total_volume": 0.036082199999999995,
+          "fasteners": "Шуруп (глухарь) 8х80 - 5 шт.                         Шайба м8 увел. - 5 шт.",
+          "m8_each": 5,
+          "m8_total": 10,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image7.jpeg",
+              "source_media": "xl/media/image7.jpeg",
+              "converted": false,
+              "row": 24,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L24*F24",
+            "m8_total": "=O24*F24",
+            "m6_total": "=Q24*F24"
+          },
+          "extra_cells": {},
+          "dxf_files": [
+            {
+              "file": "161-л.DXF",
+              "label": "Левый",
+              "href": "./downloads/dxf/161-л.DXF"
+            },
+            {
+              "file": "161-п.DXF",
+              "label": "Правый",
+              "href": "./downloads/dxf/161-п.DXF"
+            }
+          ]
+        },
+        {
+          "row": 25,
+          "number": "16",
+          "article": "000157",
+          "name": "Накладка Рама окна (755х537х15 мм)",
+          "group": "ПАНЕЛИ",
+          "qty": 2,
+          "ingredients": "",
+          "color": 5024,
+          "length": 0.755,
+          "width": 0.537,
+          "height": 0.015,
+          "volume": 0.018041099999999997,
+          "total_volume": 0.036082199999999995,
+          "fasteners": "Болт мебельный М6х55 - 4 шт.                               Шайба м8 увел. - 4 шт.                    Гайка м6 - 4 шт",
+          "m8_each": null,
+          "m8_total": 0,
+          "m6_each": 4,
+          "m6_total": 8,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image8.png",
+              "source_media": "xl/media/image8.png",
+              "converted": false,
+              "row": 25,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L25*F25",
+            "m8_total": "=O25*F25",
+            "m6_total": "=Q25*F25"
+          },
+          "extra_cells": {},
+          "dxf_files": [
+            {
+              "file": "157.DXF",
+              "label": "DXF",
+              "href": "./downloads/dxf/157.DXF"
+            }
+          ]
+        },
+        {
+          "row": 26,
+          "number": "17",
+          "article": "",
+          "name": "Накладка на крышу (вырез из рамы окна)",
+          "group": "ПАНЕЛИ",
+          "qty": 2,
+          "ingredients": "",
+          "color": 7024,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": 0.018041099999999997,
+          "total_volume": 0.036082199999999995,
+          "fasteners": "Болт мебельный М6х55 - 4 шт.                               Шайба м8 увел. - 4 шт.                    Гайка м6 - 4 шт",
+          "m8_each": null,
+          "m8_total": 0,
+          "m6_each": 4,
+          "m6_total": 8,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image9.png",
+              "source_media": "xl/media/image9.png",
+              "converted": false,
+              "row": 26,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L26*F26",
+            "m8_total": "=O26*F26",
+            "m6_total": "=Q26*F26"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 27,
+          "number": "18",
+          "article": "000164",
+          "name": "Панель нижняя (800х650х21 мм)",
+          "group": "ПАНЕЛИ",
+          "qty": 2,
+          "ingredients": "",
+          "color": 1037,
+          "length": 0.8,
+          "width": 0.65,
+          "height": 0.021,
+          "volume": 0.018041099999999997,
+          "total_volume": 0.036082199999999995,
+          "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4 шт.",
+          "m8_each": 4,
+          "m8_total": 8,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image10.png",
+              "source_media": "xl/media/image10.png",
+              "converted": false,
+              "row": 27,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L27*F27",
+            "m8_total": "=O27*F27",
+            "m6_total": "=Q27*F27"
+          },
+          "extra_cells": {},
+          "dxf_files": [
+            {
+              "file": "164.DXF",
+              "label": "Основной",
+              "href": "./downloads/dxf/164.DXF"
+            },
+            {
+              "file": "164-л.DXF",
+              "label": "Левый / зеркальный",
+              "href": "./downloads/dxf/164-л.DXF"
+            }
+          ]
+        },
+        {
+          "row": 28,
+          "number": "19",
+          "article": "000162",
+          "name": "Панель с вырезом для сидушки (800х748х21 мм)",
+          "group": "ПАНЕЛИ",
+          "qty": 1,
+          "ingredients": "",
+          "color": 1037,
+          "length": 0.8,
+          "width": 0.748,
+          "height": 0.021,
+          "volume": 0.018041099999999997,
+          "total_volume": 0.018041099999999997,
+          "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4 шт.",
+          "m8_each": 4,
+          "m8_total": 4,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image11.png",
+              "source_media": "xl/media/image11.png",
+              "converted": false,
+              "row": 28,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L28*F28",
+            "m8_total": "=O28*F28",
+            "m6_total": "=Q28*F28"
+          },
+          "extra_cells": {},
+          "dxf_files": [
+            {
+              "file": "162.DXF",
+              "label": "DXF",
+              "href": "./downloads/dxf/162.DXF"
+            }
+          ]
+        },
+        {
+          "row": 29,
+          "number": "20",
+          "article": "000163",
+          "name": "Боковина крыши двойного домика (822х770х21 мм)",
+          "group": "ПАНЕЛИ",
+          "qty": 2,
+          "ingredients": "",
+          "color": 1037,
+          "length": 0.82,
+          "width": 0.77,
+          "height": 0.021,
+          "volume": 0.018041099999999997,
+          "total_volume": 0.036082199999999995,
+          "fasteners": "Шуруп (глухарь) 8х80 - 2 шт.                         Шайба м8 увел. - 1 шт.",
+          "m8_each": 2,
+          "m8_total": 4,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image12.jpeg",
+              "source_media": "xl/media/image12.jpeg",
+              "converted": false,
+              "row": 29,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L29*F29",
+            "m8_total": "=O29*F29",
+            "m6_total": "=Q29*F29"
+          },
+          "extra_cells": {},
+          "dxf_files": [
+            {
+              "file": "163.DXF",
+              "label": "Основной",
+              "href": "./downloads/dxf/163.DXF"
+            },
+            {
+              "file": "163-п.DXF",
+              "label": "Зеркальный",
+              "href": "./downloads/dxf/163-п.DXF"
+            }
+          ]
+        },
+        {
+          "row": 30,
+          "number": "21",
+          "article": "000158",
+          "name": "Крыша наклонная №1 (1150х1000х15 мм)",
+          "group": "ПАНЕЛИ",
+          "qty": 1,
+          "ingredients": "",
+          "color": 5024,
+          "length": 1.15,
+          "width": 1,
+          "height": 0.015,
+          "volume": 0.018041099999999997,
+          "total_volume": 0.018041099999999997,
+          "fasteners": "",
+          "m8_each": null,
+          "m8_total": 0,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image13.jpeg",
+              "source_media": "xl/media/image13.jpeg",
+              "converted": false,
+              "row": 30,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L30*F30",
+            "m8_total": "=O30*F30",
+            "m6_total": "=Q30*F30"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 31,
+          "number": "22",
+          "article": "000159",
+          "name": "Крыша наклонная №2 (1200х1000х15 мм)",
+          "group": "ПАНЕЛИ",
+          "qty": 1,
+          "ingredients": "",
+          "color": 5024,
+          "length": 1.2,
+          "width": 1,
+          "height": 0.015,
+          "volume": 0.018041099999999997,
+          "total_volume": 0.018041099999999997,
+          "fasteners": "",
+          "m8_each": null,
+          "m8_total": 0,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image14.jpeg",
+              "source_media": "xl/media/image14.jpeg",
+              "converted": false,
+              "row": 31,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L31*F31",
+            "m8_total": "=O31*F31",
+            "m6_total": "=Q31*F31"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 32,
+          "number": "23",
+          "article": "000190",
+          "name": "Панель Окошко простое (800х797х21 мм)",
+          "group": "ПАНЕЛИ",
+          "qty": 2,
+          "ingredients": "",
+          "color": 5024,
+          "length": 0.8,
+          "width": 0.797,
+          "height": 0.021,
+          "volume": 0.018041099999999997,
+          "total_volume": 0.036082199999999995,
+          "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4 шт.",
+          "m8_each": 4,
+          "m8_total": 8,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image15.jpeg",
+              "source_media": "xl/media/image15.jpeg",
+              "converted": false,
+              "row": 32,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L32*F32",
+            "m8_total": "=O32*F32",
+            "m6_total": "=Q32*F32"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 33,
+          "number": "24",
+          "article": "000160",
+          "name": "Панель Спираль (800х748х21 мм)",
+          "group": "ПАНЕЛИ",
+          "qty": 1,
+          "ingredients": "",
+          "color": 5024,
+          "length": 0.8,
+          "width": 0.748,
+          "height": 0.021,
+          "volume": 0.008976,
+          "total_volume": 0.008976,
+          "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4 шт.",
+          "m8_each": 4,
+          "m8_total": 4,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image35.png",
+              "source_media": "xl/media/image35.png",
+              "converted": false,
+              "row": 33,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L33*F33",
+            "m8_total": "=O33*F33",
+            "m6_total": "=Q33*F33"
+          },
+          "extra_cells": {},
+          "dxf_files": [
+            {
+              "file": "160.DXF",
+              "label": "DXF",
+              "href": "./downloads/dxf/160.DXF"
+            }
+          ]
+        },
+        {
+          "row": 34,
+          "number": "25",
+          "article": "000187",
+          "name": "Панель кривой заборчик (800х950х21 мм)",
+          "group": "ПАНЕЛИ",
+          "qty": 1,
+          "ingredients": "",
+          "color": 1037,
+          "length": 0.8,
+          "width": 0.95,
+          "height": 0.021,
+          "volume": 0.018041099999999997,
+          "total_volume": 0.018041099999999997,
+          "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4 шт.",
+          "m8_each": 4,
+          "m8_total": 4,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image23.jpeg",
+              "source_media": "xl/media/image23.jpeg",
+              "converted": false,
+              "row": 34,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L34*F34",
+            "m8_total": "=O34*F34",
+            "m6_total": "=Q34*F34"
+          },
+          "extra_cells": {},
+          "dxf_files": [
+            {
+              "file": "187.DXF",
+              "label": "DXF",
+              "href": "./downloads/dxf/187.DXF"
+            }
+          ]
+        },
+        {
+          "row": 35,
+          "number": "26",
+          "article": "000191",
+          "name": "Накладка на Панель Окошко простое (404х408х15 мм)",
+          "group": "ПАНЕЛИ",
+          "qty": 2,
+          "ingredients": "",
+          "color": 1037,
+          "length": 0.404,
+          "width": 0.408,
+          "height": 0.015,
+          "volume": 0.018041099999999997,
+          "total_volume": 0.036082199999999995,
+          "fasteners": "Болт мебельный М6х55 - 4 шт.                               Шайба м8 увел. - 4 шт.                    Гайка м6 - 4 шт",
+          "m8_each": null,
+          "m8_total": 0,
+          "m6_each": 4,
+          "m6_total": 8,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image16.jpeg",
+              "source_media": "xl/media/image16.jpeg",
+              "converted": false,
+              "row": 35,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L35*F35",
+            "m8_total": "=O35*F35",
+            "m6_total": "=Q35*F35"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 36,
+          "number": "27",
+          "article": "000192",
+          "name": "Элемент дерево (290х600х15 мм)",
+          "group": "ПАНЕЛИ",
+          "qty": 4,
+          "ingredients": "",
+          "color": 1037,
+          "length": 0.29,
+          "width": 0.6,
+          "height": 0.015,
+          "volume": 0.018041099999999997,
+          "total_volume": 0.07216439999999999,
+          "fasteners": "Шуруп (глухарь) 8х80 - 2 шт.                         Шайба м8 увел. - 1 шт.",
+          "m8_each": 2,
+          "m8_total": 8,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image17.jpeg",
+              "source_media": "xl/media/image17.jpeg",
+              "converted": false,
+              "row": 36,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L36*F36",
+            "m8_total": "=O36*F36",
+            "m6_total": "=Q36*F36"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 37,
+          "number": "28",
+          "article": "000165",
+          "name": "Сидушка с пазом (620х268х21 мм)",
+          "group": "ПАНЕЛИ",
+          "qty": 1,
+          "ingredients": "",
+          "color": 1037,
+          "length": 0.62,
+          "width": 0.268,
+          "height": 0.021,
+          "volume": 0.018041099999999997,
+          "total_volume": 0.018041099999999997,
+          "fasteners": "",
+          "m8_each": null,
+          "m8_total": 0,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image18.png",
+              "source_media": "xl/media/image18.png",
+              "converted": false,
+              "row": 37,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L37*F37",
+            "m8_total": "=O37*F37",
+            "m6_total": "=Q37*F37"
+          },
+          "extra_cells": {},
+          "dxf_files": [
+            {
+              "file": "165.DXF",
+              "label": "DXF",
+              "href": "./downloads/dxf/165.DXF"
+            }
+          ]
+        },
+        {
+          "row": 38,
+          "number": "29",
+          "article": "000039",
+          "name": "Подпорка сидушки (335х200х21 мм)",
+          "group": "ПАНЕЛИ",
+          "qty": 1,
+          "ingredients": "",
+          "color": 7024,
+          "length": 0.335,
+          "width": 0.2,
+          "height": 0.021,
+          "volume": 0.018041099999999997,
+          "total_volume": 0.018041099999999997,
+          "fasteners": "",
+          "m8_each": null,
+          "m8_total": 0,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image21.jpeg",
+              "source_media": "xl/media/image21.jpeg",
+              "converted": false,
+              "row": 38,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L38*F38",
+            "m8_total": "=O38*F38",
+            "m6_total": "=Q38*F38"
+          },
+          "extra_cells": {},
+          "dxf_files": [
+            {
+              "file": "39.DXF",
+              "label": "DXF",
+              "href": "./downloads/dxf/39.DXF"
+            }
+          ]
+        },
+        {
+          "row": 39,
+          "number": "30",
+          "article": "М-2.07.01",
+          "name": "Уголок крепления фанеры",
+          "group": "ПАНЕЛИ",
+          "qty": 14,
+          "ingredients": "",
+          "color": 7024,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": 0.018041099999999997,
+          "total_volume": 0.25257539999999995,
+          "fasteners": "Болт мебельный М6х35 - 2 шт.                               Шайба м8 увел. - 2 шт.                    Гайка м6 - 2 шт",
+          "m8_each": null,
+          "m8_total": 0,
+          "m6_each": 2,
+          "m6_total": 28,
+          "images": [],
+          "formulas": {
+            "total_volume": "=L39*F39",
+            "m8_total": "=O39*F39",
+            "m6_total": "=Q39*F39"
+          },
+          "extra_cells": {}
+        }
+      ]
+    },
+    {
+      "title": "МЕТАЛЛ",
+      "row": 40,
+      "records": [
+        {
+          "row": 41,
+          "number": "31",
+          "article": "0020МП",
+          "name": "Перекладина 600",
+          "group": "МЕТАЛЛ",
+          "qty": 7,
+          "ingredients": "",
+          "color": 7024,
+          "length": 0.616,
+          "width": 0.04,
+          "height": 0.1,
+          "volume": 0.002464,
+          "total_volume": 0.017248,
+          "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4 шт.",
+          "m8_each": 4,
+          "m8_total": 28,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image1.jpeg",
+              "source_media": "xl/media/image1.jpeg",
+              "converted": false,
+              "row": 41,
+              "column": 7
+            },
+            {
+              "path": "playgrounds/1.07/source-excel/image2.png",
+              "source_media": "xl/media/image2.png",
+              "converted": false,
+              "row": 41,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "volume": "=I41*J41*K41",
+            "total_volume": "=L41*F41",
+            "m8_total": "=O41*F41",
+            "m6_total": "=Q41*F41"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 42,
+          "number": "32",
+          "article": "0023МП",
+          "name": "Портал 600х700 H=1100",
+          "group": "МЕТАЛЛ",
+          "qty": 1,
+          "ingredients": "",
+          "color": 7024,
+          "length": 0.6,
+          "width": 0.73,
+          "height": 1.1,
+          "volume": 0.48180000000000006,
+          "total_volume": 0.48180000000000006,
+          "fasteners": "Шуруп (глухарь) 8х80 - 8 шт.                         Шайба м8 увел. - 8 шт.",
+          "m8_each": 8,
+          "m8_total": 8,
+          "m6_each": 8,
+          "m6_total": 8,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image29.png",
+              "source_media": "xl/media/image29.png",
+              "converted": false,
+              "row": 42,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L42*F42",
+            "m8_total": "=O42*F42",
+            "m6_total": "=Q42*F42"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 43,
+          "number": "33",
+          "article": "0024МП",
+          "name": "Ограждение 600х628",
+          "group": "МЕТАЛЛ",
+          "qty": 1,
+          "ingredients": "",
+          "color": 7024,
+          "length": 0.62,
+          "width": 0.16,
+          "height": 0.72,
+          "volume": 0.071,
+          "total_volume": 0.071,
+          "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4 шт.",
+          "m8_each": 4,
+          "m8_total": 4,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image19.jpeg",
+              "source_media": "xl/media/image19.jpeg",
+              "converted": false,
+              "row": 43,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L43*F43",
+            "m8_total": "=O43*F43",
+            "m6_total": "=Q43*F43"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 44,
+          "number": "34",
+          "article": "0021МП",
+          "name": "Ручка 450",
+          "group": "МЕТАЛЛ",
+          "qty": 4,
+          "ingredients": "",
+          "color": 7024,
+          "length": 0.52,
+          "width": 0.12,
+          "height": 0.04,
+          "volume": 0.002496,
+          "total_volume": 0.009984,
+          "fasteners": "Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4 шт.",
+          "m8_each": 4,
+          "m8_total": 16,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image32.png",
+              "source_media": "xl/media/image32.png",
+              "converted": false,
+              "row": 44,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L44*F44",
+            "m8_total": "=O44*F44",
+            "m6_total": "=Q44*F44"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 45,
+          "number": "35",
+          "article": "0040МП",
+          "name": "Рукоход прямой",
+          "group": "МЕТАЛЛ",
+          "qty": 1,
+          "ingredients": "",
+          "color": 7024,
+          "length": 2.04,
+          "width": 0.75,
+          "height": 0.1,
+          "volume": 0.15300000000000002,
+          "total_volume": 0.15300000000000002,
+          "fasteners": "Шуруп (глухарь) 8х80 - 8 шт.                         Шайба м8 увел. - 8 шт.",
+          "m8_each": 8,
+          "m8_total": 8,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image34.jpeg",
+              "source_media": "xl/media/image34.jpeg",
+              "converted": false,
+              "row": 45,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "volume": "=I45*J45*K45",
+            "total_volume": "=L45*F45",
+            "m8_total": "=O45*F45",
+            "m6_total": "=Q45*F45"
+          },
+          "extra_cells": {}
+        }
+      ]
+    },
+    {
+      "title": "G-900 Горка 600х1700 H=900",
+      "row": 46,
+      "records": [
+        {
+          "row": 47,
+          "number": "36",
+          "article": "0006СБ",
+          "name": "Горка 600х1700 H=900",
+          "group": "G-900 Горка 600х1700 H=900",
+          "qty": 1,
+          "ingredients": "000026\n000027\n000028\n000016\n0006МП\n0007МП\n0008МП\n0016МП",
+          "color": 7024,
+          "length": null,
+          "width": 1.7,
+          "height": 1.9,
+          "volume": 0,
+          "total_volume": 0,
+          "fasteners": "Шуруп (глухарь) 8х80 - 1 шт.                        Болт мебельный М6х45 - 1 шт.                               Шайба м8 увел. - 2 шт.                    Гайка м6 - 1 шт",
+          "m8_each": 1,
+          "m8_total": 1,
+          "m6_each": 1,
+          "m6_total": 1,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image33.jpeg",
+              "source_media": "xl/media/image33.jpeg",
+              "converted": false,
+              "row": 47,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "volume": "=I47*J47*K47",
+            "total_volume": "=L47*F47",
+            "m8_total": "=O47*F47",
+            "m6_each": "=P47*F47",
+            "m6_total": "=Q47*F47"
+          },
+          "extra_cells": {}
+        }
+      ]
+    },
+    {
+      "title": "ПЛАСТИК",
+      "row": 48,
+      "records": [
+        {
+          "row": 49,
+          "number": "37",
+          "article": "11.006.000",
+          "name": "Горка спиральная H=1500",
+          "group": "ПЛАСТИК",
+          "qty": 1,
+          "ingredients": "",
+          "color": "желтый",
+          "length": 2,
+          "width": 1.5,
+          "height": 1.5,
+          "volume": 4.5,
+          "total_volume": 4.5,
+          "fasteners": "",
+          "m8_each": 3,
+          "m8_total": 3,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image20.png",
+              "source_media": "xl/media/image20.png",
+              "converted": false,
+              "row": 49,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L49*F49",
+            "m8_total": "=O49*F49",
+            "m6_total": "=Q49*F49"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 50,
+          "number": "38",
+          "article": "00.001.000",
+          "name": "Заглушка К4М6КС",
+          "group": "ПЛАСТИК",
+          "qty": 73,
+          "ingredients": "",
+          "color": "Черный",
+          "length": 0.027,
+          "width": 0.027,
+          "height": 0.016,
+          "volume": 1.1663999999999999e-05,
+          "total_volume": 0.0008514719999999999,
+          "fasteners": "",
+          "m8_each": null,
+          "m8_total": 0,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image4.png",
+              "source_media": "xl/media/image4.png",
+              "converted": false,
+              "row": 50,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L50*F50",
+            "m8_total": "=O50*F50",
+            "m6_total": "=Q50*F50"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 51,
+          "number": "39",
+          "article": "00.002.000",
+          "name": "Заглушка К4М8КС",
+          "group": "ПЛАСТИК",
+          "qty": 210,
+          "ingredients": "",
+          "color": "Черный",
+          "length": 0.036,
+          "width": 0.036,
+          "height": 0.023,
+          "volume": 2.9807999999999996e-05,
+          "total_volume": 0.006259679999999999,
+          "fasteners": "",
+          "m8_each": null,
+          "m8_total": 0,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image4.png",
+              "source_media": "xl/media/image4.png",
+              "converted": false,
+              "row": 51,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L51*F51",
+            "m8_total": "=O51*F51",
+            "m6_total": "=Q51*F51"
+          },
+          "extra_cells": {}
+        },
+        {
+          "row": 52,
+          "number": "40",
+          "article": "00.003.000",
+          "name": "Заглушка 100-100.11КК",
+          "group": "ПЛАСТИК",
+          "qty": 10,
+          "ingredients": "",
+          "color": "Черный",
+          "length": 0.09,
+          "width": 0.09,
+          "height": 0.044,
+          "volume": 0.00035639999999999994,
+          "total_volume": 0.0035639999999999995,
+          "fasteners": "",
+          "m8_each": null,
+          "m8_total": 0,
+          "m6_each": null,
+          "m6_total": 0,
+          "images": [
+            {
+              "path": "playgrounds/1.07/source-excel/image3.jpeg",
+              "source_media": "xl/media/image3.jpeg",
+              "converted": false,
+              "row": 52,
+              "column": 7
+            }
+          ],
+          "formulas": {
+            "total_volume": "=L52*F52",
+            "m8_total": "=O52*F52",
+            "m6_total": "=Q52*F52"
+          },
+          "extra_cells": {}
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "row": 53,
+    "m8_total": 214,
+    "m6_total": 73,
+    "total_volume": null
+  },
+  "main_images": [
+    {
+      "path": "playgrounds/1.07/source-excel/image36.png",
+      "source_media": "xl/media/image36.png",
+      "converted": false,
+      "row": 3,
+      "column": 2
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image37.png",
+      "source_media": "xl/media/image37.png",
+      "converted": false,
+      "row": 3,
+      "column": 2
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image22.jpeg",
+      "source_media": "xl/media/image22.jpeg",
+      "converted": false,
+      "row": 3,
+      "column": 7
+    }
+  ],
+  "images": [
+    {
+      "path": "playgrounds/1.07/source-excel/image1.jpeg",
+      "source_media": "xl/media/image1.jpeg",
+      "converted": false,
+      "row": 41,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image2.png",
+      "source_media": "xl/media/image2.png",
+      "converted": false,
+      "row": 41,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image3.jpeg",
+      "source_media": "xl/media/image3.jpeg",
+      "converted": false,
+      "row": 52,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image4.png",
+      "source_media": "xl/media/image4.png",
+      "converted": false,
+      "row": 50,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image4.png",
+      "source_media": "xl/media/image4.png",
+      "converted": false,
+      "row": 51,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image5.jpeg",
+      "source_media": "xl/media/image5.jpeg",
+      "converted": false,
+      "row": 14,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image6.jpeg",
+      "source_media": "xl/media/image6.jpeg",
+      "converted": false,
+      "row": 15,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image7.jpeg",
+      "source_media": "xl/media/image7.jpeg",
+      "converted": false,
+      "row": 24,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image8.png",
+      "source_media": "xl/media/image8.png",
+      "converted": false,
+      "row": 25,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image9.png",
+      "source_media": "xl/media/image9.png",
+      "converted": false,
+      "row": 26,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image10.png",
+      "source_media": "xl/media/image10.png",
+      "converted": false,
+      "row": 27,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image11.png",
+      "source_media": "xl/media/image11.png",
+      "converted": false,
+      "row": 28,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image12.jpeg",
+      "source_media": "xl/media/image12.jpeg",
+      "converted": false,
+      "row": 29,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image13.jpeg",
+      "source_media": "xl/media/image13.jpeg",
+      "converted": false,
+      "row": 30,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image14.jpeg",
+      "source_media": "xl/media/image14.jpeg",
+      "converted": false,
+      "row": 31,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image15.jpeg",
+      "source_media": "xl/media/image15.jpeg",
+      "converted": false,
+      "row": 32,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image16.jpeg",
+      "source_media": "xl/media/image16.jpeg",
+      "converted": false,
+      "row": 35,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image17.jpeg",
+      "source_media": "xl/media/image17.jpeg",
+      "converted": false,
+      "row": 36,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image18.png",
+      "source_media": "xl/media/image18.png",
+      "converted": false,
+      "row": 37,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image19.jpeg",
+      "source_media": "xl/media/image19.jpeg",
+      "converted": false,
+      "row": 43,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image20.png",
+      "source_media": "xl/media/image20.png",
+      "converted": false,
+      "row": 49,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image21.jpeg",
+      "source_media": "xl/media/image21.jpeg",
+      "converted": false,
+      "row": 38,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image22.jpeg",
+      "source_media": "xl/media/image22.jpeg",
+      "converted": false,
+      "row": 3,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image23.jpeg",
+      "source_media": "xl/media/image23.jpeg",
+      "converted": false,
+      "row": 34,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image24.png",
+      "source_media": "xl/media/image24.emf",
+      "converted": true,
+      "row": 13,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image25.jpeg",
+      "source_media": "xl/media/image25.jpeg",
+      "converted": false,
+      "row": 17,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image26.png",
+      "source_media": "xl/media/image26.emf",
+      "converted": true,
+      "row": 20,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image26.png",
+      "source_media": "xl/media/image26.emf",
+      "converted": true,
+      "row": 21,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image27.png",
+      "source_media": "xl/media/image27.emf",
+      "converted": true,
+      "row": 18,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image28.png",
+      "source_media": "xl/media/image28.emf",
+      "converted": true,
+      "row": 22,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image29.png",
+      "source_media": "xl/media/image29.png",
+      "converted": false,
+      "row": 42,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image30.png",
+      "source_media": "xl/media/image30.emf",
+      "converted": true,
+      "row": 11,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image31.jpeg",
+      "source_media": "xl/media/image31.jpeg",
+      "converted": false,
+      "row": 48,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image31.jpeg",
+      "source_media": "xl/media/image31.jpeg",
+      "converted": false,
+      "row": 48,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image32.png",
+      "source_media": "xl/media/image32.png",
+      "converted": false,
+      "row": 44,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image31.jpeg",
+      "source_media": "xl/media/image31.jpeg",
+      "converted": false,
+      "row": 40,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image31.jpeg",
+      "source_media": "xl/media/image31.jpeg",
+      "converted": false,
+      "row": 40,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image33.jpeg",
+      "source_media": "xl/media/image33.jpeg",
+      "converted": false,
+      "row": 47,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image34.jpeg",
+      "source_media": "xl/media/image34.jpeg",
+      "converted": false,
+      "row": 45,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image35.png",
+      "source_media": "xl/media/image35.png",
+      "converted": false,
+      "row": 33,
+      "column": 7
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image36.png",
+      "source_media": "xl/media/image36.png",
+      "converted": false,
+      "row": 3,
+      "column": 2
+    },
+    {
+      "path": "playgrounds/1.07/source-excel/image37.png",
+      "source_media": "xl/media/image37.png",
+      "converted": false,
+      "row": 3,
+      "column": 2
+    }
+  ],
+  "provided_images_count": 37,
+  "issues": [
+    {
+      "row": 25,
+      "issue": "Объём больше произведения габаритов; исходное значение сохранено",
+      "value": 0.018041099999999997,
+      "dimensions_product": 0.006081525000000001
+    },
+    {
+      "row": 26,
+      "issue": "В исходнике отсутствует артикул",
+      "name": "Накладка на крышу (вырез из рамы окна)"
+    },
+    {
+      "row": 27,
+      "issue": "Объём больше произведения габаритов; исходное значение сохранено",
+      "value": 0.018041099999999997,
+      "dimensions_product": 0.010920000000000001
+    },
+    {
+      "row": 28,
+      "issue": "Объём больше произведения габаритов; исходное значение сохранено",
+      "value": 0.018041099999999997,
+      "dimensions_product": 0.012566400000000002
+    },
+    {
+      "row": 29,
+      "issue": "Объём больше произведения габаритов; исходное значение сохранено",
+      "value": 0.018041099999999997,
+      "dimensions_product": 0.0132594
+    },
+    {
+      "row": 32,
+      "issue": "Объём больше произведения габаритов; исходное значение сохранено",
+      "value": 0.018041099999999997,
+      "dimensions_product": 0.013389600000000002
+    },
+    {
+      "row": 34,
+      "issue": "Объём больше произведения габаритов; исходное значение сохранено",
+      "value": 0.018041099999999997,
+      "dimensions_product": 0.015960000000000002
+    },
+    {
+      "row": 35,
+      "issue": "Объём больше произведения габаритов; исходное значение сохранено",
+      "value": 0.018041099999999997,
+      "dimensions_product": 0.00247248
+    },
+    {
+      "row": 36,
+      "issue": "Объём больше произведения габаритов; исходное значение сохранено",
+      "value": 0.018041099999999997,
+      "dimensions_product": 0.00261
+    },
+    {
+      "row": 37,
+      "issue": "Объём больше произведения габаритов; исходное значение сохранено",
+      "value": 0.018041099999999997,
+      "dimensions_product": 0.0034893600000000004
+    },
+    {
+      "row": 38,
+      "issue": "Объём больше произведения габаритов; исходное значение сохранено",
+      "value": 0.018041099999999997,
+      "dimensions_product": 0.0014070000000000003
+    },
+    {
+      "row": 51,
+      "issue": "Количество заглушек отличается от итога m8_total",
+      "plug_qty": 210,
+      "total": 214
+    }
+  ]
+}

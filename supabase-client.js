@@ -1,0 +1,5 @@
+import {createClient} from 'https://esm.sh/@supabase/supabase-js@2.57.0';
+const cfg=window.SUPABASE_CONFIG;
+export const supabase=createClient(cfg.url,cfg.publishableKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+export async function profile(){const {data:{user},error}=await supabase.auth.getUser();if(error||!user)return null;const res=await supabase.from('profiles').select('id,name,login,role,blocked,email').eq('id',user.id).single();if(res.error||!res.data||res.data.blocked)return null;return res.data;}
+export async function call(action,payload={}){const {data:{session}}=await supabase.auth.getSession();const res=await fetch(`${cfg.url}/functions/v1/site-api`,{method:'POST',headers:{'Content-Type':'application/json','apikey':cfg.publishableKey,...(session?.access_token?{'Authorization':`Bearer ${session.access_token}`}:{})},body:JSON.stringify({action,...payload})});const json=await res.json().catch(()=>({}));if(!res.ok)throw new Error(json.error||'Ошибка запроса');return json;}
