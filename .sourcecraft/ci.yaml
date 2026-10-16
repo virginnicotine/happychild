@@ -20,6 +20,6 @@ workflows:
           - name: publish-site
             script:
               - git checkout -b release
-              - git add site
+              - git add -f site
               - "git commit -m 'feat: release'"
               - git push origin release -f
