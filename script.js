@@ -3,7 +3,7 @@
   const isLoginPage = location.pathname.endsWith('/index.html') || location.pathname.endsWith('/') || location.pathname === '';
   if(!isLoginPage){
     try {
-      if(!sessionStorage.getItem('factorySystemDemoSession')) location.replace('./index.html');
+      // Supabase gate checks the real session asynchronously.
     } catch { location.replace('./index.html'); }
   }
 })();
@@ -33,6 +33,7 @@ window.FactoryStore = (function () {
                 author: { name: user.name || 'Гость', login: user.login || '', role: user.role || 'guest' }
             };
             const all = read(COMPLAINTS_KEY); all.unshift(item);
+            import('./supabase-client.js').then(async ({supabase}) => { const {data:{user}}=await supabase.auth.getUser(); if(user) await supabase.from('complaints').insert({author_id:user.id,message:(item.subject+'\n'+item.message).slice(0,5000)}); }).catch(console.error);
             return write(COMPLAINTS_KEY, all) ? item : null;
         },
         setStatus(id, status) {
@@ -89,7 +90,7 @@ window.showSiteToast = function (text, kind) {
     const toast = document.createElement('div');
     toast.className = 'site-toast' + (kind === 'error' ? ' error' : '');
     toast.setAttribute('role', 'status');
-    const icon = document.createElement('span'); icon.className = 'site-toast-icon'; icon.textContent = kind === 'error' ? '!' : '✓';
+    const icon = document.createElement('span'); icon.className = 'site-toast-icon'; icon.textContent = kind === 'error' ? '!' : 'OK';
     const label = document.createElement('span'); label.textContent = text;
     toast.append(icon, label); stack.appendChild(toast);
     requestAnimationFrame(() => toast.classList.add('visible'));
@@ -171,7 +172,7 @@ const recentProducts = document.getElementById('recentProducts');
 if (recentProducts) {
     recentProducts.innerHTML = playgroundProducts.slice().reverse().map(product => `
         <a class="recent-item" href="${product.href}">
-            <div class="recent-icon">📄</div>
+            <div class="recent-icon"></div>
             <div class="recent-content">
                 <strong>${product.code}</strong>
                 <span>Техническая карточка детского городка доступна в системе</span>
@@ -440,7 +441,7 @@ document.querySelectorAll('button.document-button[data-message]').forEach(button
                 <div class="creator-info-item"><span>Телефон</span><strong data-creator-phone>Будет добавлен</strong></div>
             </div>
             <button class="contact-flash" type="button" data-creator-contact-toggle aria-expanded="false">
-                <span>✦ Мой сайт и контакты</span><span class="flash-arrow">▾</span>
+                <span>Мой сайт и контакты</span><span class="flash-arrow">▾</span>
             </button>
             <div class="creator-contacts" data-creator-contacts hidden>
                 <div class="contact-row"><span>Сайт</span><a data-creator-website-link href="#" target="_blank" rel="noopener noreferrer">—</a><button class="contact-copy" type="button" data-copy="website">Копировать</button></div>
@@ -466,7 +467,7 @@ document.querySelectorAll('button.document-button[data-message]').forEach(button
     document.querySelectorAll('[data-open-report]').forEach(btn => btn.addEventListener('click', () => reportModal.classList.add('visible')));
 
     const creatorData = Object.assign({ hours: '09:00–21:00', patronymic: '' }, window.SITE_CREATOR || {});
-    const creatorWebsite = creatorData.website || window.SITE_ADMIN_WEBSITE || 'https://guns.lol/auramalayya';
+    const creatorWebsite = creatorData.website || window.SITE_ADMIN_WEBSITE || '—';
     const hasValue = v => v && v !== '—';
     const setText = (selector, value, fallback) => document.querySelectorAll(selector).forEach(el => el.textContent = value || fallback);
     setText('[data-creator-fullname]', [creatorData.name, creatorData.patronymic].filter(Boolean).join(' '), 'Администратор сайта');
@@ -853,7 +854,7 @@ document.querySelectorAll('button.document-button[data-message]').forEach(button
         });
     }
 
-    function logout(){ FactoryStore.sessions.end(); sessionStorage.removeItem(SESSION_KEY); location.reload(); }
+    async function logout(){ const {supabase}=await import('./supabase-client.js'); await supabase.auth.signOut(); FactoryStore.sessions.end(); sessionStorage.removeItem(SESSION_KEY); location.replace('./index.html'); }
 
     function ensureAuthModal(){
         let modal=document.querySelector('.auth-modal');
@@ -928,24 +929,25 @@ document.querySelectorAll('button.document-button[data-message]').forEach(button
         if(!groupsRoot || !document.body.classList.contains('product-page')) return;
 
         const rules=[
-            ['ГОРКИ', /горк|спуск|борт горк|каркас горк/i],
-            ['ЗАГЛУШКИ', /заглуш/i],
-            ['ПАНЕЛИ', /панел/i],
+            ['ПОЛЫ И НАСТИЛЫ', /\bполы?\b|настил|половиц|полов[а-я]* площадк/i],
+            ['КАРКАСЫ ПЛОЩАДОК', /каркас[^,;]*площад|площад[^,;]*каркас/i],
+            ['ОПОРЫ ПЛОЩАДОК', /опор[^,;]*площад|площад[^,;]*опор/i],
+            ['ПЛОЩАДКИ — ПРОЧИЕ ДЕТАЛИ', /площадк/i],
+            ['ЗАГЛУШКИ', /заглуш/i], ['ПАНЕЛИ', /панел/i],
             ['СТОЛБЫ', /столб|закладн.*столб/i],
-            ['ПЛОЩАДКИ', /площадк/i],
             ['ЛЕСТНИЦЫ', /лестниц|тетив|ступен|подступен|перил.*лест|тра[пп]/i],
             ['ПЕРЕХОДНЫЕ МОСТЫ', /мост/i],
             ['ПЛАСТИК', /пластик|пнд|полиэтилен|полимер/i],
-            ['КАНАТЫ', /канат|верёв|верев/i],
-            ['ТОННЕЛИ', /тоннел/i],
-            ['КАЧЕЛИ', /качел/i],
-            ['ЛАЗЫ', /лаз|гриб/i],
+            ['КАНАТЫ', /канат|верёв|верев/i], ['ТОННЕЛИ', /тоннел/i],
+            ['КАЧЕЛИ', /качел/i], ['ЛАЗЫ', /лаз|гриб/i],
             ['БАЛКОНЫ', /балкон/i],
             ['МЕТИЗЫ И КРЕПЁЖ', /метиз|болт|гайк|винт|саморез|шайб|креп[её]ж|анкер/i],
             ['МЕТАЛЛ', /металл|каркас|рама|кронштейн|опора|труба|профил|лист|держател/i]
         ];
-        const classify=text=>{
-            for(const [label,re] of rules) if(re.test(text)) return label;
+        const classify=(name,article)=>{
+            if(/горк|спуск/i.test(name)) return 'ГОРКА: '+name.trim()+(article?' · '+article:'');
+            if(/зеркальн|\bлев(ая|ый|ое|ой)\b|\bправ(ая|ый|ое|ой)\b/i.test(name)) return 'ЗЕРКАЛЬНЫЕ / ПАРНЫЕ ДЕТАЛИ';
+            for(const [label,re] of rules) if(re.test(name)) return label;
             return 'ПРОЧЕЕ';
         };
         const items=[...groupsRoot.querySelectorAll(':scope > .component-group .component-item')];
@@ -954,10 +956,9 @@ document.querySelectorAll('button.document-button[data-message]').forEach(button
         const buckets=new Map();
         const order=[];
         items.forEach(item=>{
-            const sourceGroup=item.closest('.component-group');
-            const sourceLabel=sourceGroup?.querySelector('summary span')?.textContent || '';
-            const text=(item.textContent+' '+sourceLabel).replace(/\s+/g,' ').trim();
-            const label=classify(text);
+            const name=(item.querySelector('p')?.textContent || item.textContent).replace(/\s+/g,' ').trim();
+            const article=item.querySelector('strong')?.textContent?.trim() || '';
+            const label=classify(name,article);
             if(!buckets.has(label)){buckets.set(label,[]);order.push(label);}
             buckets.get(label).push(item);
         });
@@ -997,12 +998,16 @@ document.querySelectorAll('button.document-button[data-message]').forEach(button
             const g=String(p.group||'').toLowerCase();
             const n=String(p.name||'').toLowerCase();
             if(g.includes('горк') || n.includes('горк')) return 'Горки';
+            if(/зеркальн|\bлев(ая|ый|ое|ой)\b|\bправ(ая|ый|ое|ой)\b/i.test(n)) return 'Зеркальные и парные детали';
+            if(/полы?|настил/i.test(g+' '+n) && /площад|полы?|настил/i.test(g+' '+n)) return 'Полы и настилы';
+            if(/каркас/.test(n) && /площад/.test(g+' '+n)) return 'Каркасы площадок';
+            if(/опор/.test(n) && /площад/.test(g+' '+n)) return 'Опоры площадок';
             if(g.includes('заглуш') || n.includes('заглуш')) return 'Заглушки';
             if(g.includes('столб') || n.includes('столб')) return 'Столбы';
             if(g.includes('металл') || /мп\b/i.test(p.article||'')) return 'Металлические детали';
             if(g.includes('пластик') || g.includes('пнд')) return 'Пластиковые детали';
             if(g.includes('панел')) return 'Панели';
-            if(g.includes('площад')) return 'Площадки';
+            if(g.includes('площад') || n.includes('площад')) return 'Прочие детали площадок';
             if(g.includes('мост')) return 'Переходные мосты';
             if(g.includes('лестниц')) return 'Лестницы';
             if(g.includes('балкон')) return 'Балконы';

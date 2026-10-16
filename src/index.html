@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Вход — Счастливый ребёнок</title>
     <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="site-enhancements.css">
 </head>
 <body class="login-page">
 <div class="login-shell">
@@ -17,7 +18,6 @@
         </div>
     </div>
     <section class="login-card">
-        <div class="login-admin-mark"><span>АДМИНИСТРАТОР САЙТА</span><strong>Дарья</strong></div>
         <div class="auth-tabs login-tabs">
             <button type="button" class="active" data-tab="login">Вход</button>
             <button type="button" data-tab="register">Регистрация</button>
@@ -25,96 +25,19 @@
         <div class="auth-mode-note" id="authNote"></div>
         <form id="loginForm" class="auth-form"></form>
         <div id="loginMessage" class="auth-message"></div>
+        <button class="contact-help-trigger" type="button" id="loginHelpButton">Столкнулись с проблемой?</button>
     </section>
     <div class="login-footer">© Счастливый ребёнок · Внутренняя информационная система</div>
 </div>
-<script src="accounts.js"></script>
-<script src="auth.js"></script>
-<script>
-(function(){
-    const USERS_KEY='factorySystemDemoUsers', SESSION_KEY='factorySystemDemoSession', SESSIONS_KEY='factorySystemSessions', TRIES_KEY='factorySystemLoginTries';
-    const users=()=>{try{const v=JSON.parse(localStorage.getItem(USERS_KEY)||'[]');return Array.isArray(v)?v:[]}catch{return[]}};
-    const save=u=>localStorage.setItem(USERS_KEY,JSON.stringify(u));
-    const startSession=user=>{try{const now=Date.now(),id=now.toString(36)+Math.random().toString(36).slice(2,8);let all=JSON.parse(localStorage.getItem(SESSIONS_KEY)||'[]');if(!Array.isArray(all))all=[];all.unshift({id,login:user.login,name:user.name||user.login,role:user.role||'user',startedAt:now,lastSeenAt:now,endedAt:null,pages:0,lastPage:'',ua:navigator.userAgent});localStorage.setItem(SESSIONS_KEY,JSON.stringify(all.slice(0,300)));return id}catch{return null}};
-    const enter=user=>{sessionStorage.removeItem(TRIES_KEY);sessionStorage.setItem(SESSION_KEY,JSON.stringify({name:user.name,login:user.login,role:user.role,sid:startSession(user)}));location.replace('./home.html')};
-
-    // учётная запись администратора всегда актуальна, старые открытые пароли заменяются хешами
-    const stored=users(); let seeded=FactoryAuth.ensureAdmin(stored);
-    seeded=seeded.map(u=>{ if(u.password&&!u.passwordHash&&u.login!=='admin'){const {password,...rest}=u;return {...rest,...FactoryAuth.hashNew(password)};} return u; });
-    if(JSON.stringify(seeded)!==JSON.stringify(stored)) save(seeded);
-    if(sessionStorage.getItem(SESSION_KEY)){location.replace('./home.html');return;}
-
-    const allowRegistration=FactoryAuth.config.allowRegistration!==false;
-    const form=document.getElementById('loginForm'), msg=document.getElementById('loginMessage'), note=document.getElementById('authNote');
-    const tabs=document.querySelector('.login-tabs');
-    if(!allowRegistration){tabs.style.display='none';}
-    let mode='login', timer=null;
-
-    const eye='<button type="button" class="pw-toggle" aria-label="Показать пароль" data-pw-toggle>Показать</button>';
-    const render=()=>{
-        document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===mode));
-        msg.textContent=''; msg.className='auth-message';
-        note.textContent=mode==='login'
-            ? 'Вход по учётной записи. Доступ руководителю выдаёт администратор.'
-            : 'Регистрация создаёт учётную запись сотрудника с базовым доступом. Расширенный доступ выдаёт администратор.';
-        form.innerHTML=mode==='login'?`
-            <label>Логин<input name="login" autocomplete="username" placeholder="Введите логин" required autofocus></label>
-            <label>Пароль<span class="pw-field"><input name="password" type="password" autocomplete="current-password" placeholder="Введите пароль" required>${eye}</span></label>
-            <button class="modal-submit login-submit" type="submit">Войти в систему →</button>`:`
-            <label>Имя и фамилия<input name="name" autocomplete="name" maxlength="60" placeholder="Например, Иван Петров" required></label>
-            <label>Логин<input name="login" autocomplete="username" maxlength="24" placeholder="Латиницей, например ivan.petrov" required><small class="field-hint">3–24 символа: латинские буквы, цифры, точка, дефис, подчёркивание</small></label>
-            <label>Пароль<span class="pw-field"><input name="password" type="password" autocomplete="new-password" minlength="8" placeholder="Не короче 8 символов, буквы и цифры" required>${eye}</span>
-                <span class="pw-meter" aria-hidden="true"><i></i><i></i><i></i><i></i></span><small class="pw-label field-hint"></small></label>
-            <label>Повторите пароль<span class="pw-field"><input name="password2" type="password" autocomplete="new-password" placeholder="Ещё раз тот же пароль" required></span></label>
-            <button class="modal-submit login-submit" type="submit">Создать аккаунт →</button>`;
-    };
-    document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.tab;render()}));
-    form.addEventListener('click',e=>{
-        const t=e.target.closest('[data-pw-toggle]'); if(!t) return;
-        const input=t.parentElement.querySelector('input'); const show=input.type==='password';
-        input.type=show?'text':'password'; t.textContent=show?'Скрыть':'Показать';
-    });
-    form.addEventListener('input',e=>{
-        if(mode!=='register'||e.target.name!=='password') return;
-        const r=FactoryAuth.passwordStrength(e.target.value);
-        form.querySelectorAll('.pw-meter i').forEach((el,i)=>el.className=(e.target.value&&i<r.score)?'on s'+r.score:'');
-        form.querySelector('.pw-label').textContent=e.target.value?'Надёжность: '+r.label.toLowerCase():'';
-    });
-
-    // защита от подбора пароля: 5 неудачных попыток → пауза 30 секунд
-    const tries=()=>{try{return JSON.parse(sessionStorage.getItem(TRIES_KEY)||'{"n":0,"until":0}')}catch{return{n:0,until:0}}};
-    const lock=()=>{
-        const t=tries(), left=Math.ceil((t.until-Date.now())/1000);
-        if(left<=0) return false;
-        msg.textContent='Слишком много неудачных попыток. Подождите '+left+' с.'; clearTimeout(timer); timer=setTimeout(()=>{msg.textContent='';},1000*Math.min(left,3));
-        return true;
-    };
-
-    form.addEventListener('submit',e=>{
-        e.preventDefault(); const data=Object.fromEntries(new FormData(form).entries()); let list=users();
-        msg.className='auth-message';
-        if(mode==='register'){
-            const err=FactoryAuth.validateRegistration(data,list);
-            if(err){msg.textContent=err;return;}
-            const user={name:data.name.trim().replace(/\s+/g,' '),login:data.login.trim(),role:'user',createdAt:Date.now(),...FactoryAuth.hashNew(data.password)};
-            list.push(user); save(list);
-            enter(user);
-            return;
-        }
-        if(lock()) return;
-        const user=FactoryAuth.login(data.login,data.password,list);
-        if(!user){
-            const t=tries(); t.n=(t.n||0)+1; if(t.n>=5){t.until=Date.now()+30000;t.n=0;}
-            sessionStorage.setItem(TRIES_KEY,JSON.stringify(t));
-            msg.textContent=t.until>Date.now()?'Слишком много неудачных попыток. Подождите 30 с.':'Неверный логин или пароль.'; return;
-        }
-        if(user.local&&user.local.password&&!user.local.passwordHash){ // старый аккаунт с открытым паролем → хеш
-            const i=list.findIndex(u=>u.login===user.local.login); if(i>=0){const {password,...rest}=list[i]; list[i]={...rest,...FactoryAuth.hashNew(data.password)}; save(list);}
-        }
-        enter(user);
-    });
-    render();
-})();
-</script>
-</body>
-</html>
+<div id="loginHelpModal" class="contact-help-backdrop" hidden>
+  <div class="contact-help-dialog" role="dialog" aria-modal="true" aria-labelledby="loginHelpHeading">
+    <button type="button" class="contact-help-close" id="loginHelpClose" aria-label="Закрыть">×</button>
+    <h2 id="loginHelpHeading">Связаться с администратором</h2>
+    <p>Телефон: <span id="loginHelpPhone">—</span></p>
+    <p>Сайт: <span id="loginHelpWebsite">—</span></p>
+  </div>
+</div>
+<script src="site-contacts.js"></script>
+<script src="supabase-config.js"></script>
+<script type="module" src="supabase-login.js"></script>
+</body></html>
