@@ -1,8 +1,8 @@
 on:
   push:
-    workflows: build-site
-    filter:
-      branches: main
+    - workflows: [build-site]
+      filter:
+        branches: ["main"]
 
 workflows:
   build-site:
