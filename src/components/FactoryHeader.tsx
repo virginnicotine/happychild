@@ -529,12 +529,12 @@ export default function FactoryHeader() {
       {/* Report Problem / Submit Complaint Modal */}
       {reportOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/75 p-4 backdrop-blur-xs"
+          className="hc-modal-overlay fixed inset-0 z-50 flex items-center justify-center bg-slate-950/75 p-4 backdrop-blur-xs"
           onClick={(e) => {
             if (e.target === e.currentTarget) setReportOpen(false);
           }}
         >
-          <div className="relative w-full max-w-lg rounded-2xl border border-slate-200 bg-white p-6 sm:p-7 text-slate-900 shadow-2xl">
+          <div className="hc-modal-card relative w-full max-w-lg rounded-2xl border border-slate-200 bg-white p-6 sm:p-7 text-slate-900 shadow-2xl">
             <button
               type="button"
               onClick={() => setReportOpen(false)}
@@ -638,12 +638,12 @@ export default function FactoryHeader() {
       {/* Creator / Site Admin Modal */}
       {creatorOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/75 p-4 backdrop-blur-xs"
+          className="hc-modal-overlay fixed inset-0 z-50 flex items-center justify-center bg-slate-950/75 p-4 backdrop-blur-xs"
           onClick={(e) => {
             if (e.target === e.currentTarget) setCreatorOpen(false);
           }}
         >
-          <div className="relative w-full max-w-md rounded-2xl border border-slate-200 bg-white p-6 text-slate-900 shadow-2xl">
+          <div className="hc-modal-card relative w-full max-w-md rounded-2xl border border-slate-200 bg-white p-6 text-slate-900 shadow-2xl">
             <button
               type="button"
               onClick={() => setCreatorOpen(false)}

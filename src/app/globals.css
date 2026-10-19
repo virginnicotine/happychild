@@ -71,3 +71,34 @@ summary::-webkit-details-marker {
 summary {
   list-style: none;
 }
+
+
+/* Надёжное позиционирование модальных окон шапки.
+   Эти правила не зависят от того, сгенерировались ли утилиты Tailwind для компонента. */
+.hc-modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 1rem !important;
+  overflow-y: auto;
+  background: rgb(2 6 23 / 76%) !important;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.hc-modal-card {
+  position: relative !important;
+  flex: 0 1 auto !important;
+  width: min(100%, 32rem) !important;
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
+  margin: auto !important;
+  border: 1px solid #d1d5db;
+  border-radius: 1rem;
+  background: #fff;
+  color: #0f172a;
+  box-shadow: 0 25px 60px rgb(2 6 23 / 28%);
+}

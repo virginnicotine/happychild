@@ -489,6 +489,255 @@ export default function CabinetPage() {
         )}
       </section>
 
+      {/* =====================================================================
+          ПАНЕЛЬ УПРАВЛЕНИЯ АДМИНИСТРАТОРА САЙТА (Выдача предупреждений,
+          обработка всех жалоб и управление ролями сотрудников)
+         ===================================================================== */}
+      <section className="mt-10 rounded-3xl border-2 border-slate-300 bg-white overflow-hidden shadow-md">
+        <button
+          type="button"
+          onClick={() => setAdminSectionOpen((v) => !v)}
+          className="flex w-full items-center justify-between gap-4 bg-[#174b35] px-6 py-5 text-left text-white hover:bg-[#163252] transition-colors"
+        >
+          <div className="flex items-center gap-3.5">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-400/20 text-amber-300 border border-amber-400/30">
+              <Crown className="h-6 w-6" />
+            </div>
+            <div>
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-amber-300">
+                Панель администратора сайта (Дарья Алексеевна)
+              </span>
+              <h2 className="text-lg sm:text-xl font-extrabold">
+                Управление предупреждениями, всеми жалобами и доступами сотрудников
+              </h2>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 rounded-xl bg-white/10 px-3.5 py-2 text-xs font-bold">
+            <span>{adminSectionOpen ? "Свернуть" : "Открыть панель админа"}</span>
+            {adminSectionOpen ? (
+              <ChevronUp className="h-4 w-4" />
+            ) : (
+              <ChevronDown className="h-4 w-4" />
+            )}
+          </div>
+        </button>
+
+        {adminSectionOpen && (
+          <div className="hc-reveal p-6 sm:p-8 space-y-8 bg-slate-50/60">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+              {/* 1. ВЫДАТЬ ПРЕДУПРЕЖДЕНИЕ СОТРУДНИКУ */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-2xs">
+                <h3 className="text-base font-extrabold text-slate-900 flex items-center gap-2">
+                  <ShieldAlert className="h-5 w-5 text-amber-600" />
+                  Выдать предупреждение сотруднику
+                </h3>
+                <p className="mt-1 text-xs text-slate-500">
+                  Предупреждение мгновенно отобразится в личном кабинете выбранного сотрудника.
+                </p>
+
+                <form onSubmit={handleIssueWarning} className="mt-4 space-y-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">
+                        Кому (сотрудник)
+                      </label>
+                      <select
+                        value={warnTargetLogin}
+                        onChange={(e) => setWarnTargetLogin(e.target.value)}
+                        className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs font-bold text-slate-900"
+                      >
+                        {employeesList.map((u) => (
+                          <option key={u.login} value={u.login}>
+                            {u.name} ({u.login} — {u.position})
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">
+                        Важность
+                      </label>
+                      <select
+                        value={warnSeverity}
+                        onChange={(e) => setWarnSeverity(e.target.value)}
+                        className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs font-bold text-slate-900"
+                      >
+                        <option value="warning">⚠️ Предупреждение по работе</option>
+                        <option value="critical">🚨 Строгое замечание</option>
+                        <option value="info">ℹ️ Инструктаж / Напоминание</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                      Текст предупреждения от администратора
+                    </label>
+                    <textarea
+                      required
+                      rows={3}
+                      value={warnReason}
+                      onChange={(e) => setWarnReason(e.target.value)}
+                      placeholder="Например: Проверяйте ревизию чертежа перед запуском ЧПУ..."
+                      className="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-xs sm:text-sm text-slate-900"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={issuingWarning}
+                    className="rounded-xl bg-amber-500 px-4 py-2.5 text-xs font-extrabold text-slate-950 hover:bg-amber-400 transition-colors"
+                  >
+                    {issuingWarning
+                      ? "Отправка..."
+                      : "Выдать предупреждение сотруднику"}
+                  </button>
+                </form>
+              </div>
+
+              {/* 2. УПРАВЛЕНИЕ СОТРУДНИКАМИ */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-2xs">
+                <h3 className="text-base font-extrabold text-slate-900 flex items-center gap-2">
+                  <Users className="h-5 w-5 text-emerald-700" />
+                  Сотрудники в системе ({employeesList.length})
+                </h3>
+                <div className="mt-4 overflow-x-auto">
+                  <table className="w-full text-left text-xs">
+                    <thead>
+                      <tr className="border-b border-slate-200 text-slate-500">
+                        <th className="pb-2 font-bold">Сотрудник</th>
+                        <th className="pb-2 font-bold">Роль</th>
+                        <th className="pb-2 font-bold">Статус</th>
+                        <th className="pb-2 font-bold">Действие</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100">
+                      {employeesList.map((u) => (
+                        <tr key={u.id}>
+                          <td className="py-2.5 pr-2">
+                            <strong className="block text-slate-900">
+                              {u.name}
+                            </strong>
+                            <span className="text-[11px] text-slate-500">
+                              {u.login} · {u.position}
+                            </span>
+                          </td>
+                          <td className="py-2.5 pr-2">
+                            <select
+                              value={u.role}
+                              onChange={(e) =>
+                                handleUpdateEmployee(u.id, {
+                                  role: e.target.value,
+                                })
+                              }
+                              className="rounded-lg border border-slate-300 bg-slate-50 px-2 py-1 text-xs font-bold"
+                            >
+                              <option value="user">Сотрудник</option>
+                              <option value="manager">Руководитель</option>
+                              <option value="admin">Администратор</option>
+                            </select>
+                          </td>
+                          <td className="py-2.5 pr-2">
+                            <span
+                              className={`rounded-full px-2 py-0.5 text-[10px] font-extrabold ${
+                                u.blocked
+                                  ? "bg-red-100 text-red-800"
+                                  : "bg-emerald-100 text-emerald-800"
+                              }`}
+                            >
+                              {u.blocked ? "Заблокирован" : "Активен"}
+                            </span>
+                          </td>
+                          <td className="py-2.5">
+                            <button
+                              type="button"
+                              onClick={() =>
+                                handleUpdateEmployee(u.id, {
+                                  blocked: !u.blocked,
+                                })
+                              }
+                              className="rounded-lg border border-slate-300 px-2.5 py-1 text-[11px] font-bold text-slate-700 hover:bg-slate-100"
+                            >
+                              {u.blocked ? "Разблокировать" : "Блокировать"}
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            {/* 3. ВСЕ ЖАЛОБЫ СОТРУДНИКОВ (ДЛЯ АДМИНА) */}
+            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-2xs">
+              <h3 className="text-base font-extrabold text-slate-900 flex items-center gap-2">
+                <FileText className="h-5 w-5 text-indigo-600" />
+                Все обращения сотрудников ({allComplaints.length})
+              </h3>
+              <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
+                {allComplaints.map((c) => (
+                  <div
+                    key={c.id}
+                    className="rounded-xl border border-slate-200 bg-slate-50 p-4 flex flex-col justify-between gap-3"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-xs font-extrabold text-emerald-900">
+                          От: {c.employeeName} ({c.employeeLogin})
+                        </span>
+                        {statusBadge(c.status)}
+                      </div>
+                      <h4 className="mt-1.5 text-sm font-extrabold text-slate-900">
+                        {c.subject}
+                      </h4>
+                      <p className="mt-1 text-xs text-slate-600">{c.message}</p>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-200">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          handleUpdateComplaintStatus(
+                            c.id,
+                            "reviewing",
+                            "Обращение принято в работу администратором."
+                          )
+                        }
+                        className="rounded-lg bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-900 hover:bg-amber-200"
+                      >
+                        В работу
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          handleUpdateComplaintStatus(
+                            c.id,
+                            "resolved",
+                            "Проблема проверена и исправлена в базе."
+                          )
+                        }
+                        className="rounded-lg bg-emerald-100 px-2.5 py-1 text-xs font-bold text-emerald-900 hover:bg-emerald-200"
+                      >
+                        ✓ Решена
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          handleUpdateComplaintStatus(c.id, "rejected")
+                        }
+                        className="rounded-lg bg-red-100 px-2.5 py-1 text-xs font-bold text-red-900 hover:bg-red-200"
+                      >
+                        Отклонить
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+      </section>
+
       {/* QUICK STATS ROW */}
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
         <div className="hc-card-anim flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-2xs">
@@ -900,254 +1149,7 @@ export default function CabinetPage() {
         </section>
       </div>
 
-      {/* =====================================================================
-          ПАНЕЛЬ УПРАВЛЕНИЯ АДМИНИСТРАТОРА САЙТА (Выдача предупреждений,
-          обработка всех жалоб и управление ролями сотрудников)
-         ===================================================================== */}
-      <section className="mt-10 rounded-3xl border-2 border-slate-300 bg-white overflow-hidden shadow-md">
-        <button
-          type="button"
-          onClick={() => setAdminSectionOpen((v) => !v)}
-          className="flex w-full items-center justify-between gap-4 bg-[#174b35] px-6 py-5 text-left text-white hover:bg-[#163252] transition-colors"
-        >
-          <div className="flex items-center gap-3.5">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-400/20 text-amber-300 border border-amber-400/30">
-              <Crown className="h-6 w-6" />
-            </div>
-            <div>
-              <span className="text-[11px] font-extrabold uppercase tracking-wider text-amber-300">
-                Панель администратора сайта (Дарья Алексеевна)
-              </span>
-              <h2 className="text-lg sm:text-xl font-extrabold">
-                Управление предупреждениями, всеми жалобами и доступами сотрудников
-              </h2>
-            </div>
-          </div>
-          <div className="flex items-center gap-2 rounded-xl bg-white/10 px-3.5 py-2 text-xs font-bold">
-            <span>{adminSectionOpen ? "Свернуть" : "Открыть панель админа"}</span>
-            {adminSectionOpen ? (
-              <ChevronUp className="h-4 w-4" />
-            ) : (
-              <ChevronDown className="h-4 w-4" />
-            )}
-          </div>
-        </button>
 
-        {adminSectionOpen && (
-          <div className="hc-reveal p-6 sm:p-8 space-y-8 bg-slate-50/60">
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-              {/* 1. ВЫДАТЬ ПРЕДУПРЕЖДЕНИЕ СОТРУДНИКУ */}
-              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-2xs">
-                <h3 className="text-base font-extrabold text-slate-900 flex items-center gap-2">
-                  <ShieldAlert className="h-5 w-5 text-amber-600" />
-                  Выдать предупреждение сотруднику
-                </h3>
-                <p className="mt-1 text-xs text-slate-500">
-                  Предупреждение мгновенно отобразится в личном кабинете выбранного сотрудника.
-                </p>
-
-                <form onSubmit={handleIssueWarning} className="mt-4 space-y-3">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">
-                        Кому (сотрудник)
-                      </label>
-                      <select
-                        value={warnTargetLogin}
-                        onChange={(e) => setWarnTargetLogin(e.target.value)}
-                        className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs font-bold text-slate-900"
-                      >
-                        {employeesList.map((u) => (
-                          <option key={u.login} value={u.login}>
-                            {u.name} ({u.login} — {u.position})
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">
-                        Важность
-                      </label>
-                      <select
-                        value={warnSeverity}
-                        onChange={(e) => setWarnSeverity(e.target.value)}
-                        className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs font-bold text-slate-900"
-                      >
-                        <option value="warning">⚠️ Предупреждение по работе</option>
-                        <option value="critical">🚨 Строгое замечание</option>
-                        <option value="info">ℹ️ Инструктаж / Напоминание</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
-                      Текст предупреждения от администратора
-                    </label>
-                    <textarea
-                      required
-                      rows={3}
-                      value={warnReason}
-                      onChange={(e) => setWarnReason(e.target.value)}
-                      placeholder="Например: Проверяйте ревизию чертежа перед запуском ЧПУ..."
-                      className="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-xs sm:text-sm text-slate-900"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={issuingWarning}
-                    className="rounded-xl bg-amber-500 px-4 py-2.5 text-xs font-extrabold text-slate-950 hover:bg-amber-400 transition-colors"
-                  >
-                    {issuingWarning
-                      ? "Отправка..."
-                      : "Выдать предупреждение сотруднику"}
-                  </button>
-                </form>
-              </div>
-
-              {/* 2. УПРАВЛЕНИЕ СОТРУДНИКАМИ */}
-              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-2xs">
-                <h3 className="text-base font-extrabold text-slate-900 flex items-center gap-2">
-                  <Users className="h-5 w-5 text-emerald-700" />
-                  Сотрудники в системе ({employeesList.length})
-                </h3>
-                <div className="mt-4 overflow-x-auto">
-                  <table className="w-full text-left text-xs">
-                    <thead>
-                      <tr className="border-b border-slate-200 text-slate-500">
-                        <th className="pb-2 font-bold">Сотрудник</th>
-                        <th className="pb-2 font-bold">Роль</th>
-                        <th className="pb-2 font-bold">Статус</th>
-                        <th className="pb-2 font-bold">Действие</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-100">
-                      {employeesList.map((u) => (
-                        <tr key={u.id}>
-                          <td className="py-2.5 pr-2">
-                            <strong className="block text-slate-900">
-                              {u.name}
-                            </strong>
-                            <span className="text-[11px] text-slate-500">
-                              {u.login} · {u.position}
-                            </span>
-                          </td>
-                          <td className="py-2.5 pr-2">
-                            <select
-                              value={u.role}
-                              onChange={(e) =>
-                                handleUpdateEmployee(u.id, {
-                                  role: e.target.value,
-                                })
-                              }
-                              className="rounded-lg border border-slate-300 bg-slate-50 px-2 py-1 text-xs font-bold"
-                            >
-                              <option value="user">Сотрудник</option>
-                              <option value="manager">Руководитель</option>
-                              <option value="admin">Администратор</option>
-                            </select>
-                          </td>
-                          <td className="py-2.5 pr-2">
-                            <span
-                              className={`rounded-full px-2 py-0.5 text-[10px] font-extrabold ${
-                                u.blocked
-                                  ? "bg-red-100 text-red-800"
-                                  : "bg-emerald-100 text-emerald-800"
-                              }`}
-                            >
-                              {u.blocked ? "Заблокирован" : "Активен"}
-                            </span>
-                          </td>
-                          <td className="py-2.5">
-                            <button
-                              type="button"
-                              onClick={() =>
-                                handleUpdateEmployee(u.id, {
-                                  blocked: !u.blocked,
-                                })
-                              }
-                              className="rounded-lg border border-slate-300 px-2.5 py-1 text-[11px] font-bold text-slate-700 hover:bg-slate-100"
-                            >
-                              {u.blocked ? "Разблокировать" : "Блокировать"}
-                            </button>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-
-            {/* 3. ВСЕ ЖАЛОБЫ СОТРУДНИКОВ (ДЛЯ АДМИНА) */}
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-2xs">
-              <h3 className="text-base font-extrabold text-slate-900 flex items-center gap-2">
-                <FileText className="h-5 w-5 text-indigo-600" />
-                Все обращения сотрудников ({allComplaints.length})
-              </h3>
-              <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
-                {allComplaints.map((c) => (
-                  <div
-                    key={c.id}
-                    className="rounded-xl border border-slate-200 bg-slate-50 p-4 flex flex-col justify-between gap-3"
-                  >
-                    <div>
-                      <div className="flex items-center justify-between gap-2">
-                        <span className="text-xs font-extrabold text-emerald-900">
-                          От: {c.employeeName} ({c.employeeLogin})
-                        </span>
-                        {statusBadge(c.status)}
-                      </div>
-                      <h4 className="mt-1.5 text-sm font-extrabold text-slate-900">
-                        {c.subject}
-                      </h4>
-                      <p className="mt-1 text-xs text-slate-600">{c.message}</p>
-                    </div>
-                    <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-200">
-                      <button
-                        type="button"
-                        onClick={() =>
-                          handleUpdateComplaintStatus(
-                            c.id,
-                            "reviewing",
-                            "Обращение принято в работу администратором."
-                          )
-                        }
-                        className="rounded-lg bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-900 hover:bg-amber-200"
-                      >
-                        В работу
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() =>
-                          handleUpdateComplaintStatus(
-                            c.id,
-                            "resolved",
-                            "Проблема проверена и исправлена в базе."
-                          )
-                        }
-                        className="rounded-lg bg-emerald-100 px-2.5 py-1 text-xs font-bold text-emerald-900 hover:bg-emerald-200"
-                      >
-                        ✓ Решена
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() =>
-                          handleUpdateComplaintStatus(c.id, "rejected")
-                        }
-                        className="rounded-lg bg-red-100 px-2.5 py-1 text-xs font-bold text-red-900 hover:bg-red-200"
-                      >
-                        Отклонить
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-      </section>
     </main>
   );
 }
