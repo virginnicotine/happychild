@@ -28,6 +28,7 @@ import {
 } from "lucide-react";
 import {
   PLAYGROUND_PRODUCTS,
+  SLIDE_PRODUCTS,
   LANDSCAPING_SUBCATEGORIES,
   SPEC_EXCEL_FILES,
   ARCHIVE_DOWNLOAD_FILES,
@@ -93,6 +94,23 @@ export default function HomeClient({
           title: p.title,
           subtitle: p.info,
           href: `/product/${encodeURIComponent(p.specCode)}`,
+          badge: p.code,
+        });
+      }
+    }
+
+    for (const p of SLIDE_PRODUCTS) {
+      if (
+        p.code.toLowerCase().includes(q) ||
+        p.title.toLowerCase().includes(q) ||
+        p.dimensions.toLowerCase().includes(q) ||
+        p.keys.some((k) => k.toLowerCase().includes(q))
+      ) {
+        results.push({
+          type: "Горка",
+          title: p.title,
+          subtitle: p.dimensions,
+          href: `/slides/${p.slug}`,
           badge: p.code,
         });
       }
@@ -382,15 +400,35 @@ export default function HomeClient({
               <h3 className="mt-5 text-xl font-extrabold text-slate-900">
                 Горки
               </h3>
-              <p className="mt-2 text-sm text-slate-500 leading-relaxed">
-                Раздел готовится к обновлению.
+              <span className="mt-3 inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-extrabold text-emerald-800">
+                {SLIDE_PRODUCTS.length} модели в базе
+              </span>
+              <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                Технические карточки горок ГСР: состав по разделам, артикулы,
+                количества, цвета, размеры, крепёж и исходные Excel-спецификации.
               </p>
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {SLIDE_PRODUCTS.map((p) => (
+                  <Link
+                    key={p.slug}
+                    href={`/slides/${p.slug}`}
+                    style={{ fontFamily: "var(--font-mono)" }}
+                    className="rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-bold text-slate-700 hover:border-emerald-400 hover:bg-emerald-50 hover:text-emerald-800 transition-colors"
+                  >
+                    {p.code}
+                  </Link>
+                ))}
+              </div>
             </div>
 
             <div className="mt-6 pt-4 border-t border-slate-100">
-              <span className="block rounded-xl bg-slate-100 px-4 py-3 text-center text-sm font-bold text-slate-500">
-                Скоро появится
-              </span>
+              <Link
+                href="/slides"
+                className="flex w-full items-center justify-between rounded-xl bg-[#174b35] px-4 py-3 text-sm font-bold text-white hover:bg-emerald-700 transition-colors"
+              >
+                <span>Открыть каталог горок</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
 

@@ -1,0 +1,2354 @@
+{
+  "code": "ГСР-1.01",
+  "display_code": "ГСР-1.01",
+  "title": "Горка ГСР-1.01",
+  "dimensions": "3,30 × 0,85 × 1,70 м",
+  "main_images": [
+    {
+      "path": "/slides/1.01/cover.png"
+    }
+  ],
+  "source_file": "/downloads/specifications/ГСР-1.01.xlsx",
+  "groups": [
+    {
+      "title": "СТОЛБЫ",
+      "records": [
+        {
+          "row": 6,
+          "number": 1,
+          "article": "0004ДБ",
+          "name": "Столб (брус 100х100)  1000 мм",
+          "qty": 2,
+          "color": "тик",
+          "length": 1,
+          "width": 0.09,
+          "height": 0.09,
+          "volume": 0.0081,
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 0.0081
+            },
+            {
+              "label": "Объем всего",
+              "value": 0.0162
+            }
+          ],
+          "source_row": 6
+        },
+        {
+          "row": 7,
+          "number": 2,
+          "article": "0007ДБ",
+          "name": "Столб (брус 100х100)  1700 мм",
+          "qty": 4,
+          "color": "тик",
+          "length": 1.7,
+          "width": 0.09,
+          "height": 0.09,
+          "volume": 0.01377,
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 0.01377
+            },
+            {
+              "label": "Объем всего",
+              "value": 0.05508
+            }
+          ],
+          "source_row": 7
+        },
+        {
+          "row": 8,
+          "number": 3,
+          "article": "0013МП",
+          "name": "Закладная для столба 100х100",
+          "qty": 6,
+          "color": 9007,
+          "length": 0.075,
+          "width": 0.075,
+          "height": 0.6,
+          "volume": 0.003375,
+          "images": [
+            {
+              "path": "/slides/1.01/embedded-02.jpg"
+            }
+          ],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 0.003375
+            },
+            {
+              "label": "Заглушка м8-10 (крепеж к столбу) (на 1 комплектующую)",
+              "value": 2
+            },
+            {
+              "label": "всего м8-10",
+              "value": 12
+            },
+            {
+              "label": "всего м6",
+              "value": 0
+            },
+            {
+              "label": "Объем всего",
+              "value": 0.02025
+            },
+            {
+              "label": "М8х60",
+              "value": 18
+            }
+          ],
+          "source_row": 8
+        }
+      ]
+    },
+    {
+      "title": "ПЛОЩАДКИ",
+      "records": [
+        {
+          "row": 10,
+          "number": 4,
+          "article": "0003СБ",
+          "name": "Площадка квадратная 800х800 мм (СБ)",
+          "qty": 1,
+          "color": null,
+          "length": 0.8,
+          "width": 0.8,
+          "height": 0.08,
+          "volume": 0.05120000000000001,
+          "images": [
+            {
+              "path": "/slides/1.01/embedded-03.jpg"
+            }
+          ],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 0.05120000000000001
+            },
+            {
+              "label": "всего м6",
+              "value": 0
+            },
+            {
+              "label": "Объем всего",
+              "value": 0.05120000000000001
+            },
+            {
+              "label": "М10х160",
+              "value": 4
+            }
+          ],
+          "source_row": 10
+        },
+        {
+          "row": 11,
+          "number": 5,
+          "article": "0193МП",
+          "name": "Уголок крепления площадки",
+          "qty": 4,
+          "color": 9007,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": 0.0005,
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 0.0005
+            },
+            {
+              "label": "всего м6",
+              "value": 0
+            },
+            {
+              "label": "Объем всего",
+              "value": 0.002
+            }
+          ],
+          "source_row": 11
+        }
+      ]
+    },
+    {
+      "title": "ЛЕСТНИЦЫ",
+      "records": [
+        {
+          "row": 13,
+          "number": null,
+          "article": "Лестница на высоту 900 мм (СБ) С ПЕРИЛАМИ",
+          "name": null,
+          "qty": 1,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [
+            {
+              "path": "/slides/1.01/embedded-13.jpg"
+            }
+          ],
+          "details": [
+            {
+              "label": "М8х80",
+              "value": 8
+            }
+          ],
+          "source_row": 13
+        },
+        {
+          "row": 14,
+          "number": null,
+          "article": "000029",
+          "name": "Тетива (лестница 900)\n1249 x 269 x 21",
+          "qty": 2,
+          "color": 8014,
+          "length": 0.785,
+          "width": 0.98,
+          "height": 0.018,
+          "volume": 0.0138474,
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 0.0138474
+            },
+            {
+              "label": "Заглушка м8-10 (крепеж к столбу) (на 1 комплектующую)",
+              "value": 4
+            },
+            {
+              "label": "всего м8-10",
+              "value": 8
+            },
+            {
+              "label": "Объем всего",
+              "value": 0.0276948
+            }
+          ],
+          "source_row": 14
+        },
+        {
+          "row": 15,
+          "number": null,
+          "article": "000023",
+          "name": "Ступень 600х150\n600 x 150 x 18",
+          "qty": 4,
+          "color": "_",
+          "length": 0.596,
+          "width": 0.14,
+          "height": 0.018,
+          "volume": 0.00150192,
+          "images": [
+            {
+              "path": "/slides/1.01/embedded-12.jpg"
+            }
+          ],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 0.00150192
+            },
+            {
+              "label": "Заглушка м6 (крепеж фанеры между собой)",
+              "value": 2
+            },
+            {
+              "label": "всего м6",
+              "value": 8
+            },
+            {
+              "label": "Объем всего",
+              "value": 0.00600768
+            }
+          ],
+          "source_row": 15
+        },
+        {
+          "row": 16,
+          "number": null,
+          "article": "0003МП",
+          "name": "Уголок крепления фанеры 55х55х40",
+          "qty": 8,
+          "color": 9007,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [
+            {
+              "label": "Объем всего",
+              "value": 0
+            }
+          ],
+          "source_row": 16
+        },
+        {
+          "row": 17,
+          "number": null,
+          "article": "000030",
+          "name": "Перила (лестница 900)\n1217 x 150 x 21 ",
+          "qty": 2,
+          "color": 6018,
+          "length": 1.15,
+          "width": 0.04,
+          "height": 0.075,
+          "volume": 0.00345,
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 0.00345
+            },
+            {
+              "label": "Заглушка м8-10 (крепеж к столбу) (на 1 комплектующую)",
+              "value": 2
+            },
+            {
+              "label": "всего м8-10",
+              "value": 4
+            },
+            {
+              "label": "Объем всего",
+              "value": 0.0069
+            },
+            {
+              "label": "М8х80",
+              "value": 8
+            }
+          ],
+          "source_row": 17
+        },
+        {
+          "row": 18,
+          "number": null,
+          "article": "000030",
+          "name": "Перила (лестница 900)\n1217 x 150 x 21 ",
+          "qty": 2,
+          "color": 7047,
+          "length": 1.15,
+          "width": 0.04,
+          "height": 0.075,
+          "volume": 0.00345,
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 0.00345
+            },
+            {
+              "label": "Заглушка м8-10 (крепеж к столбу) (на 1 комплектующую)",
+              "value": 2
+            },
+            {
+              "label": "всего м8-10",
+              "value": 4
+            },
+            {
+              "label": "Объем всего",
+              "value": 0.0069
+            },
+            {
+              "label": "М8х80",
+              "value": 8
+            }
+          ],
+          "source_row": 18
+        }
+      ]
+    },
+    {
+      "title": "ПАНЕЛИ",
+      "records": [
+        {
+          "row": 20,
+          "number": 11,
+          "article": "000031",
+          "name": "Панель Галка 800х700\n800 x 700 x 21",
+          "qty": 2,
+          "color": 2008,
+          "length": 0.8,
+          "width": 0.7,
+          "height": 0.015,
+          "volume": 0.0084,
+          "images": [
+            {
+              "path": "/slides/1.01/embedded-04.jpg"
+            }
+          ],
+          "details": [
+            {
+              "label": "Столбец 1",
+              "value": "ЭЛЕМЕНТЫ ДОМИКОВ  1.08"
+            },
+            {
+              "label": "Объем, м3",
+              "value": 0.0084
+            },
+            {
+              "label": "Заглушка м8-10 (крепеж к столбу) (на 1 комплектующую)",
+              "value": 4
+            },
+            {
+              "label": "всего м8-10",
+              "value": 8
+            },
+            {
+              "label": "всего м6",
+              "value": 0
+            },
+            {
+              "label": "Объем всего",
+              "value": 0.0168
+            },
+            {
+              "label": "М8х80",
+              "value": 8
+            }
+          ],
+          "source_row": 20
+        },
+        {
+          "row": 21,
+          "number": 12,
+          "article": "000032",
+          "name": "Накладка панели Галка 800\n300 x 50 x 15 ",
+          "qty": 4,
+          "color": 7047,
+          "length": 0.3,
+          "width": 0.05,
+          "height": 0.015,
+          "volume": 0.000225,
+          "images": [
+            {
+              "path": "/slides/1.01/embedded-05.jpg"
+            }
+          ],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 0.000225
+            },
+            {
+              "label": "Заглушка м6 (крепеж фанеры между собой)",
+              "value": 2
+            },
+            {
+              "label": "всего м6",
+              "value": 8
+            },
+            {
+              "label": "Объем всего",
+              "value": 0.0009
+            },
+            {
+              "label": "б м6х55",
+              "value": 8
+            }
+          ],
+          "source_row": 21
+        },
+        {
+          "row": 22,
+          "number": 13,
+          "article": "000033",
+          "name": "Накл. Галка (фронт крыши 800x800)\n438 x 349 x 15 ",
+          "qty": 2,
+          "color": 7047,
+          "length": 0.44,
+          "width": 0.351,
+          "height": 0.012,
+          "volume": 0.00185328,
+          "images": [
+            {
+              "path": "/slides/1.01/embedded-06.jpg"
+            }
+          ],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 0.00185328
+            },
+            {
+              "label": "всего м6",
+              "value": 0
+            },
+            {
+              "label": "Объем всего",
+              "value": 0.00370656
+            },
+            {
+              "label": "б м6х55",
+              "value": 6
+            }
+          ],
+          "source_row": 22
+        },
+        {
+          "row": 23,
+          "number": 14,
+          "article": "0003МП",
+          "name": "Уголок крепления фанеры 55х55х40",
+          "qty": 10,
+          "color": 7047,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [
+            {
+              "label": "Заглушка м6 (крепеж фанеры между собой)",
+              "value": 2
+            },
+            {
+              "label": "всего м6",
+              "value": 20
+            },
+            {
+              "label": "Объем всего",
+              "value": 0
+            }
+          ],
+          "source_row": 23
+        }
+      ]
+    },
+    {
+      "title": "Горка",
+      "records": [
+        {
+          "row": 25,
+          "number": null,
+          "article": "0006СБ",
+          "name": "Горка 900мм в сборе",
+          "qty": 1,
+          "color": null,
+          "length": 0.616,
+          "width": 0.04,
+          "height": 0.1,
+          "volume": 0.002464,
+          "images": [
+            {
+              "path": "/slides/1.01/embedded-14.png"
+            }
+          ],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 0.002464
+            },
+            {
+              "label": "Заглушка м8-10 (крепеж к столбу) (на 1 комплектующую)",
+              "value": 4
+            },
+            {
+              "label": "всего м8-10",
+              "value": 4
+            },
+            {
+              "label": "всего м6",
+              "value": 0
+            },
+            {
+              "label": "Объем всего",
+              "value": 0.002464
+            },
+            {
+              "label": "М8х80",
+              "value": 6
+            },
+            {
+              "label": "б м6х55",
+              "value": 18
+            }
+          ],
+          "source_row": 25
+        }
+      ]
+    },
+    {
+      "title": "МЕТАЛЛ",
+      "records": [
+        {
+          "row": 27,
+          "number": null,
+          "article": "0084МП",
+          "name": "Поручень дуга 570мм",
+          "qty": 1,
+          "color": 9007,
+          "length": 0.616,
+          "width": 0.04,
+          "height": 0.1,
+          "volume": 0.002464,
+          "images": [
+            {
+              "path": "/slides/1.01/embedded-19.png"
+            }
+          ],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 0.002464
+            },
+            {
+              "label": "Заглушка м8-10 (крепеж к столбу) (на 1 комплектующую)",
+              "value": 4
+            },
+            {
+              "label": "всего м8-10",
+              "value": 4
+            },
+            {
+              "label": "всего м6",
+              "value": 0
+            },
+            {
+              "label": "Объем всего",
+              "value": 0.002464
+            },
+            {
+              "label": "М8х80",
+              "value": 4
+            }
+          ],
+          "source_row": 27
+        }
+      ]
+    },
+    {
+      "title": "ПЛАСТИК",
+      "records": [
+        {
+          "row": 29,
+          "number": null,
+          "article": "КЧМ6КС",
+          "name": "Заглушка пластиковая на болт М6 (черные)",
+          "qty": 32,
+          "color": "Черный",
+          "length": 0.027,
+          "width": 0.027,
+          "height": 0.016,
+          "volume": 1.1663999999999999e-05,
+          "images": [
+            {
+              "path": "/slides/1.01/embedded-07.png"
+            }
+          ],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 1.1663999999999999e-05
+            },
+            {
+              "label": "всего м6",
+              "value": 0
+            },
+            {
+              "label": "Объем всего",
+              "value": 0.00037324799999999996
+            }
+          ],
+          "source_row": 29
+        },
+        {
+          "row": 30,
+          "number": null,
+          "article": "КЧМ8КС",
+          "name": "Заглушка пластиковая на болт М8-10 (черные)",
+          "qty": 46,
+          "color": "Черный",
+          "length": 0.036,
+          "width": 0.036,
+          "height": 0.023,
+          "volume": 2.9807999999999996e-05,
+          "images": [
+            {
+              "path": "/slides/1.01/embedded-09.png"
+            }
+          ],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 2.9807999999999996e-05
+            },
+            {
+              "label": "всего м6",
+              "value": 0
+            },
+            {
+              "label": "Объем всего",
+              "value": 0.0013711679999999999
+            }
+          ],
+          "source_row": 30
+        },
+        {
+          "row": 31,
+          "number": null,
+          "article": "100-100.11КК",
+          "name": "Заглушка пластиковая на столб 90х90 мм (черные)",
+          "qty": 6,
+          "color": "Черный",
+          "length": 0.09,
+          "width": 0.09,
+          "height": 0.044,
+          "volume": 0.00035639999999999994,
+          "images": [
+            {
+              "path": "/slides/1.01/embedded-08.jpg"
+            },
+            {
+              "path": "/slides/1.01/embedded-10.png"
+            },
+            {
+              "path": "/slides/1.01/embedded-11.png"
+            }
+          ],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 0.00035639999999999994
+            },
+            {
+              "label": "всего м6",
+              "value": 0
+            },
+            {
+              "label": "Объем всего",
+              "value": 0.0021383999999999995
+            },
+            {
+              "label": "М8х60",
+              "value": 6
+            }
+          ],
+          "source_row": 31
+        }
+      ]
+    },
+    {
+      "title": "Метизы для монтажа",
+      "records": [
+        {
+          "row": 35,
+          "number": null,
+          "article": "Глухарь",
+          "name": "М8х60",
+          "qty": 42,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 35
+        },
+        {
+          "row": 36,
+          "number": null,
+          "article": null,
+          "name": "М8х80",
+          "qty": 24,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 36
+        },
+        {
+          "row": 37,
+          "number": null,
+          "article": "Меб. Болт.",
+          "name": "М10х160",
+          "qty": 4,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 37
+        },
+        {
+          "row": 38,
+          "number": null,
+          "article": null,
+          "name": "М6х55",
+          "qty": 32,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 38
+        },
+        {
+          "row": 39,
+          "number": null,
+          "article": "Шайба",
+          "name": "М12",
+          "qty": 4,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 39
+        },
+        {
+          "row": 40,
+          "number": null,
+          "article": null,
+          "name": "М10",
+          "qty": 4,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 40
+        },
+        {
+          "row": 41,
+          "number": null,
+          "article": null,
+          "name": "М8",
+          "qty": 66,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 41
+        },
+        {
+          "row": 42,
+          "number": null,
+          "article": null,
+          "name": "М6",
+          "qty": 32,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 42
+        },
+        {
+          "row": 43,
+          "number": null,
+          "article": "гайка",
+          "name": "М10",
+          "qty": 4,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 43
+        },
+        {
+          "row": 44,
+          "number": null,
+          "article": null,
+          "name": "М6",
+          "qty": 32,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 44
+        },
+        {
+          "row": 45,
+          "number": null,
+          "article": "Заглушка",
+          "name": "КЧМ6КС",
+          "qty": 32,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 45
+        },
+        {
+          "row": 46,
+          "number": null,
+          "article": null,
+          "name": "КЧМ8КС",
+          "qty": 46,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 46
+        },
+        {
+          "row": 47,
+          "number": null,
+          "article": null,
+          "name": "100-100.11.КК",
+          "qty": 6,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 47
+        }
+      ]
+    },
+    {
+      "title": "лестница 900",
+      "records": [
+        {
+          "row": 52,
+          "number": null,
+          "article": "уголок",
+          "name": "55х55х40 90гр.",
+          "qty": 8,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 52
+        },
+        {
+          "row": 53,
+          "number": null,
+          "article": "Меб. Болт",
+          "name": "М6х40",
+          "qty": 8,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 53
+        },
+        {
+          "row": 54,
+          "number": null,
+          "article": null,
+          "name": "М6х75",
+          "qty": 8,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 54
+        },
+        {
+          "row": 55,
+          "number": null,
+          "article": "Шайба",
+          "name": "М6",
+          "qty": 16,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 55
+        },
+        {
+          "row": 56,
+          "number": null,
+          "article": "Гайка",
+          "name": "М6",
+          "qty": 16,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 56
+        },
+        {
+          "row": 57,
+          "number": null,
+          "article": "Заглушка",
+          "name": "КЧМ6КС",
+          "qty": 16,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 57
+        }
+      ]
+    },
+    {
+      "title": "Расход металла",
+      "records": [
+        {
+          "row": 61,
+          "number": null,
+          "article": "уголок",
+          "name": "110х40",
+          "qty": 0.0044,
+          "color": 0.06,
+          "length": 0.48,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 61
+        }
+      ]
+    },
+    {
+      "title": "покраска",
+      "records": [
+        {
+          "row": 65,
+          "number": null,
+          "article": "000029",
+          "name": "Тетива (лестница 900)\n1249 x 269 x 21",
+          "qty": 0.52,
+          "color": 1.1,
+          "length": 102.96000000000002,
+          "width": 205.92000000000004,
+          "height": 2,
+          "volume": 8014,
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 8014
+            }
+          ],
+          "source_row": 65
+        },
+        {
+          "row": 66,
+          "number": null,
+          "article": "0006ДБ",
+          "name": "Подступенок (доска 35х90х558)",
+          "qty": 0.15,
+          "color": 1.1,
+          "length": 29.700000000000003,
+          "width": 118.80000000000001,
+          "height": 4,
+          "volume": 8014,
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 8014
+            }
+          ],
+          "source_row": 66
+        },
+        {
+          "row": 67,
+          "number": null,
+          "article": "000030",
+          "name": "Перила (лестница 900)\n1217 x 150 x 21 ",
+          "qty": 0.4,
+          "color": 1.1,
+          "length": 79.2,
+          "width": 158.4,
+          "height": 2,
+          "volume": "6018",
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": "6018"
+            }
+          ],
+          "source_row": 67
+        },
+        {
+          "row": 68,
+          "number": null,
+          "article": "000030",
+          "name": "Перила (лестница 900)\n1217 x 150 x 21 ",
+          "qty": 0.4,
+          "color": 1.1,
+          "length": 79.2,
+          "width": 158.4,
+          "height": 2,
+          "volume": "7047",
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": "7047"
+            }
+          ],
+          "source_row": 68
+        },
+        {
+          "row": 69,
+          "number": null,
+          "article": "0003МП",
+          "name": "Уголок крепления фанеры 55х55х40",
+          "qty": 0.01,
+          "color": 1.1,
+          "length": 2.2,
+          "width": 17.6,
+          "height": 8,
+          "volume": "9007",
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": "9007"
+            }
+          ],
+          "source_row": 69
+        }
+      ]
+    },
+    {
+      "title": "Площадка квадратная 800х800",
+      "records": [
+        {
+          "row": 73,
+          "number": null,
+          "article": "уголок",
+          "name": "крпеление площадки",
+          "qty": 4,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 73
+        },
+        {
+          "row": 74,
+          "number": null,
+          "article": "Меб. Болт",
+          "name": "М6х55",
+          "qty": 8,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 74
+        },
+        {
+          "row": 75,
+          "number": null,
+          "article": "Саморез по дереву потай",
+          "name": "4.2х52",
+          "qty": 15,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 75
+        },
+        {
+          "row": 76,
+          "number": null,
+          "article": "гайка",
+          "name": "М6",
+          "qty": 8,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 76
+        },
+        {
+          "row": 77,
+          "number": null,
+          "article": "шайба",
+          "name": "М6",
+          "qty": 8,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 77
+        },
+        {
+          "row": 78,
+          "number": null,
+          "article": "заглушка",
+          "name": "КЧМ6КС",
+          "qty": 8,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 78
+        }
+      ]
+    },
+    {
+      "title": "Расход металла: уголок для площадок",
+      "records": [
+        {
+          "row": 82,
+          "number": null,
+          "article": "уголок",
+          "name": "100х100х70",
+          "qty": 0.014,
+          "color": 0.32,
+          "length": 1.28,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 82
+        }
+      ]
+    },
+    {
+      "title": "покраска",
+      "records": [
+        {
+          "row": 86,
+          "number": null,
+          "article": null,
+          "name": "доска 35х90х800",
+          "qty": 0.16,
+          "color": 1.1,
+          "length": 31.680000000000003,
+          "width": 63.36000000000001,
+          "height": 2,
+          "volume": "8014",
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": "8014"
+            }
+          ],
+          "source_row": 86
+        },
+        {
+          "row": 87,
+          "number": null,
+          "article": null,
+          "name": "доска 35х90х530",
+          "qty": 0.11,
+          "color": 1.1,
+          "length": 21.78,
+          "width": 43.56,
+          "height": 2,
+          "volume": "8014",
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": "8014"
+            }
+          ],
+          "source_row": 87
+        },
+        {
+          "row": 88,
+          "number": null,
+          "article": null,
+          "name": "уголок крепления площадки",
+          "qty": 0.02,
+          "color": 1.1,
+          "length": 4.4,
+          "width": 17.6,
+          "height": 4,
+          "volume": 9007,
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 9007
+            }
+          ],
+          "source_row": 88
+        }
+      ]
+    },
+    {
+      "title": "горка 900",
+      "records": [
+        {
+          "row": 92,
+          "number": null,
+          "article": "Меб. Болт",
+          "name": "М6х55",
+          "qty": 18,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 92
+        },
+        {
+          "row": 93,
+          "number": null,
+          "article": null,
+          "name": "М6х40",
+          "qty": 2,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 93
+        },
+        {
+          "row": 94,
+          "number": null,
+          "article": "гайка",
+          "name": "М6",
+          "qty": 20,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 94
+        },
+        {
+          "row": 95,
+          "number": null,
+          "article": "шайба",
+          "name": "М6",
+          "qty": 20,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 95
+        },
+        {
+          "row": 96,
+          "number": null,
+          "article": "заглушка",
+          "name": "КЧМ6КС",
+          "qty": 20,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 96
+        }
+      ]
+    },
+    {
+      "title": "Расход металла: Крепление горки 506мм",
+      "records": [
+        {
+          "row": 99,
+          "number": null,
+          "article": "деталь",
+          "name": "размер мм",
+          "qty": "длина м/площадь м2",
+          "color": "масса 1шт.",
+          "length": "Масса комплект  кг",
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 99
+        },
+        {
+          "row": 100,
+          "number": null,
+          "article": "уголок горячекатаный",
+          "name": "45х45х4",
+          "qty": 0.5,
+          "color": 1.34,
+          "length": 1.34,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 100
+        },
+        {
+          "row": 101,
+          "number": null,
+          "article": "пластина",
+          "name": "70х40х3",
+          "qty": 0.0028,
+          "color": 0.066,
+          "length": 0.132,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 101
+        }
+      ]
+    },
+    {
+      "title": "Расход металла: Перемычка горки 506мм",
+      "records": [
+        {
+          "row": 104,
+          "number": null,
+          "article": "деталь",
+          "name": "размер мм",
+          "qty": "длина м/площадь м2",
+          "color": "масса 1шт.",
+          "length": "Масса комплект  кг",
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 104
+        },
+        {
+          "row": 105,
+          "number": null,
+          "article": "труба",
+          "name": "20х20х3",
+          "qty": 0.5,
+          "color": 0.56,
+          "length": 2.24,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 105
+        },
+        {
+          "row": 106,
+          "number": null,
+          "article": "пластина",
+          "name": "120х40х3",
+          "qty": 0.0048,
+          "color": 0.011,
+          "length": 0.088,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 106
+        }
+      ]
+    },
+    {
+      "title": "Расход металла: Опора горки заклдная",
+      "records": [
+        {
+          "row": 109,
+          "number": null,
+          "article": "деталь",
+          "name": "размер мм",
+          "qty": "длина м/площадь м2",
+          "color": "масса 1шт.",
+          "length": "Масса комплект  кг",
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 109
+        },
+        {
+          "row": 110,
+          "number": null,
+          "article": "уголок горячекатаный",
+          "name": "45х45х4",
+          "qty": 0.5,
+          "color": 1.34,
+          "length": 1.34,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 110
+        },
+        {
+          "row": 111,
+          "number": null,
+          "article": "пластина",
+          "name": "70х40х3",
+          "qty": 0.0028,
+          "color": 0.066,
+          "length": 0.132,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 111
+        },
+        {
+          "row": 112,
+          "number": null,
+          "article": "труба",
+          "name": "dх27х3",
+          "qty": 0.4,
+          "color": 0.71,
+          "length": 1.42,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 112
+        }
+      ]
+    },
+    {
+      "title": "покраска",
+      "records": [
+        {
+          "row": 116,
+          "number": null,
+          "article": "000026",
+          "name": "Борт правый (горка 900) 1913х621х21",
+          "qty": 1.11,
+          "color": 1.1,
+          "length": 219.78000000000003,
+          "width": 219.78000000000003,
+          "height": 1,
+          "volume": 5017,
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 5017
+            }
+          ],
+          "source_row": 116
+        },
+        {
+          "row": 117,
+          "number": null,
+          "article": "000027",
+          "name": "Борт левый (горка 900) 1913х621х21",
+          "qty": 1.11,
+          "color": 1.1,
+          "length": 219.78000000000003,
+          "width": 219.78000000000003,
+          "height": 1,
+          "volume": "5017",
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": "5017"
+            }
+          ],
+          "source_row": 117
+        },
+        {
+          "row": 118,
+          "number": null,
+          "article": "000028",
+          "name": "Вставка (горка 900) 170х254х21",
+          "qty": 0.23,
+          "color": 1.1,
+          "length": 45.54,
+          "width": 91.08,
+          "height": 2,
+          "volume": "5017",
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": "5017"
+            }
+          ],
+          "source_row": 118
+        },
+        {
+          "row": 119,
+          "number": null,
+          "article": "000016",
+          "name": "Ограждение горки",
+          "qty": 0.5,
+          "color": 1.1,
+          "length": 99.00000000000001,
+          "width": 198.00000000000003,
+          "height": 2,
+          "volume": "6018",
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": "6018"
+            }
+          ],
+          "source_row": 119
+        },
+        {
+          "row": 120,
+          "number": null,
+          "article": "0006МП",
+          "name": "Крепление горки (506мм)",
+          "qty": 0.1,
+          "color": 1.1,
+          "length": 22,
+          "width": 22,
+          "height": 1,
+          "volume": 9007,
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 9007
+            }
+          ],
+          "source_row": 120
+        },
+        {
+          "row": 121,
+          "number": null,
+          "article": "0007МП",
+          "name": "Опора горки закладная (528мм)",
+          "qty": 0.17,
+          "color": 1.1,
+          "length": 37.400000000000006,
+          "width": 37.400000000000006,
+          "height": 1,
+          "volume": 9007,
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 9007
+            }
+          ],
+          "source_row": 121
+        },
+        {
+          "row": 122,
+          "number": null,
+          "article": "0008МП",
+          "name": "Перемычка горки (506мм)",
+          "qty": 0.08,
+          "color": 1.1,
+          "length": 17.6,
+          "width": 70.4,
+          "height": 4,
+          "volume": 9007,
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 9007
+            }
+          ],
+          "source_row": 122
+        },
+        {
+          "row": 124,
+          "number": null,
+          "article": null,
+          "name": "покраска основные детали:",
+          "qty": null,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 124
+        },
+        {
+          "row": 126,
+          "number": null,
+          "article": "000031",
+          "name": "Панель Галка 800х700\n800 x 700 x 21",
+          "qty": 1.07,
+          "color": 1.1,
+          "length": 211.86000000000004,
+          "width": 423.7200000000001,
+          "height": 2,
+          "volume": 2008,
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 2008
+            }
+          ],
+          "source_row": 126
+        },
+        {
+          "row": 127,
+          "number": null,
+          "article": "000032",
+          "name": "Накладка панели Галка 800\n300 x 50 x 15 ",
+          "qty": 0.04,
+          "color": 1.1,
+          "length": 7.920000000000001,
+          "width": 31.680000000000003,
+          "height": 4,
+          "volume": "7047",
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": "7047"
+            }
+          ],
+          "source_row": 127
+        },
+        {
+          "row": 128,
+          "number": null,
+          "article": "000033",
+          "name": "Накл. Галка (фронт крыши 800x800)\n438 x 349 x 15 ",
+          "qty": 0.18,
+          "color": 1.1,
+          "length": 35.64,
+          "width": 71.28,
+          "height": 2,
+          "volume": 7047,
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 7047
+            }
+          ],
+          "source_row": 128
+        },
+        {
+          "row": 129,
+          "number": null,
+          "article": "0004ДБ",
+          "name": "Столб (брус 100х100)  1000 мм",
+          "qty": 0.42,
+          "color": 1.1,
+          "length": 83.16,
+          "width": 166.32,
+          "height": 2,
+          "volume": "8014",
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": "8014"
+            }
+          ],
+          "source_row": 129
+        },
+        {
+          "row": 130,
+          "number": null,
+          "article": "0007ДБ",
+          "name": "Столб (брус 100х100)  1700 мм",
+          "qty": 0.7,
+          "color": 1.1,
+          "length": 138.6,
+          "width": 554.4,
+          "height": 4,
+          "volume": "8014",
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": "8014"
+            }
+          ],
+          "source_row": 130
+        },
+        {
+          "row": 131,
+          "number": null,
+          "article": "0013МП",
+          "name": "Закладная для столба 100х100",
+          "qty": 0.2,
+          "color": 1.1,
+          "length": 44,
+          "width": 264,
+          "height": 6,
+          "volume": 9007,
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 9007
+            }
+          ],
+          "source_row": 131
+        },
+        {
+          "row": 132,
+          "number": null,
+          "article": "0084МП",
+          "name": "Поручень горки дуга (570мм)",
+          "qty": 0.11,
+          "color": 1.1,
+          "length": 24.200000000000003,
+          "width": 24.200000000000003,
+          "height": 1,
+          "volume": 9007,
+          "images": [],
+          "details": [
+            {
+              "label": "Объем, м3",
+              "value": 9007
+            }
+          ],
+          "source_row": 132
+        }
+      ]
+    },
+    {
+      "title": "Расход металла: Поручень горки дуга (570мм)",
+      "records": [
+        {
+          "row": 135,
+          "number": null,
+          "article": "деталь",
+          "name": "размер мм",
+          "qty": "длина м/площадь м2",
+          "color": "масса 1шт.",
+          "length": "Масса комплект  кг",
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 135
+        },
+        {
+          "row": 136,
+          "number": null,
+          "article": "труба-1",
+          "name": "d27х3",
+          "qty": 0.591,
+          "color": 0.092,
+          "length": 0.092,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 136
+        },
+        {
+          "row": 137,
+          "number": null,
+          "article": "пластина",
+          "name": "120х40х3",
+          "qty": 0.0048,
+          "color": 0.011,
+          "length": 0.022,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 137
+        }
+      ]
+    },
+    {
+      "title": "Расход металла: Закладная для столба 100х100",
+      "records": [
+        {
+          "row": 140,
+          "number": null,
+          "article": "деталь",
+          "name": "размер мм",
+          "qty": "длина м/площадь м2",
+          "color": "масса 1шт.",
+          "length": "Масса комплект  кг",
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 140
+        },
+        {
+          "row": 141,
+          "number": null,
+          "article": "уголок горячекатаный",
+          "name": "90х90х6",
+          "qty": 500,
+          "color": 4.07,
+          "length": 24.42,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 141
+        },
+        {
+          "row": 142,
+          "number": null,
+          "article": "пластина-1",
+          "name": "40х50х3",
+          "qty": 0.0015,
+          "color": 0.06,
+          "length": 0.36,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 142
+        },
+        {
+          "row": 143,
+          "number": null,
+          "article": "пластина-2",
+          "name": "84х84х5",
+          "qty": 0.007,
+          "color": 0.17,
+          "length": 1.02,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 143
+        }
+      ]
+    },
+    {
+      "title": "Расход краски на комплекс",
+      "records": [
+        {
+          "row": 147,
+          "number": null,
+          "article": "Цвет",
+          "name": "кол-во гр.",
+          "qty": null,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 147
+        },
+        {
+          "row": 148,
+          "number": null,
+          "article": 2008,
+          "name": 423.7200000000001,
+          "qty": null,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 148
+        },
+        {
+          "row": 149,
+          "number": null,
+          "article": 5017,
+          "name": 530.6400000000001,
+          "qty": null,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 149
+        },
+        {
+          "row": 150,
+          "number": null,
+          "article": 8014,
+          "name": 1152.36,
+          "qty": null,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 150
+        },
+        {
+          "row": 151,
+          "number": null,
+          "article": 6018,
+          "name": 356.40000000000003,
+          "qty": null,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 151
+        },
+        {
+          "row": 152,
+          "number": null,
+          "article": 9007,
+          "name": 453.2,
+          "qty": null,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 152
+        },
+        {
+          "row": 153,
+          "number": null,
+          "article": 7047,
+          "name": 261.36,
+          "qty": null,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 153
+        }
+      ]
+    },
+    {
+      "title": "Метизы общая",
+      "records": [
+        {
+          "row": 157,
+          "number": null,
+          "article": "Глухарь",
+          "name": "М8х60",
+          "qty": 42,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 157
+        },
+        {
+          "row": 158,
+          "number": null,
+          "article": null,
+          "name": "М8х80",
+          "qty": 24,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 158
+        },
+        {
+          "row": 159,
+          "number": null,
+          "article": "Меб. Болт.",
+          "name": "М10х160",
+          "qty": 4,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 159
+        },
+        {
+          "row": 160,
+          "number": null,
+          "article": null,
+          "name": "М6х40",
+          "qty": 10,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 160
+        },
+        {
+          "row": 161,
+          "number": null,
+          "article": null,
+          "name": "М6х55",
+          "qty": 58,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 161
+        },
+        {
+          "row": 162,
+          "number": null,
+          "article": null,
+          "name": "М6х75",
+          "qty": 8,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 162
+        },
+        {
+          "row": 163,
+          "number": null,
+          "article": "Шайба",
+          "name": "М12",
+          "qty": 4,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 163
+        },
+        {
+          "row": 164,
+          "number": null,
+          "article": null,
+          "name": "М10",
+          "qty": 4,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 164
+        },
+        {
+          "row": 165,
+          "number": null,
+          "article": null,
+          "name": "М8",
+          "qty": 66,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 165
+        },
+        {
+          "row": 166,
+          "number": null,
+          "article": null,
+          "name": "М6",
+          "qty": 76,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 166
+        },
+        {
+          "row": 167,
+          "number": null,
+          "article": "гайка",
+          "name": "М10",
+          "qty": 4,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 167
+        },
+        {
+          "row": 168,
+          "number": null,
+          "article": null,
+          "name": "М6",
+          "qty": 76,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 168
+        },
+        {
+          "row": 169,
+          "number": null,
+          "article": "Заглушка",
+          "name": "КЧМ6КС",
+          "qty": 76,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 169
+        },
+        {
+          "row": 170,
+          "number": null,
+          "article": null,
+          "name": "КЧМ8КС",
+          "qty": 46,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 170
+        },
+        {
+          "row": 171,
+          "number": null,
+          "article": null,
+          "name": "100-100.11.КК",
+          "qty": 6,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 171
+        },
+        {
+          "row": 172,
+          "number": null,
+          "article": "уголок",
+          "name": "55х55х40 90гр.",
+          "qty": 8,
+          "color": null,
+          "length": null,
+          "width": null,
+          "height": null,
+          "volume": null,
+          "images": [],
+          "details": [],
+          "source_row": 172
+        }
+      ]
+    }
+  ]
+}
