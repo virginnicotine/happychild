@@ -239,3 +239,50 @@ a, button, summary, .category-card-main, .dropdown-trigger, input, select, texta
         grid-template-columns: 1fr;
     }
 }
+
+
+/* Фикс размера логотипа и шапки */
+.header {
+    min-height: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-height: 64px;
+}
+
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto !important;
+    height: 56px !important;
+    max-height: 56px !important;
+    padding: 6px 12px !important;
+    background: #ffffff !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+}
+
+.logo-icon img {
+    display: block !important;
+    width: auto !important;
+    height: 100% !important;
+    max-height: 44px !important;
+    max-width: 180px !important;
+    object-fit: contain !important;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+}
