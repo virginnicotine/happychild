@@ -1,0 +1,998 @@
+[
+  {
+    "title": "Горка 600 фанера",
+    "countLabel": "8 позиций",
+    "rows": [
+      {
+        "article": "000016",
+        "name": "Ограждение горки (КП-Г4)",
+        "qty": "2",
+        "coating": "Водоэмульсионная краска",
+        "material": "ФСФ 15",
+        "weightOne": "3,3",
+        "weightTotal": "6,6"
+      },
+      {
+        "article": "000013",
+        "name": "Борт левый (горка 600) (КП-Г4)",
+        "qty": "1",
+        "coating": "Водоэмульсионная краска",
+        "material": "ФСФ 21",
+        "weightOne": "4,5",
+        "weightTotal": "4,5"
+      },
+      {
+        "article": "000014",
+        "name": "Борт правый (горка 600) (КП-Г4)",
+        "qty": "1",
+        "coating": "Водоэмульсионная краска",
+        "material": "ФСФ 21",
+        "weightOne": "4,5",
+        "weightTotal": "4,5"
+      },
+      {
+        "article": "000015",
+        "name": "Вставка (горка 600) (КП-Г4)",
+        "qty": "2",
+        "coating": "Водоэмульсионная краска",
+        "material": "ФСФ 21",
+        "weightOne": "0,72",
+        "weightTotal": "1,44"
+      },
+      {
+        "article": "0006МП",
+        "name": "Крепление горки (506mm)",
+        "qty": "1",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "1,46",
+        "weightTotal": "1,46"
+      },
+      {
+        "article": "0008МП",
+        "name": "Перемычка горки (506mm)",
+        "qty": "3",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "0,67",
+        "weightTotal": "2,01"
+      },
+      {
+        "article": "0007МП",
+        "name": "Опора горки закладная (528mm)",
+        "qty": "1",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "2,57",
+        "weightTotal": "2,57"
+      },
+      {
+        "article": "0005МП",
+        "name": "Спуск горки 600 (545x1430)",
+        "qty": "1",
+        "coating": "",
+        "material": "Нержавеющая сталь",
+        "weightOne": "9,24",
+        "weightTotal": "9,24"
+      }
+    ]
+  },
+  {
+    "title": "Горка 600 ПНД",
+    "countLabel": "9 позиций",
+    "rows": [
+      {
+        "article": "000016.П.15.0",
+        "name": "Ограждение горки",
+        "qty": "1",
+        "coating": "",
+        "material": "ПНД 15",
+        "weightOne": "4,7",
+        "weightTotal": "4,7"
+      },
+      {
+        "article": "000016.П.15.1",
+        "name": "Ограждение горки(зерк.)",
+        "qty": "1",
+        "coating": "",
+        "material": "ПНД 15",
+        "weightOne": "4,7",
+        "weightTotal": "4,7"
+      },
+      {
+        "article": "000013.П.21.0",
+        "name": "Борт левый (горка 600)",
+        "qty": "1",
+        "coating": "",
+        "material": "ПНД 21",
+        "weightOne": "6,58",
+        "weightTotal": "6,58"
+      },
+      {
+        "article": "000014.П.21.0",
+        "name": "Борт правый (горка 600)",
+        "qty": "1",
+        "coating": "",
+        "material": "ПНД 21",
+        "weightOne": "6,58",
+        "weightTotal": "6,58"
+      },
+      {
+        "article": "000015.П.21.0",
+        "name": "Вставка (горка 600)",
+        "qty": "2",
+        "coating": "",
+        "material": "ПНД 21",
+        "weightOne": "1,05",
+        "weightTotal": "2,1"
+      },
+      {
+        "article": "0006МП",
+        "name": "Крепление горки (506mm)",
+        "qty": "1",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "1,46",
+        "weightTotal": "1,46"
+      },
+      {
+        "article": "0008МП",
+        "name": "Перемычка горки (506mm)",
+        "qty": "3",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "0,67",
+        "weightTotal": "2,01"
+      },
+      {
+        "article": "0007МП",
+        "name": "Опора горки закладная (528mm)",
+        "qty": "1",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "2,57",
+        "weightTotal": "2,57"
+      },
+      {
+        "article": "0005МП",
+        "name": "Спуск горки 600 (545x1430)",
+        "qty": "1",
+        "coating": "",
+        "material": "Нержавеющая сталь",
+        "weightOne": "9,24",
+        "weightTotal": "9,24"
+      }
+    ]
+  },
+  {
+    "title": "Горка 900 фанера",
+    "countLabel": "8 позиций",
+    "rows": [
+      {
+        "article": "000026",
+        "name": "Борт правый (горка 900) (КП-Г4)",
+        "qty": "1",
+        "coating": "Водоэмульсионная краска",
+        "material": "ФСФ 21",
+        "weightOne": "6,56",
+        "weightTotal": "6,56"
+      },
+      {
+        "article": "000027",
+        "name": "Борт левый (горка 900) (КП-Г4)",
+        "qty": "1",
+        "coating": "Водоэмульсионная краска",
+        "material": "ФСФ 21",
+        "weightOne": "6,56",
+        "weightTotal": "6,56"
+      },
+      {
+        "article": "000028",
+        "name": "Вставка (горка 900) (КП-Г4)",
+        "qty": "2",
+        "coating": "Водоэмульсионная краска",
+        "material": "ФСФ 21",
+        "weightOne": "1,01",
+        "weightTotal": "2,02"
+      },
+      {
+        "article": "000016",
+        "name": "Ограждение горки",
+        "qty": "2",
+        "coating": "Водоэмульсионная краска",
+        "material": "ФСФ 15",
+        "weightOne": "3,3",
+        "weightTotal": "6,6"
+      },
+      {
+        "article": "0006МП",
+        "name": "Крепление горки (506mm)",
+        "qty": "1",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "1,46",
+        "weightTotal": "1,46"
+      },
+      {
+        "article": "0007МП",
+        "name": "Опора горки закладная (528mm)",
+        "qty": "1",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "2,57",
+        "weightTotal": "2,57"
+      },
+      {
+        "article": "0008МП",
+        "name": "Перемычка горки (506mm)",
+        "qty": "4",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "0,67",
+        "weightTotal": "2,68"
+      },
+      {
+        "article": "0016МП",
+        "name": "Спуск горки 900 (545x1980)",
+        "qty": "1",
+        "coating": "",
+        "material": "Нержавеющая сталь",
+        "weightOne": "12,79",
+        "weightTotal": "12,79"
+      }
+    ]
+  },
+  {
+    "title": "Горка 900 ПНД",
+    "countLabel": "26 позиций",
+    "rows": [
+      {
+        "article": "000026.П.21.0",
+        "name": "Борт правый (горка 900)",
+        "qty": "1",
+        "coating": "",
+        "material": "ПНД 21",
+        "weightOne": "9,59",
+        "weightTotal": "9,59"
+      },
+      {
+        "article": "000027.П.21.0",
+        "name": "Борт левый (горка 900)",
+        "qty": "1",
+        "coating": "",
+        "material": "ПНД 21",
+        "weightOne": "9,59",
+        "weightTotal": "9,59"
+      },
+      {
+        "article": "000028.П.21.0",
+        "name": "Вставка (горка 900)",
+        "qty": "2",
+        "coating": "",
+        "material": "ПНД 21",
+        "weightOne": "1,48",
+        "weightTotal": "2,95"
+      },
+      {
+        "article": "000016.П.15.0",
+        "name": "Ограждение горки",
+        "qty": "1",
+        "coating": "",
+        "material": "ПНД 15",
+        "weightOne": "4,7",
+        "weightTotal": "4,7"
+      },
+      {
+        "article": "000016.П.15.1",
+        "name": "Ограждение горки(зерк.)",
+        "qty": "1",
+        "coating": "",
+        "material": "ПНД 15",
+        "weightOne": "4,7",
+        "weightTotal": "4,7"
+      },
+      {
+        "article": "0006МП",
+        "name": "Крепление горки (506mm)",
+        "qty": "1",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "1,46",
+        "weightTotal": "1,46"
+      },
+      {
+        "article": "0007МП",
+        "name": "Опора горки закладная (528mm)",
+        "qty": "1",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "2,57",
+        "weightTotal": "2,57"
+      },
+      {
+        "article": "0008МП",
+        "name": "Перемычка горки (506mm)",
+        "qty": "4",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "0,67",
+        "weightTotal": "2,68"
+      },
+      {
+        "article": "0016МП",
+        "name": "Спуск горки 900 (545x1980)",
+        "qty": "1",
+        "coating": "",
+        "material": "Нержавеющая сталь",
+        "weightOne": "12,79",
+        "weightTotal": "12,79"
+      },
+      {
+        "article": "000016",
+        "name": "Ограждение горки (КП-Г4)",
+        "qty": "2",
+        "coating": "Водоэмульсионная краска",
+        "material": "ФСФ 15",
+        "weightOne": "3,3",
+        "weightTotal": "6,6"
+      },
+      {
+        "article": "000018",
+        "name": "Борт левый (горка 1200) (КП-Г4)",
+        "qty": "1",
+        "coating": "Водоэмульсионная краска",
+        "material": "ФСФ 21",
+        "weightOne": "8,5",
+        "weightTotal": "8,5"
+      },
+      {
+        "article": "000019",
+        "name": "Борт правый (горка 1200) (КП-Г4)",
+        "qty": "1",
+        "coating": "Водоэмульсионная краска",
+        "material": "ФСФ 21",
+        "weightOne": "8,5",
+        "weightTotal": "8,5"
+      },
+      {
+        "article": "000020",
+        "name": "Вставка (горка 1200) (КП-Г4)",
+        "qty": "2",
+        "coating": "Водоэмульсионная краска",
+        "material": "ФСФ 21",
+        "weightOne": "1,37",
+        "weightTotal": "2,73"
+      },
+      {
+        "article": "006МП",
+        "name": "Крепление горки (506mm)",
+        "qty": "1",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "1,46",
+        "weightTotal": "1,46"
+      },
+      {
+        "article": "007МП",
+        "name": "Опора горки закладная (528mm)",
+        "qty": "1",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "2,57",
+        "weightTotal": "2,57"
+      },
+      {
+        "article": "008МП",
+        "name": "Перемычка горки (506mm)",
+        "qty": "5",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "0,66",
+        "weightTotal": "3,3"
+      },
+      {
+        "article": "014МП",
+        "name": "Спуск горки 1200 (545x2490)",
+        "qty": "1",
+        "coating": "",
+        "material": "Нержавеющая сталь",
+        "weightOne": "15,6",
+        "weightTotal": "15,6"
+      },
+      {
+        "article": "000016.П.15.0",
+        "name": "Ограждение горки",
+        "qty": "1",
+        "coating": "",
+        "material": "ПНД 15",
+        "weightOne": "4,7",
+        "weightTotal": "4,7"
+      },
+      {
+        "article": "000016.П.15.1",
+        "name": "Ограждение горки(зерк.)",
+        "qty": "1",
+        "coating": "",
+        "material": "ПНД 15",
+        "weightOne": "4,7",
+        "weightTotal": "4,7"
+      },
+      {
+        "article": "00018.П.21.0",
+        "name": "Борт левый (горка 1200)",
+        "qty": "1",
+        "coating": "",
+        "material": "ПНД 21",
+        "weightOne": "12,42",
+        "weightTotal": "12,42"
+      },
+      {
+        "article": "00019.П.21.0",
+        "name": "Борт правый (горка 1200)",
+        "qty": "1",
+        "coating": "",
+        "material": "ПНД 21",
+        "weightOne": "12,42",
+        "weightTotal": "12,42"
+      },
+      {
+        "article": "00020.П.21.0",
+        "name": "Вставка (горка 1200)",
+        "qty": "2",
+        "coating": "",
+        "material": "ПНД 21",
+        "weightOne": "2",
+        "weightTotal": "4"
+      },
+      {
+        "article": "0006МП",
+        "name": "Крепление горки (506mm)",
+        "qty": "1",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "1,46",
+        "weightTotal": "1,46"
+      },
+      {
+        "article": "0007МП",
+        "name": "Опора горки закладная (528mm)",
+        "qty": "1",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "2,57",
+        "weightTotal": "2,57"
+      },
+      {
+        "article": "0008МП",
+        "name": "Перемычка горки (506mm)",
+        "qty": "5",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "0,67",
+        "weightTotal": "3,35"
+      },
+      {
+        "article": "0014МП",
+        "name": "Спуск горки 1200 (545x2490)",
+        "qty": "1",
+        "coating": "",
+        "material": "Нержавеющая сталь",
+        "weightOne": "15,6",
+        "weightTotal": "15,6"
+      }
+    ]
+  },
+  {
+    "title": "Горка 1500 фанера",
+    "countLabel": "13 позиций",
+    "rows": [
+      {
+        "article": "000016",
+        "name": "Ограждение горки (КП-Г4)",
+        "qty": "2",
+        "coating": "Водоэмульсионная краска",
+        "material": "ФСФ 15",
+        "weightOne": "3,3",
+        "weightTotal": "6,6"
+      },
+      {
+        "article": "000274",
+        "name": "Верх борта горки 1500 левый (КП-Г4)",
+        "qty": "1",
+        "coating": "Водоэмульсионная краска",
+        "material": "ФСФ 21",
+        "weightOne": "4,36",
+        "weightTotal": "4,36"
+      },
+      {
+        "article": "000273",
+        "name": "Верх борта горки 1500 правый (КП-Г4)",
+        "qty": "1",
+        "coating": "Водоэмульсионная краска",
+        "material": "ФСФ 21",
+        "weightOne": "4,36",
+        "weightTotal": "4,36"
+      },
+      {
+        "article": "000275",
+        "name": "Низ борта горки 1500 левый (КП-Г4)",
+        "qty": "1",
+        "coating": "Водоэмульсионная краска",
+        "material": "ФСФ 21",
+        "weightOne": "5,1",
+        "weightTotal": "5,1"
+      },
+      {
+        "article": "000276",
+        "name": "Низ борта горки 1500 правый (КП-Г4)",
+        "qty": "1",
+        "coating": "Водоэмульсионная краска",
+        "material": "ФСФ 21",
+        "weightOne": "5,1",
+        "weightTotal": "5,1"
+      },
+      {
+        "article": "000277",
+        "name": "Подпорка горки 1500 верх (КП-Г4)",
+        "qty": "2",
+        "coating": "Водоэмульсионная краска",
+        "material": "ФСФ 21",
+        "weightOne": "0,58",
+        "weightTotal": "1,16"
+      },
+      {
+        "article": "000278",
+        "name": "Подпорка горки 1500 низ (КП-Г4)",
+        "qty": "2",
+        "coating": "Водоэмульсионная краска",
+        "material": "ФСФ 21",
+        "weightOne": "0,94",
+        "weightTotal": "1,88"
+      },
+      {
+        "article": "000279",
+        "name": "Соединитель горки (КП-Г4)",
+        "qty": "2",
+        "coating": "Водоэмульсионная краска",
+        "material": "ФСФ 21",
+        "weightOne": "0,81",
+        "weightTotal": "1,62"
+      },
+      {
+        "article": "0006МП",
+        "name": "Крепление горки (506mm)",
+        "qty": "1",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "1,46",
+        "weightTotal": "1,46"
+      },
+      {
+        "article": "0008МП",
+        "name": "Перемычка горки (506mm)",
+        "qty": "6",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "0,67",
+        "weightTotal": "4,02"
+      },
+      {
+        "article": "0007МП",
+        "name": "Опора горки закладная (528mm)",
+        "qty": "1",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "2,57",
+        "weightTotal": "2,57"
+      },
+      {
+        "article": "",
+        "name": "Опора горки 1500",
+        "qty": "1",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "3,19",
+        "weightTotal": "3,19"
+      },
+      {
+        "article": "0490МП",
+        "name": "Спуск горки 1500 (545x2920)",
+        "qty": "1",
+        "coating": "",
+        "material": "Нержавеющая сталь",
+        "weightOne": "18,86",
+        "weightTotal": "18,86"
+      }
+    ]
+  },
+  {
+    "title": "Горка 1500 ПНД",
+    "countLabel": "14 позиций",
+    "rows": [
+      {
+        "article": "000016.П.15.0",
+        "name": "Ограждение горки",
+        "qty": "1",
+        "coating": "",
+        "material": "ПНД 15",
+        "weightOne": "4,7",
+        "weightTotal": "4,7"
+      },
+      {
+        "article": "000016.П.15.1",
+        "name": "Ограждение горки(зерк.)",
+        "qty": "1",
+        "coating": "",
+        "material": "ПНД 15",
+        "weightOne": "4,7",
+        "weightTotal": "4,7"
+      },
+      {
+        "article": "000274_П",
+        "name": "Верх борта горки 1500 левый",
+        "qty": "1",
+        "coating": "",
+        "material": "ПНД 21",
+        "weightOne": "6,37",
+        "weightTotal": "6,37"
+      },
+      {
+        "article": "000273_П",
+        "name": "Верх борта горки 1500 правый",
+        "qty": "1",
+        "coating": "",
+        "material": "ПНД 21",
+        "weightOne": "6,37",
+        "weightTotal": "6,37"
+      },
+      {
+        "article": "000275_П",
+        "name": "Низ борта горки 1500 левый",
+        "qty": "1",
+        "coating": "",
+        "material": "ПНД 21",
+        "weightOne": "7,45",
+        "weightTotal": "7,45"
+      },
+      {
+        "article": "000276_П",
+        "name": "Низ борта горки 1500 правый",
+        "qty": "1",
+        "coating": "",
+        "material": "ПНД 21",
+        "weightOne": "7,45",
+        "weightTotal": "7,45"
+      },
+      {
+        "article": "000277_П",
+        "name": "Подпорка горки 1500 верх",
+        "qty": "2",
+        "coating": "",
+        "material": "ПНД 21",
+        "weightOne": "0,85",
+        "weightTotal": "1,7"
+      },
+      {
+        "article": "000278_П",
+        "name": "Подпорка горки 1500 низ",
+        "qty": "2",
+        "coating": "",
+        "material": "ПНД 21",
+        "weightOne": "1,37",
+        "weightTotal": "2,75"
+      },
+      {
+        "article": "000279_П",
+        "name": "Соединитель горки",
+        "qty": "2",
+        "coating": "",
+        "material": "ПНД 21",
+        "weightOne": "1,18",
+        "weightTotal": "2,37"
+      },
+      {
+        "article": "0006МП",
+        "name": "Крепление горки (506mm)",
+        "qty": "1",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "1,46",
+        "weightTotal": "1,46"
+      },
+      {
+        "article": "0008МП",
+        "name": "Перемычка горки (506mm)",
+        "qty": "6",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "0,67",
+        "weightTotal": "4,02"
+      },
+      {
+        "article": "0007МП",
+        "name": "Опора горки закладная (528mm)",
+        "qty": "1",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "2,57",
+        "weightTotal": "2,57"
+      },
+      {
+        "article": "",
+        "name": "Опора горки 1500",
+        "qty": "1",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "3,19",
+        "weightTotal": "3,19"
+      },
+      {
+        "article": "0490МП",
+        "name": "Спуск горки 1500 (545x2920)",
+        "qty": "1",
+        "coating": "",
+        "material": "Нержавеющая сталь",
+        "weightOne": "18,86",
+        "weightTotal": "18,86"
+      }
+    ]
+  },
+  {
+    "title": "Площадка 1000х1000",
+    "countLabel": "4 позиций",
+    "rows": [
+      {
+        "article": "000112",
+        "name": "Пол площадки квадратной 1000х1000 мм (КП-Г4)",
+        "qty": "1",
+        "coating": "",
+        "material": "ФОБ F/W 18",
+        "weightOne": "11,58",
+        "weightTotal": "11,58"
+      },
+      {
+        "article": "0119ДБ",
+        "name": "Доска 35х90х1000 (КП-Г4)",
+        "qty": "2",
+        "coating": "Водоэмульсионная краска",
+        "material": "сосна",
+        "weightOne": "1,07",
+        "weightTotal": "2,14"
+      },
+      {
+        "article": "0198ДБ",
+        "name": "Доска 35х90х730 (КП-Г4)",
+        "qty": "2",
+        "coating": "Водоэмульсионная краска",
+        "material": "сосна",
+        "weightOne": "0,78",
+        "weightTotal": "1,56"
+      },
+      {
+        "article": "0012МП",
+        "name": "Уголок для площадок",
+        "qty": "4",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "0,3",
+        "weightTotal": "1,2"
+      }
+    ]
+  },
+  {
+    "title": "Площадка 800х800",
+    "countLabel": "4 позиций",
+    "rows": [
+      {
+        "article": "000017",
+        "name": "Пол 800х800 (КП-Г4)",
+        "qty": "1",
+        "coating": "",
+        "material": "ФОБ F/W 18",
+        "weightOne": "7,24",
+        "weightTotal": "7,24"
+      },
+      {
+        "article": "0208ДБ",
+        "name": "Доска 35х90х800 (КП-Г4)",
+        "qty": "2",
+        "coating": "Водоэмульсионная краска",
+        "material": "сосна",
+        "weightOne": "0,86",
+        "weightTotal": "1,72"
+      },
+      {
+        "article": "0197ДБ",
+        "name": "Доска 35х90х530 (КП-Г4)",
+        "qty": "2",
+        "coating": "Водоэмульсионная краска",
+        "material": "сосна",
+        "weightOne": "0,57",
+        "weightTotal": "1,14"
+      },
+      {
+        "article": "0012МП",
+        "name": "Уголок для площадок",
+        "qty": "4",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "0,3",
+        "weightTotal": "1,2"
+      }
+    ]
+  },
+  {
+    "title": "Площадка 1500х800",
+    "countLabel": "4 позиций",
+    "rows": [
+      {
+        "article": "000110",
+        "name": "Пол 1500х800 (КП-Г4)",
+        "qty": "1",
+        "coating": "",
+        "material": "ФОБ F/W 18",
+        "weightOne": "13,75",
+        "weightTotal": "13,75"
+      },
+      {
+        "article": "0088ДБ",
+        "name": "Доска 35х90х1500 (КП-Г4)",
+        "qty": "2",
+        "coating": "Водоэмульсионная краска",
+        "material": "сосна",
+        "weightOne": "1,61",
+        "weightTotal": "3,22"
+      },
+      {
+        "article": "0197ДБ",
+        "name": "Доска 35х90х530 (КП-Г4)",
+        "qty": "3",
+        "coating": "Водоэмульсионная краска",
+        "material": "сосна",
+        "weightOne": "0,57",
+        "weightTotal": "1,71"
+      },
+      {
+        "article": "0012МП",
+        "name": "Уголок для площадок",
+        "qty": "6",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "0,3",
+        "weightTotal": "1,8"
+      }
+    ]
+  },
+  {
+    "title": "Площадка 2200х800",
+    "countLabel": "4 позиций",
+    "rows": [
+      {
+        "article": "000280",
+        "name": "Пол 2200х800 (КП-Г4)",
+        "qty": "1",
+        "coating": "",
+        "material": "ФОБ F/W 18",
+        "weightOne": "21,17",
+        "weightTotal": "21,17"
+      },
+      {
+        "article": "0196ДБ",
+        "name": "Доска 35х90х2200 (КП-Г4)",
+        "qty": "2",
+        "coating": "Водоэмульсионная краска",
+        "material": "сосна",
+        "weightOne": "2,36",
+        "weightTotal": "4,72"
+      },
+      {
+        "article": "0197ДБ",
+        "name": "Доска 35х90х530 (КП-Г4)",
+        "qty": "4",
+        "coating": "Водоэмульсионная краска",
+        "material": "сосна",
+        "weightOne": "0,57",
+        "weightTotal": "2,28"
+      },
+      {
+        "article": "0012МП",
+        "name": "Уголок для площадок",
+        "qty": "8",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "0,3",
+        "weightTotal": "2,4"
+      }
+    ]
+  },
+  {
+    "title": "ПЛОЩАДКА ВОСЬМИГРАННАЯ",
+    "countLabel": "2 позиций",
+    "rows": [
+      {
+        "article": "000263",
+        "name": "Пол восьмигранной площадки (КП-Г4)",
+        "qty": "2",
+        "coating": "Водоэмульсионная,",
+        "material": "ФОБ F/W 18",
+        "weightOne": "20,77",
+        "weightTotal": "41,54"
+      },
+      {
+        "article": "0193МП",
+        "name": "Каркас 8-мигранной площадки",
+        "qty": "1",
+        "coating": "порошковая краска",
+        "material": "Металл",
+        "weightOne": "66,78",
+        "weightTotal": "66,78"
+      }
+    ]
+  },
+  {
+    "title": "ПЛОЩАДКА 800х600 ПОД ВИНТОВОЙ СПУСК",
+    "countLabel": "2 позиций",
+    "rows": [
+      {
+        "article": "000184",
+        "name": "Пол 800х600 (КП-Г4)",
+        "qty": "1",
+        "coating": "",
+        "material": "ФОБ F/W 18",
+        "weightOne": "13,5",
+        "weightTotal": "13,5"
+      },
+      {
+        "article": "307МП",
+        "name": "Карас площадки винтового спуска 800х600",
+        "qty": "1",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "7,7",
+        "weightTotal": "7,7"
+      }
+    ]
+  },
+  {
+    "title": "Площадка 1000х800",
+    "countLabel": "4 позиций",
+    "rows": [
+      {
+        "article": "000130",
+        "name": "Пол 1000х800 (КП-Г4)",
+        "qty": "1",
+        "coating": "",
+        "material": "ФОБ F/W 18",
+        "weightOne": "8,89",
+        "weightTotal": "8,89"
+      },
+      {
+        "article": "0119ДБ",
+        "name": "Доска 35х90х1000 (КП-Г4)",
+        "qty": "2",
+        "coating": "Водоэмульсионная краска",
+        "material": "сосна",
+        "weightOne": "1,07",
+        "weightTotal": "2,14"
+      },
+      {
+        "article": "0197ДБ",
+        "name": "Доска 35х90х530 (КП-Г4)",
+        "qty": "2",
+        "coating": "Водоэмульсионная краска",
+        "material": "сосна",
+        "weightOne": "0,57",
+        "weightTotal": "1,14"
+      },
+      {
+        "article": "0012МП",
+        "name": "Уголок для площадок",
+        "qty": "4",
+        "coating": "Порошковая краска",
+        "material": "металл",
+        "weightOne": "0,3",
+        "weightTotal": "1,2"
+      }
+    ]
+  }
+]

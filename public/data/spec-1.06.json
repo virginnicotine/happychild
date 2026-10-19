@@ -1,0 +1,1227 @@
+{
+  "code": "1.06",
+  "display_code": "ИКССР-1.06",
+  "title": "Детский игровой городок ИКССР-1.06",
+  "dimensions": "6,04 × 3,43 × 3,38 м",
+  "main_images": [
+    {
+      "path": "playgrounds/1.06/Рисунок1.jpg"
+    },
+    {
+      "path": "playgrounds/1.06/Рисунок2.jpg"
+    },
+    {
+      "path": "playgrounds/1.06/Рисунок3.png"
+    }
+  ],
+  "groups": [
+    {
+      "title": "СТОЛБЫ",
+      "records": [
+        {
+          "row": 1,
+          "number": "1",
+          "article": "0004ДБ",
+          "name": "Столб (брус 100х100) 1000 мм",
+          "qty": "2",
+          "color": "",
+          "images": []
+        },
+        {
+          "row": 2,
+          "number": "2",
+          "article": "0042ДБ",
+          "name": "Столб (брус 100х100) 1800 мм",
+          "qty": "2",
+          "color": "",
+          "images": []
+        },
+        {
+          "row": 3,
+          "number": "3",
+          "article": "0025ДБ",
+          "name": "Столб (брус 100х100) 2100 мм",
+          "qty": "2",
+          "color": "",
+          "images": []
+        },
+        {
+          "row": 4,
+          "number": "4",
+          "article": "0026ДБ",
+          "name": "Столб (брус 100х100) 2200 мм",
+          "qty": "1",
+          "color": "",
+          "images": []
+        },
+        {
+          "row": 5,
+          "number": "5",
+          "article": "0029ДБ",
+          "name": "Столб (брус 100х100) 2700 мм",
+          "qty": "1",
+          "color": "",
+          "images": []
+        },
+        {
+          "row": 6,
+          "number": "6",
+          "article": "0030ДБ",
+          "name": "Столб (брус 100х100) 2800 мм",
+          "qty": "4",
+          "color": "",
+          "images": []
+        },
+        {
+          "row": 7,
+          "number": "7",
+          "article": "0035ДБ",
+          "name": "Столб (брус 100х100) 3300 мм",
+          "qty": "2",
+          "color": "",
+          "images": []
+        },
+        {
+          "row": 8,
+          "number": "8",
+          "article": "0013МП",
+          "name": "Закладная для столба 100х100",
+          "qty": "14",
+          "color": "",
+          "images": []
+        }
+      ]
+    },
+    {
+      "title": "ПЛОЩАДКИ",
+      "records": [
+        {
+          "row": 9,
+          "number": "9",
+          "article": "0003СБ",
+          "name": "Площадка квадратная 800х800 мм (СБ)",
+          "qty": "2",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок4.png"
+            }
+          ]
+        },
+        {
+          "row": 10,
+          "number": "10",
+          "article": "0043СБ",
+          "name": "Площадка 600х800",
+          "qty": "1",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок5.jpg"
+            }
+          ]
+        },
+        {
+          "row": 11,
+          "number": "11",
+          "article": "0044СБ",
+          "name": "Площадка двойная 1500х800 (СБ)",
+          "qty": "1",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок6.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ЭЛЕМЕНТЫ ЛЕСТНИЦ",
+      "records": [
+        {
+          "row": 12,
+          "number": "12",
+          "article": "000029",
+          "name": "Тетива (лестница 900) 1249 × 269 × 21",
+          "qty": "2",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок7.png"
+            }
+          ]
+        },
+        {
+          "row": 13,
+          "number": "13",
+          "article": "000023",
+          "name": "Ступень 600х150 600 × 150 × 18",
+          "qty": "4",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок8.png"
+            }
+          ]
+        },
+        {
+          "row": 14,
+          "number": "14",
+          "article": "0006ДБ",
+          "name": "Подступенок (доска 35х90х558)",
+          "qty": "4",
+          "color": "",
+          "images": []
+        },
+        {
+          "row": 15,
+          "number": "15",
+          "article": "000030",
+          "name": "Перила (лестница 900) 1217 × 150 × 21",
+          "qty": "2",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок9.png"
+            }
+          ]
+        },
+        {
+          "row": 16,
+          "number": "16",
+          "article": "000030",
+          "name": "Перила (лестница 900) 1217 × 150 × 21",
+          "qty": "2",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок9.png"
+            }
+          ]
+        },
+        {
+          "row": 17,
+          "number": "17",
+          "article": "000186",
+          "name": "Панель ступени 800 × 300 × 18",
+          "qty": "1",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок10.png"
+            }
+          ]
+        },
+        {
+          "row": 18,
+          "number": "18",
+          "article": "002230",
+          "name": "Панель ступени-2 800 × 300 × 18",
+          "qty": "1",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок11.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ПЕРЕХОДНЫЕ МОСТЫ",
+      "records": [
+        {
+          "row": 19,
+          "number": "19",
+          "article": "0042МП",
+          "name": "Каркас поворотного моста 45гр площадка 800",
+          "qty": "1",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок12.png"
+            }
+          ]
+        },
+        {
+          "row": 20,
+          "number": "20",
+          "article": "000185",
+          "name": "Пол поворотного моста 45гр 1359 × 906 × 18",
+          "qty": "1",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок13.jpg"
+            }
+          ]
+        },
+        {
+          "row": 21,
+          "number": "21",
+          "article": "0043МП",
+          "name": "Перила внутренняя пов. моста 45гр площадка 800",
+          "qty": "1",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок14.png"
+            }
+          ]
+        },
+        {
+          "row": 22,
+          "number": "22",
+          "article": "0044МП",
+          "name": "Перила внутренняя пов. моста 45гр площадка 800",
+          "qty": "1",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок15.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ПАНЕЛИ",
+      "records": [
+        {
+          "row": 23,
+          "number": "23",
+          "article": "000161",
+          "name": "Окно верхнее 1.07 994 × 1210 × 21",
+          "qty": "2",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок16.jpg"
+            }
+          ]
+        },
+        {
+          "row": 24,
+          "number": "24",
+          "article": "000157",
+          "name": "Рама окна, накл. на крышу 1.07 537 × 755 × 15",
+          "qty": "2",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок17.jpg"
+            }
+          ]
+        },
+        {
+          "row": 25,
+          "number": "25",
+          "article": "000164",
+          "name": "Панель нижняя 1.07 800 × 650 × 21",
+          "qty": "2",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок18.jpg"
+            }
+          ]
+        },
+        {
+          "row": 26,
+          "number": "26",
+          "article": "000162",
+          "name": "Панель с пазом для сидушки 1.07 800 × 748 × 21",
+          "qty": "1",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок19.png"
+            }
+          ]
+        },
+        {
+          "row": 27,
+          "number": "27",
+          "article": "000160",
+          "name": "Панель Спираль 1.07 800 × 748 × 21",
+          "qty": "2",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок20.png"
+            }
+          ]
+        },
+        {
+          "row": 28,
+          "number": "28",
+          "article": "000163",
+          "name": "Боковина крыши двойн. домика 1.07 1023 × 271 × 21",
+          "qty": "2",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок21.png"
+            }
+          ]
+        },
+        {
+          "row": 29,
+          "number": "29",
+          "article": "000158",
+          "name": "Крыша наклонная 1- 1.07 1000 × 1149 × 15",
+          "qty": "1",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок22.jpg"
+            }
+          ]
+        },
+        {
+          "row": 30,
+          "number": "30",
+          "article": "000159",
+          "name": "Крыша наклонная 2- 1.07 1000 × 1200 × 15",
+          "qty": "1",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок23.jpg"
+            }
+          ]
+        },
+        {
+          "row": 31,
+          "number": "31",
+          "article": "000187",
+          "name": "Панель Кривой забор 800 800 × 953 × 21",
+          "qty": "1",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок24.jpg"
+            }
+          ]
+        },
+        {
+          "row": 32,
+          "number": "32",
+          "article": "000165",
+          "name": "Сидушка для панели с пазом 1.07 600 × 271 × 21",
+          "qty": "1",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок25.jpg"
+            }
+          ]
+        },
+        {
+          "row": 33,
+          "number": "33",
+          "article": "000039",
+          "name": "Подпорка сидушки 200 × 335 × 21",
+          "qty": "1",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок26.png"
+            }
+          ]
+        },
+        {
+          "row": 34,
+          "number": "34",
+          "article": "0003МП",
+          "name": "Уголок 55х55х40",
+          "qty": "14",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок27.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "МЕТАЛЛ",
+      "records": [
+        {
+          "row": 35,
+          "number": "35",
+          "article": "0020МП",
+          "name": "Перемычка 600мм",
+          "qty": "3",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок28.png"
+            }
+          ]
+        },
+        {
+          "row": 36,
+          "number": "36",
+          "article": "0023МП",
+          "name": "Арка винтового спуска (площадка 600х800)",
+          "qty": "1",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок29.png"
+            }
+          ]
+        },
+        {
+          "row": 37,
+          "number": "37",
+          "article": "0021МП",
+          "name": "Ручка скоба 400мм",
+          "qty": "2",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок30.png"
+            }
+          ]
+        },
+        {
+          "row": 38,
+          "number": "38",
+          "article": "0022МП",
+          "name": "Арка-вход боковая 600мм",
+          "qty": "1",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок31.png"
+            }
+          ]
+        },
+        {
+          "row": 39,
+          "number": "39",
+          "article": "0027МП",
+          "name": "Лесенка парус 1800",
+          "qty": "1",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок32.jpg"
+            }
+          ]
+        },
+        {
+          "row": 40,
+          "number": "40",
+          "article": "0229МП",
+          "name": "Закладная винтового спуска 1500",
+          "qty": "—",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок33.jpg"
+            }
+          ]
+        },
+        {
+          "row": 41,
+          "number": "41",
+          "article": "0237МП",
+          "name": "Закладная под винтовой спуск",
+          "qty": "—",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок34.jpg"
+            }
+          ]
+        },
+        {
+          "row": 42,
+          "number": "42",
+          "article": "0084МП",
+          "name": "Поручень горки дуга (570mm)",
+          "qty": "1",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок35.jpg"
+            }
+          ]
+        },
+        {
+          "row": 43,
+          "number": "43",
+          "article": "0006СБ",
+          "name": "Горка 600х1700 H=900",
+          "qty": "1",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок36.jpg"
+            }
+          ]
+        },
+        {
+          "row": 44,
+          "number": "44",
+          "article": "0209МП",
+          "name": "Горка спиральная H=1500",
+          "qty": "1",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок37.png"
+            }
+          ]
+        },
+        {
+          "row": 45,
+          "number": "45",
+          "article": "КЧМ6КС",
+          "name": "Заглушка К4М6КС",
+          "qty": "48",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок38.png"
+            }
+          ]
+        },
+        {
+          "row": 46,
+          "number": "46",
+          "article": "КЧМ8КС",
+          "name": "Заглушка К4М8КС",
+          "qty": "202",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок39.png"
+            }
+          ]
+        },
+        {
+          "row": 47,
+          "number": "47",
+          "article": "КЧМ8КС",
+          "name": "Заглушка К4М10КС",
+          "qty": "16",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок40.png"
+            }
+          ]
+        },
+        {
+          "row": 48,
+          "number": "48",
+          "article": "100-100.11КК",
+          "name": "Заглушка 100-100.11КК",
+          "qty": "8",
+          "color": "",
+          "images": [
+            {
+              "path": "playgrounds/1.06/Рисунок41.jpg"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "records": [
+    {
+      "row": 1,
+      "number": "1",
+      "article": "0004ДБ",
+      "name": "Столб (брус 100х100) 1000 мм",
+      "qty": "2",
+      "color": "",
+      "images": []
+    },
+    {
+      "row": 2,
+      "number": "2",
+      "article": "0042ДБ",
+      "name": "Столб (брус 100х100) 1800 мм",
+      "qty": "2",
+      "color": "",
+      "images": []
+    },
+    {
+      "row": 3,
+      "number": "3",
+      "article": "0025ДБ",
+      "name": "Столб (брус 100х100) 2100 мм",
+      "qty": "2",
+      "color": "",
+      "images": []
+    },
+    {
+      "row": 4,
+      "number": "4",
+      "article": "0026ДБ",
+      "name": "Столб (брус 100х100) 2200 мм",
+      "qty": "1",
+      "color": "",
+      "images": []
+    },
+    {
+      "row": 5,
+      "number": "5",
+      "article": "0029ДБ",
+      "name": "Столб (брус 100х100) 2700 мм",
+      "qty": "1",
+      "color": "",
+      "images": []
+    },
+    {
+      "row": 6,
+      "number": "6",
+      "article": "0030ДБ",
+      "name": "Столб (брус 100х100) 2800 мм",
+      "qty": "4",
+      "color": "",
+      "images": []
+    },
+    {
+      "row": 7,
+      "number": "7",
+      "article": "0035ДБ",
+      "name": "Столб (брус 100х100) 3300 мм",
+      "qty": "2",
+      "color": "",
+      "images": []
+    },
+    {
+      "row": 8,
+      "number": "8",
+      "article": "0013МП",
+      "name": "Закладная для столба 100х100",
+      "qty": "14",
+      "color": "",
+      "images": []
+    },
+    {
+      "row": 9,
+      "number": "9",
+      "article": "0003СБ",
+      "name": "Площадка квадратная 800х800 мм (СБ)",
+      "qty": "2",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок4.png"
+        }
+      ]
+    },
+    {
+      "row": 10,
+      "number": "10",
+      "article": "0043СБ",
+      "name": "Площадка 600х800",
+      "qty": "1",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок5.jpg"
+        }
+      ]
+    },
+    {
+      "row": 11,
+      "number": "11",
+      "article": "0044СБ",
+      "name": "Площадка двойная 1500х800 (СБ)",
+      "qty": "1",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок6.jpg"
+        }
+      ]
+    },
+    {
+      "row": 12,
+      "number": "12",
+      "article": "000029",
+      "name": "Тетива (лестница 900) 1249 × 269 × 21",
+      "qty": "2",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок7.png"
+        }
+      ]
+    },
+    {
+      "row": 13,
+      "number": "13",
+      "article": "000023",
+      "name": "Ступень 600х150 600 × 150 × 18",
+      "qty": "4",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок8.png"
+        }
+      ]
+    },
+    {
+      "row": 14,
+      "number": "14",
+      "article": "0006ДБ",
+      "name": "Подступенок (доска 35х90х558)",
+      "qty": "4",
+      "color": "",
+      "images": []
+    },
+    {
+      "row": 15,
+      "number": "15",
+      "article": "000030",
+      "name": "Перила (лестница 900) 1217 × 150 × 21",
+      "qty": "2",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок9.png"
+        }
+      ]
+    },
+    {
+      "row": 16,
+      "number": "16",
+      "article": "000030",
+      "name": "Перила (лестница 900) 1217 × 150 × 21",
+      "qty": "2",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок9.png"
+        }
+      ]
+    },
+    {
+      "row": 17,
+      "number": "17",
+      "article": "000186",
+      "name": "Панель ступени 800 × 300 × 18",
+      "qty": "1",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок10.png"
+        }
+      ]
+    },
+    {
+      "row": 18,
+      "number": "18",
+      "article": "002230",
+      "name": "Панель ступени-2 800 × 300 × 18",
+      "qty": "1",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок11.png"
+        }
+      ]
+    },
+    {
+      "row": 19,
+      "number": "19",
+      "article": "0042МП",
+      "name": "Каркас поворотного моста 45гр площадка 800",
+      "qty": "1",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок12.png"
+        }
+      ]
+    },
+    {
+      "row": 20,
+      "number": "20",
+      "article": "000185",
+      "name": "Пол поворотного моста 45гр 1359 × 906 × 18",
+      "qty": "1",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок13.jpg"
+        }
+      ]
+    },
+    {
+      "row": 21,
+      "number": "21",
+      "article": "0043МП",
+      "name": "Перила внутренняя пов. моста 45гр площадка 800",
+      "qty": "1",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок14.png"
+        }
+      ]
+    },
+    {
+      "row": 22,
+      "number": "22",
+      "article": "0044МП",
+      "name": "Перила внутренняя пов. моста 45гр площадка 800",
+      "qty": "1",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок15.jpg"
+        }
+      ]
+    },
+    {
+      "row": 23,
+      "number": "23",
+      "article": "000161",
+      "name": "Окно верхнее 1.07 994 × 1210 × 21",
+      "qty": "2",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок16.jpg"
+        }
+      ]
+    },
+    {
+      "row": 24,
+      "number": "24",
+      "article": "000157",
+      "name": "Рама окна, накл. на крышу 1.07 537 × 755 × 15",
+      "qty": "2",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок17.jpg"
+        }
+      ]
+    },
+    {
+      "row": 25,
+      "number": "25",
+      "article": "000164",
+      "name": "Панель нижняя 1.07 800 × 650 × 21",
+      "qty": "2",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок18.jpg"
+        }
+      ]
+    },
+    {
+      "row": 26,
+      "number": "26",
+      "article": "000162",
+      "name": "Панель с пазом для сидушки 1.07 800 × 748 × 21",
+      "qty": "1",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок19.png"
+        }
+      ]
+    },
+    {
+      "row": 27,
+      "number": "27",
+      "article": "000160",
+      "name": "Панель Спираль 1.07 800 × 748 × 21",
+      "qty": "2",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок20.png"
+        }
+      ]
+    },
+    {
+      "row": 28,
+      "number": "28",
+      "article": "000163",
+      "name": "Боковина крыши двойн. домика 1.07 1023 × 271 × 21",
+      "qty": "2",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок21.png"
+        }
+      ]
+    },
+    {
+      "row": 29,
+      "number": "29",
+      "article": "000158",
+      "name": "Крыша наклонная 1- 1.07 1000 × 1149 × 15",
+      "qty": "1",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок22.jpg"
+        }
+      ]
+    },
+    {
+      "row": 30,
+      "number": "30",
+      "article": "000159",
+      "name": "Крыша наклонная 2- 1.07 1000 × 1200 × 15",
+      "qty": "1",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок23.jpg"
+        }
+      ]
+    },
+    {
+      "row": 31,
+      "number": "31",
+      "article": "000187",
+      "name": "Панель Кривой забор 800 800 × 953 × 21",
+      "qty": "1",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок24.jpg"
+        }
+      ]
+    },
+    {
+      "row": 32,
+      "number": "32",
+      "article": "000165",
+      "name": "Сидушка для панели с пазом 1.07 600 × 271 × 21",
+      "qty": "1",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок25.jpg"
+        }
+      ]
+    },
+    {
+      "row": 33,
+      "number": "33",
+      "article": "000039",
+      "name": "Подпорка сидушки 200 × 335 × 21",
+      "qty": "1",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок26.png"
+        }
+      ]
+    },
+    {
+      "row": 34,
+      "number": "34",
+      "article": "0003МП",
+      "name": "Уголок 55х55х40",
+      "qty": "14",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок27.jpg"
+        }
+      ]
+    },
+    {
+      "row": 35,
+      "number": "35",
+      "article": "0020МП",
+      "name": "Перемычка 600мм",
+      "qty": "3",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок28.png"
+        }
+      ]
+    },
+    {
+      "row": 36,
+      "number": "36",
+      "article": "0023МП",
+      "name": "Арка винтового спуска (площадка 600х800)",
+      "qty": "1",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок29.png"
+        }
+      ]
+    },
+    {
+      "row": 37,
+      "number": "37",
+      "article": "0021МП",
+      "name": "Ручка скоба 400мм",
+      "qty": "2",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок30.png"
+        }
+      ]
+    },
+    {
+      "row": 38,
+      "number": "38",
+      "article": "0022МП",
+      "name": "Арка-вход боковая 600мм",
+      "qty": "1",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок31.png"
+        }
+      ]
+    },
+    {
+      "row": 39,
+      "number": "39",
+      "article": "0027МП",
+      "name": "Лесенка парус 1800",
+      "qty": "1",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок32.jpg"
+        }
+      ]
+    },
+    {
+      "row": 40,
+      "number": "40",
+      "article": "0229МП",
+      "name": "Закладная винтового спуска 1500",
+      "qty": "—",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок33.jpg"
+        }
+      ]
+    },
+    {
+      "row": 41,
+      "number": "41",
+      "article": "0237МП",
+      "name": "Закладная под винтовой спуск",
+      "qty": "—",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок34.jpg"
+        }
+      ]
+    },
+    {
+      "row": 42,
+      "number": "42",
+      "article": "0084МП",
+      "name": "Поручень горки дуга (570mm)",
+      "qty": "1",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок35.jpg"
+        }
+      ]
+    },
+    {
+      "row": 43,
+      "number": "43",
+      "article": "0006СБ",
+      "name": "Горка 600х1700 H=900",
+      "qty": "1",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок36.jpg"
+        }
+      ]
+    },
+    {
+      "row": 44,
+      "number": "44",
+      "article": "0209МП",
+      "name": "Горка спиральная H=1500",
+      "qty": "1",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок37.png"
+        }
+      ]
+    },
+    {
+      "row": 45,
+      "number": "45",
+      "article": "КЧМ6КС",
+      "name": "Заглушка К4М6КС",
+      "qty": "48",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок38.png"
+        }
+      ]
+    },
+    {
+      "row": 46,
+      "number": "46",
+      "article": "КЧМ8КС",
+      "name": "Заглушка К4М8КС",
+      "qty": "202",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок39.png"
+        }
+      ]
+    },
+    {
+      "row": 47,
+      "number": "47",
+      "article": "КЧМ8КС",
+      "name": "Заглушка К4М10КС",
+      "qty": "16",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок40.png"
+        }
+      ]
+    },
+    {
+      "row": 48,
+      "number": "48",
+      "article": "100-100.11КК",
+      "name": "Заглушка 100-100.11КК",
+      "qty": "8",
+      "color": "",
+      "images": [
+        {
+          "path": "playgrounds/1.06/Рисунок41.jpg"
+        }
+      ]
+    }
+  ]
+}
