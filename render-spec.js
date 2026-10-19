@@ -24,6 +24,11 @@
         });
     }
 
+    function assetUrl(path) {
+        var p = String(path == null ? '' : path).replace(/^\/+/, '');
+        return './' + p;
+    }
+
     function colorInfo(rec) {
         var raw = rec.color;
         if (raw == null || raw === '') return null;
@@ -43,9 +48,9 @@
         var imgs = rec.images || [];
         if (!imgs.length) return '<div class="v108-photo v108-empty"><span>нет<br>фото</span></div>';
         var out = imgs.map(function(img) {
-            return '<a class="v108-photo" href="./' + esc(img.path) + '" data-lightbox data-title="' +
+            return '<a class="v108-photo" href="' + esc(assetUrl(img.path)) + '" data-lightbox data-title="' +
                 esc((rec.article || '') + ' — ' + rec.name) + '">' +
-                '<img loading="lazy" src="./' + esc(img.path) + '" alt="' + esc(rec.name) + '"></a>';
+                '<img loading="lazy" src="' + esc(assetUrl(img.path)) + '" alt="' + esc(rec.name) + '"></a>';
         }).join('');
         return '<div class="v108-photos">' + out + '</div>';
     }
@@ -81,14 +86,15 @@
     function item(rec) {
         var s = [rec.number, rec.article, rec.name, rec.color, rec.ingredients, rec.fasteners]
             .filter(Boolean).join(' ').toLowerCase();
-        return '<article class="v108-item" id="row-' + rec.row + '" data-source-row="' + rec.row +
+        var row = rec.row == null ? (rec.source_row == null ? rec.number : rec.source_row) : rec.row;
+        return '<article class="v108-item" id="row-' + row + '" data-source-row="' + row +
             '" data-search="' + esc(s) + '">' +
             '<div class="v108-num">' + esc(rec.number) + '</div>' +
             photo(rec) +
             '<div class="v108-main">' +
                 '<div class="v108-art">' + (esc(rec.article) || 'Артикул не указан') + '</div>' +
                 '<h3>' + esc(rec.name) + '</h3>' +
-                '<div class="v108-row-source">Excel · строка ' + rec.row + '</div>' +
+                '<div class="v108-row-source">Excel · строка ' + row + '</div>' +
                 tech(rec) +
             '</div>' +
             colorColumn(rec) +
@@ -99,9 +105,20 @@
     function groups(spec) {
         return (spec.groups || []).map(function(g) {
             if (!g.records || !g.records.length) return '';
+            var records = g.records.map(function(rec) {
+                var normalized = Object.assign({}, rec);
+                if (normalized.row == null) normalized.row = normalized.source_row == null ? normalized.number : normalized.source_row;
+                if (normalized.details && !normalized.extra_cells) {
+                    normalized.extra_cells = {};
+                    normalized.details.forEach(function(detail) {
+                        if (detail && detail.label && detail.value != null) normalized.extra_cells[detail.label] = detail.value;
+                    });
+                }
+                return normalized;
+            });
             return '<details class="v108-group" open><summary><span>' + esc(g.title) + '</span><b>' +
-                g.records.length + '</b></summary><div class="v108-list">' +
-                g.records.map(item).join('') + '</div></details>';
+                records.length + '</b></summary><div class="v108-list">' +
+                records.map(item).join('') + '</div></details>';
         }).join('');
     }
 
@@ -112,22 +129,27 @@
         return '<section class="info-section v108-section"><div class="section-header"><h2>Основные изображения</h2>' +
             '<span>' + imgs.length + ' изображений из Excel</span></div><div class="v108-gallery">' +
             imgs.map(function(img, i) {
-                return '<a href="./' + esc(img.path) + '" data-lightbox data-title="' + esc(code) + ' — ' + (i+1) + '">' +
-                    '<img src="./' + esc(img.path) + '" alt="' + esc(code) + ' — ' + (i+1) + '">' +
+                return '<a href="' + esc(assetUrl(img.path)) + '" data-lightbox data-title="' + esc(code) + ' — ' + (i+1) + '">' +
+                    '<img src="' + esc(assetUrl(img.path)) + '" alt="' + esc(code) + ' — ' + (i+1) + '">' +
                     '<span>ВИД / СХЕМА · ' + String(i+1).padStart(2,'0') + '</span></a>';
             }).join('') + '</div></section>';
     }
 
     function hero(spec) {
         var code = spec.display_code || ('ИКССР-' + spec.code);
+        var productTitle = spec.title || ('Детский игровой городок ' + code);
+        var sourceLink = spec.source_file
+            ? '<a class="site-tool-button" href="' + esc(assetUrl(spec.source_file)) + '" download>Скачать Excel спецификацию</a>'
+            : '';
         return '<section class="v108-hero"><div><div class="hero-label">ТЕХНИЧЕСКАЯ КАРТОЧКА ИЗДЕЛИЯ</div>' +
-            '<h1>Детский игровой городок<br><em>' + esc(code) + '</em></h1>' +
-            '<p>Размер изделия: <strong>' + esc(spec.dimensions || 'не указан в Excel') + '</strong></p></div>' +
-            '<div class="v108-source"><span></span><b>ИСТОЧНИК</b><small>Excel · ' + esc(spec.code) + '</small></div></section>';
+            '<h1>' + esc(productTitle.replace(code, '').trim() || productTitle) + '<br><em>' + esc(code) + '</em></h1>' +
+            '<p>Размер изделия: <strong>' + esc(spec.dimensions || 'не указан в Excel') + '</strong></p>' + sourceLink + '</div>' +
+            '<div class="v108-source"><span></span><b>ИСТОЧНИК</b><small>Excel · ' + esc(spec.workbook || spec.source_file || spec.code) + '</small></div></section>';
     }
 
     function fasteners(spec) {
-        var p = (spec.records || []).filter(function(r) { return PLUGS.indexOf(r.article) !== -1; });
+        var allRecords = spec.records || (spec.groups || []).reduce(function(out, g) { return out.concat(g.records || []); }, []);
+        var p = allRecords.filter(function(r) { return PLUGS.indexOf(String(r.article || '').toUpperCase()) !== -1; });
         if (!p.length) return '';
         return '<div class="v108-fastener-card"><div class="v108-fastener-head"><span>ЗАГЛУШКИ</span><b>из Excel</b></div>' +
             p.map(function(r) {
@@ -150,7 +172,7 @@
             '<h2>Всё по спецификации — в одной карточке</h2>' +
             '<p>Состав, цвета и крепёж из Excel. Раскройте технические данные для просмотра размеров и входящих деталей.</p>' +
             '<div class="v108-stats">' +
-            '<div><b>' + (spec.records || []).length + '</b><span>позиций спецификации</span></div>' +
+            '<div><b>' + ((spec.records || []).length || (spec.groups || []).reduce(function(n, g) { return n + ((g.records || []).length); }, 0)) + '</b><span>позиций спецификации</span></div>' +
             '<div><b>' + esc(t.m8_total == null ? '—' : t.m8_total) + '</b><span>итог М8–10 из Excel</span></div>' +
             '<div><b>' + esc(t.m6_total == null ? '—' : t.m6_total) + '</b><span>итог М6 из Excel</span></div>' +
             '</div>' + notice + '</div>' + fasteners(spec) + '</section>';
@@ -173,7 +195,9 @@
         var root = document.getElementById('spec-root');
         if (!code || !root) return;
 
-        fetch('./data/spec-' + code + '.json')
+        var isSlide = document.body.dataset.specType === 'slide';
+        var specUrl = isSlide ? './data/slides/spec-' + code + '.json' : './data/spec-' + code + '.json';
+        fetch(specUrl)
             .then(function(r) {
                 if (!r.ok) throw new Error('HTTP ' + r.status);
                 return r.json();
@@ -181,7 +205,7 @@
             .then(function(spec) {
                 root.innerHTML = body(spec);
 
-                var display = spec.display_code || ('ИКССР-' + code);
+                var display = spec.display_code || (isSlide ? ('ГСР-' + code) : ('ИКССР-' + code));
                 if (document.title) document.title = display + ' — Счастливый ребёнок';
                 var crumb = document.querySelector('.breadcrumb strong');
                 if (crumb) crumb.textContent = display;
