@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "rm -rf ./site && mkdir -p ./site && cp -R ./src/. ./site/",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
