@@ -157,7 +157,41 @@ function renderPlaygrounds(list) {
     }).join('') || '<div class="empty-state">Ничего не найдено.</div>';
 }
 
+
 renderPlaygrounds(playgroundProducts);
+
+// Каталог горок использует тот же реестр и те же стили, что и городки.
+const slideProducts = registeredProducts.filter(product => product.category === 'Горки');
+const slideProductList = document.getElementById('slideProductList');
+function renderSlides(list) {
+    if (!slideProductList) return;
+    const counter = document.getElementById('slideCatalogCount');
+    if (counter) counter.textContent = `${list.length} ${pluralizeProducts(list.length)}`;
+    slideProductList.innerHTML = list.map(product => {
+        const size = String(product.info || '').replace(/^Горка\s*·\s*/, '');
+        return `
+        <a href="${product.href}" class="catalog-row">
+            <div class="catalog-row-image"><img loading="lazy" src="${product.image}" alt="${product.code}"></div>
+            <div class="catalog-row-main">
+                <div class="catalog-row-code">${product.code}</div>
+                <h2>${product.title.replace(/^Горка\s*/, '')}</h2>
+                <span>${size}</span>
+            </div>
+            <span class="catalog-row-open">Открыть <b>→</b></span>
+        </a>`;
+    }).join('') || '<div class="empty-state">Ничего не найдено.</div>';
+}
+renderSlides(slideProducts);
+const slideCatalogSearch = document.getElementById('slideCatalogSearch');
+if (slideCatalogSearch) {
+    slideCatalogSearch.addEventListener('input', () => {
+        const q = slideCatalogSearch.value.toLowerCase().trim();
+        renderSlides(!q ? slideProducts : slideProducts.filter(p =>
+            [p.code, p.title, p.info, ...(p.keys || [])].join(' ').toLowerCase().includes(q)
+        ));
+    });
+}
+
 const catalogSearch = document.getElementById('catalogSearch');
 if (catalogSearch) {
     catalogSearch.addEventListener('input', () => {

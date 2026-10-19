@@ -10,3 +10,10 @@
 .part-card-mirror{background:linear-gradient(135deg,#e9f8ff,#dceafb)!important;border:1px solid #b5dcef;position:relative}.part-card-mirror:after{content:'◇';position:absolute;right:9px;top:4px;color:#5794bc;font-size:22px}.part-special-tag{display:inline-block;padding:4px 9px;margin:0 0 6px;border-radius:999px;color:#2674a6;background:#eaf7ff;font-weight:700;font-size:10px;letter-spacing:.3px}
 
 .mirror-files{margin:16px 0 5px;padding:14px;border:1px solid #a9d8be;border-radius:15px;background:linear-gradient(135deg,#f0fff2,#e0f5ec);display:flex;flex-wrap:wrap;gap:9px}.mirror-files strong{display:block;width:100%;color:#196b41}.mirror-files a{padding:8px 12px;background:white;border:1px solid #c6e7cf;border-radius:9px;color:#236b46;text-decoration:none}
+
+
+/* Переход между каталогами городков и горок */
+.catalog-category-switch{display:flex;justify-content:flex-end;margin:0 0 16px}
+.catalog-category-switch a{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border:1px solid #cfe5d8;border-radius:10px;background:#f1fbf5;color:#19734a;font-size:13px;font-weight:700;transition:background .15s,border-color .15s}
+.catalog-category-switch a:hover{background:#e4f6eb;border-color:#9ccfb0}
+.catalog-simple-page .catalog-simple-header h1{color:#173b2b}
