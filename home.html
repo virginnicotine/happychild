@@ -1,71 +1,151 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head><style>html{visibility:hidden}</style><script src="supabase-config.js"></script><script type="module" src="supabase-gate.js"></script>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Счастливый ребёнок — Единая техническая система</title>
+    <title>База изделий — Счастливый ребёнок</title>
     <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="site-enhancements.css">
+    <link rel="stylesheet" href="site-enhancements.css">
 </head>
 <body>
 <header class="header">
-    <a class="logo" href="./home.html">
-        <div class="logo-icon"><img src="./assets/brand-logo.png" alt="Логотип Счастливый ребёнок"></div>
+    <div class="logo">
+        <a href="home.html" class="logo-icon">
+            <img src="./assets/brand-logo.png" alt="Счастливый ребёнок">
+        </a>
         <div class="logo-text">
-            <strong>СЧАСТЛИВЫЙ РЕБЁНОК</strong>
-            <span>ЕДИНАЯ ТЕХНИЧЕСКАЯ СИСТЕМА</span>
+            <span>ЕДИНАЯ ТЕХНИЧЕСКАЯ БАЗА ПРЕДПРИЯТИЯ</span>
         </div>
-    </a>
-    <div class="user"><span class="user-status"></span>Пользователь</div>
+    </div>
+    <div class="header-actions">
+        <a href="admin.html" class="header-action">Личный кабинет</a>
+        <a href="index.html" class="header-action">Выйти</a>
+    </div>
 </header>
 
 <main>
     <section class="hero">
-        <div class="hero-label">ТЕХНИЧЕСКАЯ БАЗА ПРЕДПРИЯТИЯ</div>
-        <h1>База изделий<br>и технической документации</h1>
-        <p>Единое пространство для хранения чертежей, деталей и производственной информации.</p>
+        <div class="hero-label">ЗАВОДСКОЙ КАТАЛОГ ИЗДЕЛИЙ</div>
+        <h1>Техническая документация и чертежи</h1>
+        <p>Быстрый доступ к спецификациям детских городков, горкам, элементам благоустройства и чертежам для производства.</p>
+        
         <div class="search">
-            <input id="globalSearch" type="text" placeholder="Поиск изделия, детали, артикула или чертежа...">
-            <button id="searchButton">Найти</button>
+            <input type="text" placeholder="Поиск по артикулу, названию или номеру детали..." id="siteSearchInput">
+            <button type="button">Найти</button>
         </div>
-        <div id="searchResult" class="search-result"></div>
     </section>
 
+    <!-- 3 ОСНОВНЫЕ КАТЕГОРИИ -->
     <section class="categories">
         <div class="section-header">
-            <h2>Категории</h2>
-            <span>9 разделов</span>
+            <h2>Основные направления</h2>
+            <span>Быстрый выбор изделий</span>
         </div>
-        <div class="category-grid">
-            <a href="./playgrounds.html" class="category category-active">
-                <div class="category-icon"></div>
-                <div><h3>Детские городки</h3><span id="playgroundsCount">0 изделий</span></div>
+        
+        <div class="main-primary-categories">
+            <!-- 1. Детские городки -->
+            <a href="playgrounds.html" class="category-card-main">
+                <div class="category-card-icon">🏰</div>
+                <div>
+                    <h3>Детские городки</h3>
+                    <p>Комплексные игровые комплексы, башни, мостики и переходы по сериям.</p>
+                </div>
+                <span class="badge">В каталог городков →</span>
             </a>
-            <div class="category"><div class="category-icon"></div><div><h3>Лавочки</h3><span>Пусто...</span></div></div>
-            <div class="category"><div class="category-icon"></div><div><h3>Урны</h3><span>Пусто...</span></div></div>
-            <div class="category"><div class="category-icon"></div><div><h3>Фасадные элементы</h3><span>Пусто...</span></div></div>
-            <a href="./parts.html?group=Горки" class="category"><div class="category-icon"></div><div><h3>Горки</h3><span>Спуски, борта, крепления</span></div></a>
-            <a href="./parts.html?group=Заглушки" class="category"><div class="category-icon"></div><div><h3>Заглушки</h3><span>Все типоразмеры</span></div></a>
-            <a href="./parts.html?group=Столбы" class="category"><div class="category-icon"></div><div><h3>Столбы</h3><span>Дерево и закладные</span></div></a>
-            <a href="./parts.html?group=Металлические%20детали" class="category"><div class="category-icon"></div><div><h3>Металлические детали</h3><span>МП и металлические элементы</span></div></a>
-            <a href="./assemblies.html" class="category"><div class="category-icon"></div><div><h3>Сборочные узлы</h3><span>Горки, площадки, комплектующие</span></div></a>
+
+            <!-- 2. Горки -->
+            <a href="product-1.07.html" class="category-card-main">
+                <div class="category-card-icon">🛝</div>
+                <div>
+                    <h3>Горки и скаты</h3>
+                    <p>Пластиковые, винтовые и металлические скаты высотой от 0.6 до 2.0 м.</p>
+                </div>
+                <span class="badge">Выбрать горку →</span>
+            </a>
+
+            <!-- 3. Элементы благоустройства (объединенные) -->
+            <a href="parts.html" class="category-card-main">
+                <div class="category-card-icon">🌳</div>
+                <div>
+                    <h3>Элементы благоустройства</h3>
+                    <p>Лавочки, урны, ограждения и декоративные фасадные элементы площадок.</p>
+                </div>
+                <span class="badge">Лавочки, урны, фасады →</span>
+            </a>
         </div>
     </section>
 
-    <section class="recent">
-        <div class="section-header"><h2>Последние изменения</h2><a class="site-tool-button" href="./changelog.html">История изменений →</a></div>
-        <div id="recentProducts"></div>
-    </section>
+    <!-- ВЫПАДАЮЩИЕ БЛОКИ: МАТЕРИАЛЫ И СЕРВИСНЫЕ РАЗДЕЛЫ -->
+    <div class="collapsible-sections">
+
+        <!-- Раскрывающийся блок: Металл, столбы, заглушки, узлы -->
+        <details class="site-accordion">
+            <summary>
+                <span class="summary-left">
+                    <span>🔩</span>
+                    <span>Комплектующие, металл и сборочные узлы</span>
+                </span>
+                <span class="acc-arrow">▼</span>
+            </summary>
+            <div class="site-accordion-body">
+                <div class="subcatalog-grid">
+                    <a href="assemblies.html" class="subcatalog-item">
+                        <strong>Сборочные узлы</strong>
+                        <span>Готовые каркасы и узлы крепления</span>
+                    </a>
+                    <a href="parts.html?type=metall" class="subcatalog-item">
+                        <strong>Металл и профили</strong>
+                        <span>Трубы, листовой металл, раскрой DXF</span>
+                    </a>
+                    <a href="parts.html?type=posts" class="subcatalog-item">
+                        <strong>Столбы и стойки</strong>
+                        <span>Несущие клееные и металлостойки</span>
+                    </a>
+                    <a href="parts.html?type=caps" class="subcatalog-item">
+                        <strong>Заглушки и метизы</strong>
+                        <span>Пластиковая защита, болты, гайки</span>
+                    </a>
+                </div>
+            </div>
+        </details>
+
+        <!-- Раскрывающийся блок: Документация и История изменений -->
+        <details class="site-accordion">
+            <summary>
+                <span class="summary-left">
+                    <span>📁</span>
+                    <span>Документация и обновления системы</span>
+                </span>
+                <span class="acc-arrow">▼</span>
+            </summary>
+            <div class="site-accordion-body">
+                <div class="two-panel-grid">
+                    <a href="changelog.html" class="panel-card-mini">
+                        <div>
+                            <strong style="display:block; font-size:15px; color:#21351b;">Последние изменения</strong>
+                            <span style="font-size:12px; color:#687b64;">Журнал обновлений чертежей и спецификаций</span>
+                        </div>
+                        <span style="color:#527c28; font-weight:700;">Открыть ↗</span>
+                    </a>
+                    <a href="parts.html?type=docs" class="panel-card-mini">
+                        <div>
+                            <strong style="display:block; font-size:15px; color:#21351b;">Документация и загрузки</strong>
+                            <span style="font-size:12px; color:#687b64;">Паспорта изделий, сертификаты и регламенты</span>
+                        </div>
+                        <span style="color:#527c28; font-weight:700;">Перейти ↗</span>
+                    </a>
+                </div>
+            </div>
+        </details>
+
+    </div>
 </main>
 
 <footer>
-    <span>© Счастливый ребёнок</span>
-    <span>Внутренняя информационная система</span>
+    <div>© Завод игрового оборудования «Счастливый ребёнок»</div>
+    <div>Внутренняя система технической документации</div>
 </footer>
-<script src="products.js"></script>
-<script src="site-contacts.js"></script>
+
 <script src="script.js"></script>
-<script src="dxf-library.js"></script><script src="metal-index.js"></script><script src="metal-library.js"></script>
-<script src="pdf-preview.js"></script>
 </body>
 </html>
