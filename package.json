@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "date > .build-timestamp && git add .build-timestamp",
+    "build": "date > .build-timestamp",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
