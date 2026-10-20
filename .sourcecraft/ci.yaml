@@ -9,8 +9,19 @@ workflows:
     tasks:
       - name: build-site
         cubes:
-          - name: check-site
+          - name: install-deps
             image: node:22-slim
             script:
-              - test -f index.html
-              - test -f playgrounds.html
+              - npm ci
+          - name: build-site
+            image: node:22-slim
+            script:
+              - npm run build
+          - name: publish-site
+            script:
+              - git config user.name "SourceCraft CI"
+              - git config user.email "sourcecraft-ci@users.noreply.github.com"
+              - git checkout -B release
+              - git add -f site
+              - "if ! git diff --cached --quiet; then git commit -m 'Publish site'; fi"
+              - git push origin release --force
