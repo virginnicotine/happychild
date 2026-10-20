@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "exit 0",
+    "build": "date > .build-timestamp",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
