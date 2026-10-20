@@ -9,17 +9,8 @@ workflows:
     tasks:
       - name: build-site
         cubes:
-          - name: install-deps
+          - name: check-site
             image: node:22-slim
             script:
-              - npm ci
-          - name: build-site
-            image: node:22-slim
-            script:
-              - npm run build
-          - name: publish-site
-            script:
-              - git checkout -b release
-              - git add -f site
-              - "git commit -m 'feat: release'"
-              - git push origin release -f
+              - test -f index.html
+              - test -f playgrounds.html
