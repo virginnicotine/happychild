@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
+<head><style>html{visibility:hidden}</style><script src="supabase-config.js"></script><script type="module" src="supabase-gate.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Горки и скаты — Счастливый ребёнок</title>
     <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="site-enhancements.css">
 </head>
-<body class="catalog-simple-page">
+<body class="page-protected catalog-simple-page">
 <header class="header">
     <div class="logo">
         <a href="home.html" class="logo-icon">
@@ -18,7 +19,6 @@
     </div>
     <div class="header-actions">
         <a href="home.html" class="header-action">Главная</a>
-        <a href="admin.html" class="header-action">Личный кабинет</a>
     </div>
 </header>
 
@@ -97,5 +97,8 @@
     el.textContent = n + ' ' + word;
 })();
 </script>
+<script src="products.js"></script><script src="site-contacts.js"></script>
+<script src="script.js"></script>
+<script src="pdf-preview.js"></script>
 </body>
 </html>
