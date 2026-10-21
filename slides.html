@@ -32,7 +32,7 @@
             <span class="hero-label">КАТАЛОГ ПРОДУКЦИИ</span>
             <h1>Горки и скаты</h1>
         </div>
-        <span>3 модели в серии ГСР</span>
+        <span id="slidesCatalogCount">3 изделия</span>
     </div>
 
     <div class="catalog-simple-list">
@@ -87,5 +87,15 @@
     <div>© Завод игрового оборудования «Счастливый ребёнок»</div>
     <div>Внутренняя система технической документации</div>
 </footer>
+<script>
+(function () {
+    var el = document.getElementById('slidesCatalogCount');
+    var n = document.querySelectorAll('.catalog-row').length;
+    if (!el || !n) return;
+    var m = n % 100, l = m % 10;
+    var word = (m >= 11 && m <= 19) ? 'изделий' : l === 1 ? 'изделие' : (l >= 2 && l <= 4) ? 'изделия' : 'изделий';
+    el.textContent = n + ' ' + word;
+})();
+</script>
 </body>
 </html>
