@@ -1662,3 +1662,57 @@ html[data-role="user"] .v108-docs{display:none!important}
 .account-code{overflow:auto;margin:10px 0;padding:14px;border-radius:12px;background:#10200c;color:#d9f2c0;font-size:12px;line-height:1.5;white-space:pre-wrap;word-break:break-all}
 .site-tool-button.primary{background:var(--navy2);border-color:var(--navy2);color:#fff}
 @media(max-width:720px){.account-form{grid-template-columns:1fr}}
+
+
+/* SLIDE TECH PAGES — layout fix */
+.slide-tech-page .v108-item {
+    grid-template-columns: 32px 78px minmax(0, 1fr) 52px;
+    gap: 13px;
+    align-items: start;
+}
+
+.slide-tech-page .v108-photo {
+    width: 78px;
+    height: 64px;
+    flex-shrink: 0;
+}
+
+.slide-tech-page .v108-qty {
+    grid-column: 4;
+    text-align: right;
+}
+
+.slide-tech-page .v108-list > .dxf-downloads {
+    margin: 0 15px 0 123px;
+    padding: 8px 10px;
+    background: #f6f8fa;
+    border-radius: 0 0 8px 8px;
+}
+
+.slide-tech-page .dxf-download {
+    min-height: 32px;
+    border-radius: 8px;
+}
+
+@media (max-width: 700px) {
+    .slide-tech-page .v108-item {
+        grid-template-columns: 25px 58px minmax(0, 1fr);
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .slide-tech-page .v108-photo {
+        width: 58px;
+        height: 52px;
+    }
+
+    .slide-tech-page .v108-qty {
+        grid-column: 3;
+        text-align: left;
+        padding-top: 4px;
+    }
+
+    .slide-tech-page .v108-list > .dxf-downloads {
+        margin: 0 10px 0 91px;
+    }
+}
