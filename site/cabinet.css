@@ -12,3 +12,20 @@
 .cabinet-panel td button:hover,.cabinet-cards button:hover{background:#d4efdb}
 .cabinet-breadcrumb a{color:#167849}.cabinet-page .logo-icon img{max-width:100%;max-height:100%;object-fit:contain}
 .cabinet-panel[hidden],#warningsPanel[hidden],[data-admin-only][hidden]{display:none!important}
+
+/* Жалобы и ответы, формы кабинета */
+.c-head{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin-bottom:8px}
+.c-login,.c-date{color:#7a8f82;font-size:12px}.c-date{margin-left:auto}
+.c-status{font-size:11px;font-weight:700;padding:3px 10px;border-radius:99px;background:#eef3ef;color:#4b6455}
+.c-status.c-new{background:#fff4d6;color:#8a6410}.c-status.c-reviewing{background:#dfefff;color:#1d5a8c}.c-status.c-resolved{background:#dcf5e3;color:#1b6f42}.c-status.c-rejected{background:#fde3e3;color:#9a2f2f}
+.c-text{margin:6px 0!important;white-space:pre-wrap}
+.c-thread{margin:10px 0;padding-left:12px;border-left:3px solid #c8ead2}
+.c-msg{margin:8px 0;padding:9px 12px;border-radius:10px;background:#fff;border:1px solid #e3efe6;font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere}
+.c-msg small{display:block;color:#7a8f82;font-size:11px;margin-bottom:3px}.c-msg.c-staff{background:#eefaf1}
+.c-reply,.c-form{display:flex;flex-direction:column;gap:8px}.c-reply{margin-top:10px}
+.c-reply textarea,.c-form textarea,.c-form input{width:100%;box-sizing:border-box;border:1px solid #cfe5d6;border-radius:10px;padding:10px 12px;font:inherit;font-size:13px;background:#fff}
+.c-reply textarea,.c-form textarea{min-height:84px;resize:vertical}.c-reply button,.c-form button{align-self:flex-start}
+.c-form{padding:22px 29px;max-width:720px}
+.c-form button{background:#1b6f42;color:#fff;border:0;border-radius:9px;padding:11px 18px;font-weight:600;cursor:pointer}.c-form button:hover{background:#155a35}.c-form button:disabled{opacity:.6;cursor:default}
+.c-actions{margin:10px 0 0!important;font-size:12px;color:#6c8576}
+.c-hint{font-size:12px;color:#7a8f82;margin:0}.c-ok{color:#1b6f42!important}.c-err{color:#b3392f!important}
