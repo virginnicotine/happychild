@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ПСР-1.04 — Счастливый ребёнок</title>
+<link rel="stylesheet" href="./style.css">
+<script src="supabase-config.js"></script>
+<script type="module" src="supabase-gate.js"></script>
+
+<style>
+.psr-content{max-width:1400px;margin:0 auto;padding:24px;}
+.psr-breadcrumb{margin:0 0 22px;color:#718096;font-size:14px;}
+.psr-breadcrumb a{color:inherit;text-decoration:none;}
+.psr-heading{margin:0 0 8px;}
+.psr-subtitle{color:#718096;margin:0 0 24px;}
+.psr-actions{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0 30px;}
+.psr-button{display:inline-block;padding:11px 16px;border-radius:10px;text-decoration:none;background:#e8eef7;color:#24354d;font-weight:600;}
+.psr-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;margin:18px 0 34px;}
+.psr-image{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:inherit;background:#fff;border:1px solid #e5eaf0;border-radius:12px;padding:10px;overflow:hidden;}
+.psr-image img{width:100%;height:180px;object-fit:contain;}
+.psr-image span{font-size:13px;color:#718096;overflow-wrap:anywhere;}
+.psr-table-wrap{overflow:auto;max-width:100%;border:1px solid #e2e8f0;border-radius:10px;background:white;}
+.psr-table{border-collapse:collapse;width:100%;font-size:13px;}
+.psr-table td,.psr-table th{border:1px solid #e2e8f0;padding:8px 10px;text-align:left;white-space:pre-wrap;min-width:65px;}
+.psr-table tr:first-child{background:#edf2f7;font-weight:600;}
+.psr-row-number{color:#718096;font-weight:400;}
+.psr-section-title{margin:30px 0 14px;}
+@media(max-width:600px){.psr-content{padding:14px;}.psr-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;}.psr-image img{height:130px;}}
+</style>
+</head>
+<body class="page-protected">
+<header class="header">
+<a class="logo" href="./home.html">
+<div class="logo-icon"><img src="./assets/brand-logo.png" alt="Логотип Счастливый ребёнок"></div>
+<div class="logo-text"><strong>СЧАСТЛИВЫЙ РЕБЁНОК</strong><span>ЕДИНАЯ ТЕХНИЧЕСКАЯ СИСТЕМА</span></div>
+</a>
+<div class="user"><span class="user-status"></span>Пользователь</div>
+</header>
+<main class="inner-page">
+<div class="psr-content">
+<nav class="psr-breadcrumb"><a href="./home.html">Главная</a> / <a href="./sandboxes.html">Песочницы</a> / <strong>ПСР-1.04</strong></nav>
+<h1 class="psr-heading">Песочница ПСР-1.04</h1>
+<p class="psr-subtitle">Техническая документация и спецификация изделия</p>
+<div class="psr-actions">
+<a class="psr-button" href="./downloads/specifications/%D0%9F%D0%A1%D0%A0-1.04.xlsx" download>Скачать спецификацию Excel</a>
+<a class="psr-button" href="./sandboxes.html">← Все песочницы</a>
+</div>
+<h2 class="psr-section-title">Изображения изделия</h2>
+<div class="psr-gallery"><a class="psr-image" href="./sandboxes/1.04/1.jpg" target="_blank">
+<img src="./sandboxes/1.04/1.jpg" alt="ПСР-1.04 — 1.jpg" loading="lazy">
+<span>1.jpg</span>
+</a>
+<a class="psr-image" href="./sandboxes/1.04/2.jpg" target="_blank">
+<img src="./sandboxes/1.04/2.jpg" alt="ПСР-1.04 — 2.jpg" loading="lazy">
+<span>2.jpg</span>
+</a>
+<a class="psr-image" href="./sandboxes/1.04/3.jpg" target="_blank">
+<img src="./sandboxes/1.04/3.jpg" alt="ПСР-1.04 — 3.jpg" loading="lazy">
+<span>3.jpg</span>
+</a>
+<a class="psr-image" href="./sandboxes/1.04/4.jpg" target="_blank">
+<img src="./sandboxes/1.04/4.jpg" alt="ПСР-1.04 — 4.jpg" loading="lazy">
+<span>4.jpg</span>
+</a>
+<a class="psr-image" href="./sandboxes/1.04/5.jpg" target="_blank">
+<img src="./sandboxes/1.04/5.jpg" alt="ПСР-1.04 — 5.jpg" loading="lazy">
+<span>5.jpg</span>
+</a>
+<a class="psr-image" href="./sandboxes/1.04/6.jpg" target="_blank">
+<img src="./sandboxes/1.04/6.jpg" alt="ПСР-1.04 — 6.jpg" loading="lazy">
+<span>6.jpg</span>
+</a>
+<a class="psr-image" href="./sandboxes/1.04/7.jpg" target="_blank">
+<img src="./sandboxes/1.04/7.jpg" alt="ПСР-1.04 — 7.jpg" loading="lazy">
+<span>7.jpg</span>
+</a>
+<a class="psr-image" href="./sandboxes/1.04/8.jpg" target="_blank">
+<img src="./sandboxes/1.04/8.jpg" alt="ПСР-1.04 — 8.jpg" loading="lazy">
+<span>8.jpg</span>
+</a>
+<a class="psr-image" href="./sandboxes/1.04/9.png" target="_blank">
+<img src="./sandboxes/1.04/9.png" alt="ПСР-1.04 — 9.png" loading="lazy">
+<span>9.png</span>
+</a>
+<a class="psr-image" href="./sandboxes/1.04/10.png" target="_blank">
+<img src="./sandboxes/1.04/10.png" alt="ПСР-1.04 — 10.png" loading="lazy">
+<span>10.png</span>
+</a></div>
+<h2 class="psr-section-title">Данные из спецификации</h2>
+<p>Источник: ПСР-1.04.xlsx. Содержимое таблицы сформировано из первого листа исходного Excel-файла.</p>
+<div class="psr-table-wrap"><table class="psr-table"><tbody><tr><th class="psr-row-number">1</th><td></td><td>ПСР-1.04</td></tr>
+<tr><th class="psr-row-number">2</th><td>Размер 1,76 х 1,76 х 0,44 м</td></tr>
+<tr><th class="psr-row-number">3</th><td></td><td>№ п/п</td><td>Артикул</td><td>Наименование</td><td>Кол-во</td><td>Изображение</td><td>цвет</td><td>Длина, м</td><td>Ширина, м</td><td>Высота, м</td><td>Объем, м3</td><td>Площадь окрашиваемой поверхности, м2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>Метизы крепления на 1 комплектующую</td></tr>
+<tr><th class="psr-row-number">4</th><td></td><td>1</td><td>0002МП</td><td>Закладная для песочницы (уголок 50х50х500)</td><td>4</td><td></td><td></td><td></td><td></td><td></td><td>0.001</td><td>0.05</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>0.004</td><td>Болт мебельный М8х40 - 4 шт.                               Шайба м8 увел. - 4 шт.                    Гайка м8 - 4 шт</td></tr>
+<tr><th class="psr-row-number">5</th><td></td><td>2</td><td>0001МП</td><td>Ручка песочницы ПСР-1.04</td><td>2</td><td></td><td>7047</td><td>1.04</td><td>0.12</td><td>0.21</td><td>0.026208</td><td>0.0936348</td><td></td><td></td><td>21.3</td><td>1400</td><td></td><td></td><td>4</td><td>8</td><td>0.052416</td><td>Болт мебельный М8х40 - 4 шт.                               Шайба м8 увел. - 4 шт.                    Гайка м8 - 4 шт</td></tr>
+<tr><th class="psr-row-number">6</th><td></td><td>3</td><td>0003МП</td><td>Уголок 55х55х40</td><td>8</td><td></td><td>7047</td><td></td><td></td><td></td><td>0.001</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>2</td><td>16</td><td>0.008</td><td>Болт мебельный М6х40 - 2 шт.                               Шайба м8 увел. - 2 шт.                    Гайка м6 - 2 шт</td></tr>
+<tr><th class="psr-row-number">7</th><td></td><td>4</td><td>000003</td><td>Борт верхний (песочницы)<br>1707 x 145 x 21</td><td>4</td><td></td><td>6018</td><td>1.76</td><td>0.145</td><td>0.021</td><td>0.0053592</td><td>0.53592</td><td>3640</td><td></td><td></td><td></td><td></td><td></td><td>4</td><td>16</td><td>0.0214368</td></tr>
+<tr><th class="psr-row-number">8</th><td></td><td>5</td><td>000004</td><td>Борт боковой (песочницы)<br>760 x 236 x 21</td><td>8</td><td></td><td>6018</td><td>0.76</td><td>0.224</td><td>0.021</td><td>0.0035750400000000002</td><td>0.35750400000000004</td><td>1992</td><td></td><td></td><td></td><td></td><td></td><td>2</td><td>16</td><td>0.028600320000000002</td></tr>
+<tr><th class="psr-row-number">9</th><td></td><td>6</td><td>000002</td><td>Соединитель бортов (песочницы)<br>300 x 200 x 15</td><td>4</td><td></td><td>5017</td><td>0.3</td><td>0.2</td><td>0.015</td><td>0.0009</td><td>0.126</td><td>915</td><td></td><td></td><td></td><td></td><td></td><td>6</td><td>24</td><td>0.0036</td><td>Болт мебельный М6х50 - 4 шт.                               Шайба м8 увел. - 4 шт.                    Гайка м6 - 4 шт</td></tr>
+<tr><th class="psr-row-number">10</th><td></td><td>7</td><td>000005</td><td>Столик угловой (песочницы)<br>411 x 411 x 15</td><td>4</td><td></td><td>2008</td><td>0.411</td><td>0.411</td><td>0.015</td><td>0.0025338149999999996</td><td>0.3547341</td><td>1450</td><td></td><td></td><td></td><td></td><td></td><td></td><td>0</td><td>0.010135259999999998</td><td>Болт мебельный М6х50 - 4 шт.                               Шайба м8 увел. - 4 шт.                    Гайка м6 - 4 шт</td></tr>
+<tr><th class="psr-row-number">11</th><td></td><td>8</td><td>000001</td><td>Крышка (песочницы)<br>1590 x 875 x 15</td><td>2</td><td></td><td>5017</td><td>1.59</td><td>0.875</td><td>0.015</td><td>0.020868750000000002</td><td>2.921625</td><td>4450</td><td></td><td></td><td></td><td></td><td></td><td></td><td>0</td><td>0.041737500000000004</td></tr>
+<tr><th class="psr-row-number">12</th><td></td><td>9</td><td>КЧМ6КС</td><td>Заглушка К4М6КС</td><td>56</td><td></td><td></td><td>0.027</td><td>0.027</td><td>0.016</td><td>0.0002</td><td></td><td></td><td></td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>0.0112</td></tr>
+<tr><th class="psr-row-number">13</th><td></td><td>10</td><td>КЧМ6КС</td><td>Заглушка К4М8КС</td><td>24</td><td></td><td></td><td>0.027</td><td>0.027</td><td>0.016</td><td>0.0002</td><td></td><td></td><td></td><td></td><td></td><td></td><td>0</td><td></td><td></td><td>0.0048000000000000004</td></tr>
+<tr><th class="psr-row-number">14</th><td></td><td>11</td><td></td><td>Петля карточная BF 2 (50 мм) СР Хром</td><td>4</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>Саморез 3,5х13 - 4 шт</td></tr>
+<tr><th class="psr-row-number">15</th><td></td><td>Объем:</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>0.18112588000000002</td></tr></tbody></table></div>
+</div>
+</main>
+<footer><span>© Счастливый ребёнок</span><span>Внутренняя информационная система</span></footer>
+<script src="./script.js"></script>
+</body>
+</html>

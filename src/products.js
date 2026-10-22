@@ -14,7 +14,7 @@ window.PRODUCTS = [
 
         folder: 'psr-1.01',
 
-        image: 'sandboxes/1.01/1.png',
+        image: 'sandboxes/1.01/1.jpg',
 
         info: 'Песочница детская · 1.01',
 
@@ -54,7 +54,7 @@ window.PRODUCTS = [
 
         folder: 'psr-1.03',
 
-        image: 'sandboxes/1.03/1.png',
+        image: 'sandboxes/1.03/1.jpg',
 
         info: 'Песочница детская · 1.03',
 
@@ -74,7 +74,7 @@ window.PRODUCTS = [
 
         folder: 'psr-1.04',
 
-        image: 'sandboxes/1.04/1.png',
+        image: 'sandboxes/1.04/1.jpg',
 
         info: 'Песочница детская · 1.04',
 
@@ -94,7 +94,7 @@ window.PRODUCTS = [
 
         folder: 'psr-1.05',
 
-        image: 'sandboxes/1.05/1.png',
+        image: 'sandboxes/1.05/1.jpg',
 
         info: 'Песочница детская · 1.05',
 
