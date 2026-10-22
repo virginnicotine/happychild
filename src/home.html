@@ -71,6 +71,16 @@
 <script src="site-contacts.js"></script>
 <script src="script.js"></script>
 <script src="dxf-library.js"></script><script src="metal-index.js"></script><script src="metal-library.js"></script>
-<script src="pdf-preview.js"></script>
+<script src="pdf-preview.js">(function () {
+    var el = document.getElementById("sandboxesCount");
+    if (!el) return;
+    fetch("./sandboxes.html", { cache: "no-cache" })
+        .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+        .then(function (t) {
+            var n = new DOMParser().parseFromString(t, "text/html").querySelectorAll(".catalog-row").length;
+            if (n > 0) el.textContent = n + " " + (n === 1 ? "изделие" : (n < 5 ? "изделия" : "изделий"));
+        }).catch(function () {});
+})();
+</script>
 </body>
 </html>
