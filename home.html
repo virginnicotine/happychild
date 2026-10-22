@@ -6,7 +6,6 @@
     <title>Счастливый ребёнок — Единая техническая система</title>
     <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="site-enhancements.css">
-<style>.category-grid-more{margin-top:18px}</style>
 </head>
 <body>
 <header class="header">
@@ -35,20 +34,29 @@
     <section class="categories">
         <div class="section-header">
             <h2>Категории</h2>
-            <span>6 разделов</span>
+            <span>10 разделов</span>
         </div>
         <div class="category-grid">
             <a href="./playgrounds.html" class="category category-active">
                 <div class="category-icon"></div>
                 <div><h3>Детские городки</h3><span id="playgroundsCount">0 изделий</span></div>
             </a>
-            <a href="./slides.html" class="category"><div class="category-icon"></div><div><h3>Горки</h3><span id="slidesCount">3 изделия</span></div></a>
-            <div class="category"><div class="category-icon"></div><div><h3>Фасадные элементы</h3><span>Лавочки, урны</span></div></div>
-        </div>
-        <div class="category-grid category-grid-more">
+            <!-- cspell:ignore Лавочки Пусто Урны Фасадные элементы Горки Спуски борта крепления Заглушки типоразмеры Столбы Дерево закладные Металлические детали металлические Сборочные узлы площадки комплектующие Песочницы Детские песочницы -->
+            <div class="category"><div class="category-icon"></div><div><h3>Лавочки</h3><span>Пусто...</span></div></div>
+            <div class="category"><div class="category-icon"></div><div><h3>Урны</h3><span>Пусто...</span></div></div>
+            <div class="category"><div class="category-icon"></div><div><h3>Фасадные элементы</h3><span>Пусто...</span></div></div>
+            <a href="./parts.html?group=Горки" class="category"><div class="category-icon"></div><div><h3>Горки</h3><span>Спуски, борта, крепления</span></div></a>
             <a href="./parts.html?group=Заглушки" class="category"><div class="category-icon"></div><div><h3>Заглушки</h3><span>Все типоразмеры</span></div></a>
+            <a href="./parts.html?group=Столбы" class="category"><div class="category-icon"></div><div><h3>Столбы</h3><span>Дерево и закладные</span></div></a>
             <a href="./parts.html?group=Металлические%20детали" class="category"><div class="category-icon"></div><div><h3>Металлические детали</h3><span>МП и металлические элементы</span></div></a>
             <a href="./assemblies.html" class="category"><div class="category-icon"></div><div><h3>Сборочные узлы</h3><span>Горки, площадки, комплектующие</span></div></a>
+            <a href="./sandboxes.html" class="category">
+         <div class="category-icon"></div>
+         <div>
+        <h3>Песочницы</h3>
+        <span>Детские песочницы и комплектующие</span>
+    </div>
+</a>
         </div>
     </section>
 
@@ -65,22 +73,6 @@
 <script src="products.js"></script>
 <script src="site-contacts.js"></script>
 <script src="script.js"></script>
-<script>
-/* Счётчик горок: считает карточки каталога slides.html, при добавлении новой горки число обновится само */
-(function () {
-    var el = document.getElementById('slidesCount');
-    if (!el) return;
-    fetch('./slides.html', { cache: 'no-cache' })
-        .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
-        .then(function (t) {
-            var n = new DOMParser().parseFromString(t, 'text/html').querySelectorAll('.catalog-row').length;
-            if (!n) return;
-            var word = typeof pluralizeProducts === 'function' ? pluralizeProducts(n) : 'изделий';
-            el.textContent = n + ' ' + word;
-        })
-        .catch(function () {});
-})();
-</script>
 <script src="dxf-library.js"></script><script src="metal-index.js"></script><script src="metal-library.js"></script>
 <script src="pdf-preview.js"></script>
 </body>
