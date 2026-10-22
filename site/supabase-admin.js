@@ -75,13 +75,34 @@ addEventListener('click',async e=>{
     }else if(x.dataset.replySend){
       const box=document.querySelector(`[data-reply-text="${CSS.escape(x.dataset.replySend)}"]`);
       const message=(box&&box.value||'').trim();
-      if(!message){alert('Напишите текст ответа.');return;}
+
+      if(!message){
+        alert('Напишите текст ответа.');
+        return;
+      }
+
       x.disabled=true;
-      try{await call('admin_action',{type:'reply',complaint_id:x.dataset.replySend,message});}finally{x.disabled=false;}
+
+      try{
+        await call('admin_action',{
+          type:'reply',
+          complaint_id:x.dataset.replySend,
+          message
+        });
+
+        if(box)box.value='';
+        alert('Ответ отправлен сотруднику.');
+      }finally{
+        x.disabled=false;
+      }
     }else if(x.dataset.complaint){
       await call('admin_action',{type:'complaint',complaint_id:x.dataset.complaint,status:x.dataset.cstatus});
     }else return;
+
     await refresh();
-  }catch(err){alert(err.message)}
+  }catch(err){
+    alert(err.message);
+  }
 });
+
 await refresh();
