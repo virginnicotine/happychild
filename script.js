@@ -495,16 +495,40 @@ document.querySelectorAll('button.document-button[data-message]').forEach(button
     }));
 
     const reportForm = reportModal.querySelector('form');
-    reportForm.addEventListener('submit', e => {
+    reportForm.addEventListener('submit', async e => {
         e.preventDefault();
         const data = new FormData(reportForm);
-        const saved = window.FactoryStore && window.FactoryStore.complaints.add({
-            subject: data.get('subject'), message: data.get('message'), contact: data.get('contact'), page: document.title
-        });
-        if (!saved) { window.showSiteToast('Не удалось отправить жалобу: браузер не позволил сохранить данные.', 'error'); return; }
-        reportForm.reset();
-        reportModal.classList.remove('visible');
-        window.showSiteToast('Жалоба отправлена на рассмотрение администратору');
+        const subject = String(data.get('subject') || '').trim();
+        const message = String(data.get('message') || '').trim();
+        const contact = String(data.get('contact') || '').trim();
+
+        if (!subject || !message) {
+            window.showSiteToast('Заполните тему и описание проблемы.', 'error');
+            return;
+        }
+
+        const button = reportForm.querySelector('[type="submit"]');
+        if (button) button.disabled = true;
+
+        try {
+            const { call } = await import('./supabase-client.js');
+            await call('me_complaint_create', {
+                message: [
+                    'Тема: ' + subject,
+                    message,
+                    contact ? 'Контакт: ' + contact : '',
+                    'Страница: ' + document.title
+                ].filter(Boolean).join('\\n').slice(0, 5000)
+            });
+
+            reportForm.reset();
+            reportModal.classList.remove('visible');
+            window.showSiteToast('Жалоба отправлена на рассмотрение.');
+        } catch (err) {
+            window.showSiteToast('Не удалось отправить жалобу: ' + (err.message || 'ошибка сервера'), 'error');
+        } finally {
+            if (button) button.disabled = false;
+        }
     });
 
     // ---------- Поиск с подсказками + мини-карточка детали ----------
@@ -1207,14 +1231,30 @@ document.querySelectorAll('button.document-button[data-message]').forEach(button
 
     // ---------- Личный кабинет администратора ----------
     if (role.can('cabinet') && role.role === 'admin' && window.FactoryStore) {
-        const updateBadges = () => {
-            const n = window.FactoryStore.complaints.unreadCount();
-            document.querySelectorAll('[data-open-cabinet]').forEach(a => {
-                let badge = a.querySelector('.cabinet-badge');
-                if (n && !badge) { badge = document.createElement('b'); badge.className = 'cabinet-badge'; a.appendChild(badge); }
-                if (badge) { badge.textContent = n; badge.hidden = !n; }
-            });
-        };
+        const updateBadges = async () => {
+    try {
+        const { call } = await import('./supabase-client.js');
+        const d = await call('admin_list');
+        const n = (d.complaints || []).filter(c => c.status === 'new').length;
+
+        document.querySelectorAll('[data-open-cabinet]').forEach(a => {
+            let badge = a.querySelector('.cabinet-badge');
+
+            if (n && !badge) {
+                badge = document.createElement('b');
+                badge.className = 'cabinet-badge';
+                a.appendChild(badge);
+            }
+
+            if (badge) {
+                badge.textContent = n;
+                badge.hidden = !n;
+            }
+        });
+    } catch (err) {
+        console.error('Не удалось обновить счётчик жалоб:', err);
+    }
+};
         const addButtons = () => document.querySelectorAll('.header').forEach(header => {
             const actions = header.querySelector('.header-actions');
             if (!actions || actions.querySelector('[data-open-cabinet]')) return;
@@ -1224,6 +1264,7 @@ document.querySelectorAll('button.document-button[data-message]').forEach(button
             actions.insertBefore(a, actions.firstChild);
         });
         addButtons(); updateBadges();
+        window.setInterval(updateBadges, 30000);
         window.addEventListener('load', () => { addButtons(); updateBadges(); });
         window.addEventListener('storage', e => {
             if (e.key !== 'factorySystemComplaints') return;
