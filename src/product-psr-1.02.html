@@ -1,124 +1,206 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ПСР-1.02 — Счастливый ребёнок</title>
-<link rel="stylesheet" href="./style.css">
-<script src="supabase-config.js"></script>
-<script type="module" src="supabase-gate.js"></script>
-
-<style>
-.psr-content{max-width:1400px;margin:0 auto;padding:24px;}
-.psr-breadcrumb{margin:0 0 22px;color:#718096;font-size:14px;}
-.psr-breadcrumb a{color:inherit;text-decoration:none;}
-.psr-heading{margin:0 0 8px;}
-.psr-subtitle{color:#718096;margin:0 0 24px;}
-.psr-actions{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0 30px;}
-.psr-button{display:inline-block;padding:11px 16px;border-radius:10px;text-decoration:none;background:#e8eef7;color:#24354d;font-weight:600;}
-.psr-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;margin:18px 0 34px;}
-.psr-image{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:inherit;background:#fff;border:1px solid #e5eaf0;border-radius:12px;padding:10px;overflow:hidden;}
-.psr-image img{width:100%;height:180px;object-fit:contain;}
-.psr-image span{font-size:13px;color:#718096;overflow-wrap:anywhere;}
-.psr-table-wrap{overflow:auto;max-width:100%;border:1px solid #e2e8f0;border-radius:10px;background:white;}
-.psr-table{border-collapse:collapse;width:100%;font-size:13px;}
-.psr-table td,.psr-table th{border:1px solid #e2e8f0;padding:8px 10px;text-align:left;white-space:pre-wrap;min-width:65px;}
-.psr-table tr:first-child{background:#edf2f7;font-weight:600;}
-.psr-row-number{color:#718096;font-weight:400;}
-.psr-section-title{margin:30px 0 14px;}
-@media(max-width:600px){.psr-content{padding:14px;}.psr-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;}.psr-image img{height:130px;}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПСР-1.02 — Счастливый ребёнок</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="page-protected">
+<body class="v108-page">
 <header class="header">
-<a class="logo" href="./home.html">
-<div class="logo-icon"><img src="./assets/brand-logo.png" alt="Логотип Счастливый ребёнок"></div>
-<div class="logo-text"><strong>СЧАСТЛИВЫЙ РЕБЁНОК</strong><span>ЕДИНАЯ ТЕХНИЧЕСКАЯ СИСТЕМА</span></div>
-</a>
-<div class="user"><span class="user-status"></span>Пользователь</div>
+    <div class="logo">
+        <a href="home.html" class="logo-icon">
+            <img src="./assets/brand-logo.png" alt="Счастливый ребёнок">
+        </a>
+        <div class="logo-text">
+            <span>ЕДИНАЯ ТЕХНИЧЕСКАЯ БАЗА ПРЕДПРИЯТИЯ</span>
+        </div>
+    </div>
+    <div class="header-actions">
+        <a href="sandboxes.html" class="header-action">Каталог песочниц</a>
+        <a href="admin.html" class="header-action">Личный кабинет</a>
+    </div>
 </header>
-<main class="inner-page">
-<div class="psr-content">
-<nav class="psr-breadcrumb"><a href="./home.html">Главная</a> / <a href="./sandboxes.html">Песочницы</a> / <strong>ПСР-1.02</strong></nav>
-<h1 class="psr-heading">Песочница ПСР-1.02</h1>
-<p class="psr-subtitle">Техническая документация и спецификация изделия</p>
-<div class="psr-actions">
-<a class="psr-button" href="./downloads/specifications/%D0%9F%D0%A1%D0%A0-1.02.xlsx" download>Скачать спецификацию Excel</a>
-<a class="psr-button" href="./sandboxes.html">← Все песочницы</a>
-</div>
-<h2 class="psr-section-title">Изображения изделия</h2>
-<div class="psr-gallery"><a class="psr-image" href="./sandboxes/1.02/1.png" target="_blank">
-<img src="./sandboxes/1.02/1.png" alt="ПСР-1.02 — 1.png" loading="lazy">
-<span>1.png</span>
-</a>
-<a class="psr-image" href="./sandboxes/1.02/2.jpg" target="_blank">
-<img src="./sandboxes/1.02/2.jpg" alt="ПСР-1.02 — 2.jpg" loading="lazy">
-<span>2.jpg</span>
-</a>
-<a class="psr-image" href="./sandboxes/1.02/3.jpg" target="_blank">
-<img src="./sandboxes/1.02/3.jpg" alt="ПСР-1.02 — 3.jpg" loading="lazy">
-<span>3.jpg</span>
-</a>
-<a class="psr-image" href="./sandboxes/1.02/4.jpg" target="_blank">
-<img src="./sandboxes/1.02/4.jpg" alt="ПСР-1.02 — 4.jpg" loading="lazy">
-<span>4.jpg</span>
-</a>
-<a class="psr-image" href="./sandboxes/1.02/5.jpg" target="_blank">
-<img src="./sandboxes/1.02/5.jpg" alt="ПСР-1.02 — 5.jpg" loading="lazy">
-<span>5.jpg</span>
-</a>
-<a class="psr-image" href="./sandboxes/1.02/6.jpg" target="_blank">
-<img src="./sandboxes/1.02/6.jpg" alt="ПСР-1.02 — 6.jpg" loading="lazy">
-<span>6.jpg</span>
-</a>
-<a class="psr-image" href="./sandboxes/1.02/7.jpg" target="_blank">
-<img src="./sandboxes/1.02/7.jpg" alt="ПСР-1.02 — 7.jpg" loading="lazy">
-<span>7.jpg</span>
-</a>
-<a class="psr-image" href="./sandboxes/1.02/8.jpg" target="_blank">
-<img src="./sandboxes/1.02/8.jpg" alt="ПСР-1.02 — 8.jpg" loading="lazy">
-<span>8.jpg</span>
-</a>
-<a class="psr-image" href="./sandboxes/1.02/9.jpg" target="_blank">
-<img src="./sandboxes/1.02/9.jpg" alt="ПСР-1.02 — 9.jpg" loading="lazy">
-<span>9.jpg</span>
-</a>
-<a class="psr-image" href="./sandboxes/1.02/10.png" target="_blank">
-<img src="./sandboxes/1.02/10.png" alt="ПСР-1.02 — 10.png" loading="lazy">
-<span>10.png</span>
-</a>
-<a class="psr-image" href="./sandboxes/1.02/11.png" target="_blank">
-<img src="./sandboxes/1.02/11.png" alt="ПСР-1.02 — 11.png" loading="lazy">
-<span>11.png</span>
-</a>
-<a class="psr-image" href="./sandboxes/1.02/12.jpg" target="_blank">
-<img src="./sandboxes/1.02/12.jpg" alt="ПСР-1.02 — 12.jpg" loading="lazy">
-<span>12.jpg</span>
-</a></div>
-<h2 class="psr-section-title">Данные из спецификации</h2>
-<p>Источник: ПСР-1.02.xlsx. Содержимое таблицы сформировано из первого листа исходного Excel-файла.</p>
-<div class="psr-table-wrap"><table class="psr-table"><tbody><tr><th class="psr-row-number">1</th><td>ПСР-1.02</td></tr>
-<tr><th class="psr-row-number">2</th><td></td><td>Размер  2,46 х 2,46 х 0,37 м</td></tr>
-<tr><th class="psr-row-number">3</th><td></td><td>№ п/п</td><td>Артикул</td><td>Наименование</td><td>Кол-во</td><td>Изображение</td><td>цвет</td><td>Длина, м</td><td>Ширина, м</td><td>Высота, м</td><td>Объем, м3</td><td>Объем всего</td><td>Метизы крепления на 1 комплектующую</td><td>Заглушка м8-10 (крепеж к столбу) (на 1 комплектующую)</td><td>всего м8-10</td><td>Заглушка м6 (крепеж фанеры между собой)</td><td>всего м6</td></tr>
-<tr><th class="psr-row-number">4</th><td></td><td>СТОЛБЫ</td></tr>
-<tr><th class="psr-row-number">5</th><td></td><td>1</td><td>0080ДБ</td><td>Столб (брус 100х100) 350 мм</td><td>8</td><td></td><td>8014</td><td>0.35</td><td>0.1</td><td>0.1</td><td>0.0034999999999999996</td><td>0.027999999999999997</td></tr>
-<tr><th class="psr-row-number">6</th><td></td><td>2</td><td>0013МП</td><td>Закладная торцевая 100х100</td><td>8</td><td></td><td>7047</td><td>0.075</td><td>0.075</td><td>0.26</td><td>0.0014625</td><td>0.0117</td><td>Шуруп (глухарь) 8х50 - 4 шт.                         Шайба м8 увел. - 4шт.</td><td>4</td><td>32</td><td></td><td>0</td></tr>
-<tr><th class="psr-row-number">7</th><td></td><td>ПАНЕЛИ</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>0</td><td></td><td>0</td></tr>
-<tr><th class="psr-row-number">8</th><td></td><td>3</td><td>000723</td><td>Борт 1 песочницы 1.02 (800х300х21мм)</td><td>4</td><td></td><td>6018</td><td>0.8</td><td>0.3</td><td>0.021</td><td>0.00504</td><td>0.02016</td><td>Шуруп (глухарь) 8х80 - 4 шт.                         Шайба м8 увел. - 4шт.</td><td>4</td><td>16</td><td></td><td>0</td></tr>
-<tr><th class="psr-row-number">9</th><td></td><td>4</td><td>000724</td><td>Борт 2 песочницы 1.02 (870х300х21мм)</td><td>4</td><td></td><td>2008</td><td>0.87</td><td>0.3</td><td>0.021</td><td>0.005481000000000001</td><td>0.021924000000000003</td><td></td><td></td><td>0</td><td></td><td>0</td></tr>
-<tr><th class="psr-row-number">10</th><td></td><td>5</td><td>000725</td><td>Лавка 1 песочницы 1.02<br>(800x200x21мм)</td><td>4</td><td></td><td>2008</td><td>0.8</td><td>0.22</td><td>0.021</td><td>0.0036960000000000005</td><td>0.014784000000000002</td><td></td><td></td><td>0</td><td></td><td>0</td></tr>
-<tr><th class="psr-row-number">11</th><td></td><td>6</td><td>000726</td><td>Лавка 2 песочницы 1.02<br>(996x218x21мм)</td><td>1</td><td></td><td>6018</td><td>0.996</td><td>0.204</td><td>0.021</td><td>0.0042668639999999996</td><td>0.0042668639999999996</td><td></td><td></td><td>0</td><td></td><td>0</td></tr>
-<tr><th class="psr-row-number">12</th><td></td><td>7</td><td>0003МП</td><td>Уголок крепежный 55х55х40 90гр.</td><td>8</td><td></td><td>7047</td><td>0.062</td><td>0.062</td><td>0.04</td><td>0.0001</td><td>0.0008</td><td>Болт мебельный М6х35 - 1 шт.         Шуруп (глухарь) 8х80 - 4 шт.                      Шайба м8 увел. - 2 шт.                    Гайка м6 - 2 шт</td><td>1</td><td>8</td><td>1</td><td>8</td></tr>
-<tr><th class="psr-row-number">13</th><td></td><td>8</td><td>0003МП</td><td>Уголок крепежный 55х55х40 90гр</td><td>20</td><td></td><td>7047</td><td>0.062</td><td>0.062</td><td>0.04</td><td>0.0001</td><td>0.002</td><td>Болт мебельный М6х35 - 2 шт.                               Шайба м8 увел. - 2 шт.                    Гайка м6 - 2 шт</td><td></td><td>0</td><td>2</td><td>40</td></tr>
-<tr><th class="psr-row-number">14</th><td></td><td>9</td><td>0059МП</td><td>Уголок 135гр.</td><td>16</td><td></td><td>7047</td><td>0.062</td><td>0.062</td><td>0.04</td><td>0.00015376</td><td>0.00246016</td><td>Болт мебельный М6х35 - 1 шт.         Шуруп (глухарь) 8х80 - 4 шт.                      Шайба м8 увел. - 2 шт.                    Гайка м6 - 2 шт</td><td>1</td><td>16</td><td>1</td><td>16</td></tr>
-<tr><th class="psr-row-number">15</th><td></td><td>ЗАГЛУШКИ</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>0</td><td></td><td>0</td></tr>
-<tr><th class="psr-row-number">16</th><td></td><td>10</td><td>КЧМ6КС</td><td>Заглушка К4М6КС</td><td>64</td><td></td><td>Черный</td><td>0.027</td><td>0.027</td><td>0.016</td><td>1.1663999999999999e-05</td><td>0.0007464959999999999</td><td></td><td></td><td>0</td><td></td><td>0</td></tr>
-<tr><th class="psr-row-number">17</th><td></td><td>11</td><td>КЧМ6КС</td><td>Заглушка К4М8КС</td><td>88</td><td></td><td>Черный</td><td>0.036</td><td>0.036</td><td>0.023</td><td>2.9807999999999996e-05</td><td>0.002623104</td><td></td><td></td><td>0</td><td></td><td>0</td></tr>
-<tr><th class="psr-row-number">18</th><td></td><td>12</td><td>100-100.11КК</td><td>Заглушка 100-100.11КК</td><td>8</td><td></td><td></td><td>0.1</td><td>0.1</td><td>0.044</td><td>0.00044000000000000007</td><td>0.0035200000000000006</td><td></td><td></td><td>0</td><td></td><td>0</td></tr>
-<tr><th class="psr-row-number">19</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>72</td><td></td><td>64</td></tr></tbody></table></div>
-</div>
+
+<main class="v108-shell" style="padding-top: 24px; padding-bottom: 60px;">
+    <div class="breadcrumb">
+        <a href="home.html">Главная</a> <span>/</span> 
+        <a href="sandboxes.html">Песочницы</a> <span>/</span> 
+        <strong>ПСР-1.02</strong>
+    </div>
+
+    <section class="v108-hero">
+        <div>
+            <span class="v108-kicker">ТЕХНИЧЕСКАЯ СПЕЦИФИКАЦИЯ ИЗДЕЛИЯ</span>
+            <h1>Песочница шестигранная <em>(ПСР-1.02)</em></h1>
+            <p>Шестигранная конструкция с бортами и 6 угловыми сиденьями-накладками. Рабочая документация раскроя фанеры и крепежа.</p>
+        </div>
+        <div class="v108-source">
+            <span></span>
+            <b>СТАТУС ИЗДЕЛИЯ</b>
+            <small>В производстве</small>
+        </div>
+    </section>
+
+    <section class="v108-section">
+        <div class="v108-gallery" style="grid-template-columns: 1.2fr 1fr;">
+            <a href="sandboxes/1.02/1.png" target="_blank">
+                <img src="sandboxes/1.02/1.png" alt="ПСР-1.02 Общий вид">
+                <span>3D РЕНДЕР ИЗДЕЛИЯ</span>
+            </a>
+            <a href="sandboxes/1.02/2.jpg" target="_blank" class="plan">
+                <img src="sandboxes/1.02/2.jpg" alt="Схема ПСР-1.02">
+                <span>СХЕМА И МОНТАЖНЫЕ ОСИ</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="v108-section">
+        <div class="v108-subsection-head">
+            <div>
+                <h2>Состав изделия и спецификация деталей</h2>
+                <p>Элементы сгруппированы по узлам. Для деталей доступны карты раскроя.</p>
+            </div>
+            <span>Заводской стандарт Happy Child</span>
+        </div>
+
+        <div class="v108-groups">
+            <details class="v108-group" open>
+                <summary>
+                    <span>БОРТА И СИДЕНЬЯ (ФАНЕРА)</span>
+                    <b>2 поз.</b>
+                </summary>
+                <div class="v108-list">
+                    <div class="v108-item">
+                        <div class="v108-num">1</div>
+                        <div class="v108-photo"><img src="sandboxes/1.02/4.jpg" alt="Борт песочницы"></div>
+                        <div class="v108-main">
+                            <span class="v108-art">000193</span>
+                            <h3>Борт шестигранной песочницы (фанера ФСФ 21 мм)</h3>
+                            <div class="v108-chips"><span class="v108-chip">RAL 6018</span></div>
+                            <div class="v108-row-source" style="margin-top:4px;">Влагостойкая березовая фанера</div>
+                        </div>
+                        <div class="v108-qty">
+                            <strong>6 шт.</strong>
+                            <span>в комплекте</span>
+                        </div>
+                    </div>
+
+                    <div class="v108-item">
+                        <div class="v108-num">2</div>
+                        <div class="v108-photo"><img src="sandboxes/1.02/6.jpg" alt="Сиденье угловое"></div>
+                        <div class="v108-main">
+                            <span class="v108-art">000194</span>
+                            <h3>Накладка угловая / сиденье трапециевидное</h3>
+                            <div class="v108-chips"><span class="v108-chip">RAL 2008</span></div>
+                            <div class="v108-row-source" style="margin-top:4px;">Фанера ламинированная сетка 18 мм</div>
+                        </div>
+                        <div class="v108-qty">
+                            <strong>6 шт.</strong>
+                            <span>в комплекте</span>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <details class="v108-group" open>
+                <summary>
+                    <span>МЕТАЛЛИЧЕСКИЕ ЭЛЕМЕНТЫ</span>
+                    <b>1 поз.</b>
+                </summary>
+                <div class="v108-list">
+                    <div class="v108-item">
+                        <div class="v108-num">3</div>
+                        <div class="v108-photo"><img src="sandboxes/1.02/8.jpg" alt="0003МП"></div>
+                        <div class="v108-main">
+                            <span class="v108-art">0003МП</span>
+                            <h3>Уголок соединения бортов 120 градусов</h3>
+                            <div class="v108-chips"><span class="v108-chip">RAL 9007</span></div>
+                            <div class="v108-row-source" style="margin-top:4px;">Сталь листовая / полимерно-порошковая окраска</div>
+                            <div class="dxf-downloads" style="margin-top:6px;">
+                                <a href="metall/0003МП.dxf" class="dxf-download" download>
+                                    <b>DXF</b> <span>Чертеж</span> <i>↓</i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="v108-qty">
+                            <strong>12 шт.</strong>
+                            <span>в комплекте</span>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <details class="v108-group" open>
+                <summary>
+                    <span>ЗАЩИТНЫЕ ЭЛЕМЕНТЫ</span>
+                    <b>1 поз.</b>
+                </summary>
+                <div class="v108-list">
+                    <div class="v108-item">
+                        <div class="v108-num">4</div>
+                        <div class="v108-photo"><img src="sandboxes/1.02/10.png" alt="КЧМ6КС"></div>
+                        <div class="v108-main">
+                            <span class="v108-art">КЧМ6КС</span>
+                            <h3>Колпачок защитный составной М6</h3>
+                            <div class="v108-chips"><span class="v108-chip">RAL Черный</span></div>
+                            <div class="v108-row-source" style="margin-top:4px;">Полиэтилен низкого давления УФ-стойкий</div>
+                        </div>
+                        <div class="v108-qty">
+                            <strong>48 шт.</strong>
+                            <span>в комплекте</span>
+                        </div>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <section class="assembly-section" style="margin-top: 30px;">
+        <div class="assembly-section-head">
+            <h2>Ведомость крепежа и метизов (ПСР-1.02)</h2>
+            <span>Комплект на 1 изделие</span>
+        </div>
+        <div class="table-wrap">
+            <table class="assembly-table">
+                <thead>
+                    <tr>
+                        <th>Элемент крепежа</th>
+                        <th>Типоразмер / ГОСТ</th>
+                        <th>Количество</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Мебельный болт оцинкованный</td>
+                        <td>М6х40</td>
+                        <td><strong>24 шт.</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Мебельный болт оцинкованный</td>
+                        <td>М6х55</td>
+                        <td><strong>24 шт.</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Шайба кузовная увеличенная</td>
+                        <td>М6</td>
+                        <td><strong>48 шт.</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Гайка самоконтрящаяся</td>
+                        <td>М6</td>
+                        <td><strong>48 шт.</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
 </main>
-<footer><span>© Счастливый ребёнок</span><span>Внутренняя информационная система</span></footer>
-<script src="./script.js"></script>
+
+<footer>
+    <div>© Завод игрового оборудования «Счастливый ребёнок»</div>
+    <div>Внутренняя система технической документации</div>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>

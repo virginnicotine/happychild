@@ -22,7 +22,8 @@ const note=(el,text,kind)=>{el.textContent=text;el.className='c-hint'+(kind?' c-
 
 function complaintCard(c){
   const id=esc(c.id),open=['new','reviewing'].includes(c.status);
-  const thread=c.replies.length?`<div class="c-thread">${c.replies.map(r=>`<div class="c-msg ${r.from==='me'?'':'c-staff'}"><small>${r.from==='me'?'Вы':'Ответ администрации'} · ${fmt(r.created_at)}</small>${esc(r.message)}</div>`).join('')}</div>`:'';
+  const replies=Array.isArray(c.replies)?c.replies:[];
+  const thread=replies.length?`<div class="c-thread">${replies.map(r=>`<div class="c-reply"><span class="c-date">${fmt(r.created_at)}</span><p class="c-text">${esc(r.message)}</p></div>`).join('')}</div>`:'';
   const reply=open?`<div class="c-reply"><textarea data-reply-text="${id}" maxlength="4000" placeholder="Дополнить или ответить…"></textarea><button data-reply-send="${id}">Отправить</button></div>`:'<p class="c-hint">Жалоба закрыта. Если вопрос остался, напишите новую.</p>';
   return `<article><div class="c-head"><span class="c-status c-${esc(c.status)}">${esc(STATUS[c.status]||c.status)}</span><span class="c-date">${fmt(c.created_at)}</span></div><p class="c-text">${esc(c.message)}</p>${thread}${reply}</article>`;
 }
